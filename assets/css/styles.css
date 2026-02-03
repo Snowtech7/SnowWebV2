@@ -578,6 +578,50 @@ section.active .floating-header {
     color: var(--accent);
 }
 
+/* --- FROST EFFECT --- */
+@keyframes frost-shimmer {
+    0% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #8bf2c6, 0 0 30px #8bf2c6;
+        opacity: 0.9;
+    }
+
+    50% {
+        text-shadow: 0 0 15px #fff, 0 0 25px #a5f3fc, 0 0 40px #a5f3fc;
+        opacity: 1;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #8bf2c6, 0 0 30px #8bf2c6;
+        opacity: 0.9;
+    }
+}
+
+.frost-text {
+    display: inline-block;
+    color: #fff;
+    background: linear-gradient(180deg, #fff 0%, #8bf2c6 50%, #a5f3fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 8px rgba(139, 242, 198, 0.8));
+    animation: frost-shimmer 4s ease-in-out infinite;
+    position: relative;
+    padding: 0 5px;
+}
+
+.frost-text::after {
+    content: 'SNOW';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    opacity: 0.2;
+    filter: blur(2px);
+    z-index: -1;
+}
+
 /* --- 9. PRICING CARDS --- */
 .pricing-grid {
     display: grid;
