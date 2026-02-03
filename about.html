@@ -63,99 +63,106 @@
         }
     </script>
 
-    <main>
+    <main class="py-20">
         <!-- 0. HERO -->
         <section data-index="0"
-            class="flex flex-col justify-center items-center h-screen text-center relative overflow-hidden">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="tag-line mb-4 animate-fade-in" style="justify-content: center;">Nuestra Esencia</div>
-                <h1 class="hero-title">Arquitectos del Futuro</h1>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Construimos la infraestructura digital que potenciará
-                    la próxima generación de empresas.</p>
+            class="flex flex-col justify-center items-center py-32 text-center relative overflow-hidden h-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="tag-line mb-6" style="justify-content: center;">Nuestra Esencia</div>
+                <h1 class="hero-title mb-8">Arquitectos del Futuro</h1>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    Construimos la infraestructura digital que potenciará la próxima generación de empresas con
+                    eficiencia absoluta y diseño minimalista.
+                </p>
             </div>
+            <!-- Subtle Logo Background -->
+            <img src="assets/logo.png" alt="" class="absolute opacity-[0.03] pointer-events-none"
+                style="width: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%); filter: grayscale(1);">
         </section>
 
-        <!-- 1. ORIGIN -->
-        <section data-index="1" class="flex flex-col justify-center items-center h-screen relative overflow-hidden">
-            <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6">
-                <div class="card" style="max-width: none; border-color: var(--accent);">
+        <!-- 1. ORIGIN & STORY -->
+        <section data-index="1" class="py-24 relative overflow-hidden h-auto px-6">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="space-y-8">
                     <div class="tag-line">01 — El Origen</div>
                     <h2 class="section-h2">Por qué SNOW</h2>
-                    <p style="margin-bottom: 1.5rem; opacity: 0.8;">
+                    <p class="text-lg leading-relaxed">
                         Nacimos de la necesidad de fusionar la **estética brutalista** con la **eficiencia absoluta**.
                         En un mundo saturado de ruido digital, SNOW representa el silencio, la pureza y la estructura
                         que permite que el contenido respire y las empresas escalen.
                     </p>
-                    <p style="opacity: 0.6; font-size: 0.9rem;">
+                    <p class="text-gray-400 leading-relaxed">
                         No solo hacemos software; diseñamos protocolos de evolución para entidades que no se conforman
-                        con el status quo.
+                        con el status quo. Nuestra filosofía se basa en la eliminación de fricciones técnicas
+                        innecesarias.
                     </p>
                 </div>
-                <div class="hidden md:block">
-                    <div
-                        style="width: 100%; height: 300px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 20px; display: flex; align-items: center; justify-content: center; position: relative;">
+                <div class="flex justify-center">
+                    <div class="relative group">
                         <div
-                            style="position: absolute; width: 60%; height: 60%; border: 1px solid var(--accent); opacity: 0.3; transform: rotate(45deg);">
+                            class="absolute -inset-1 bg-gradient-to-r from-accent to-transparent opacity-20 blur group-hover:opacity-40 transition duration-1000">
                         </div>
-                        <div style="font-size: 3rem; opacity: 0.2; color: var(--accent);">❄</div>
+                        <img src="assets/logo.png" alt="Snow Logo"
+                            class="relative w-48 h-auto opacity-20 filter grayscale brightness-200">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. MISSION -->
-        <section data-index="2" class="flex flex-col justify-center items-center h-screen relative overflow-hidden">
-            <div class="max-w-4xl mx-auto text-center px-6">
-                <div class="tag-line" style="justify-content: center;">02 — Misión</div>
-                <h2 class="section-h2">Empoderar la Escala</h2>
-                <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">
-                    Proveer sistemas robustos y estéticos que permitan a las empresas crecer sin fricción técnica.
-                    Eliminamos la barrera entre la idea y la ejecución.
-                </p>
-                <div class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            </div>
-        </section>
-
-        <!-- 3. VISION -->
-        <section data-index="3" class="flex flex-col justify-center items-center h-screen relative overflow-hidden">
-            <div class="max-w-4xl mx-auto text-center px-6">
-                <div class="tag-line" style="justify-content: center;">03 — Visión</div>
-                <h2 class="section-h2">La Web Sin Límites</h2>
-                <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">
-                    Un futuro donde la complejidad del backend es invisible y la experiencia del usuario es inmersiva,
-                    instantánea y universal.
-                </p>
-                <div class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            </div>
-        </section>
-
-        <!-- 4. VALUES -->
-        <section data-index="4" class="flex flex-col justify-center items-center h-screen relative overflow-hidden">
-            <div class="max-w-6xl mx-auto w-full px-6">
-                <div class="text-center mb-12">
-                    <div class="tag-line" style="justify-content: center;">04 — Valores</div>
-                    <h2 class="section-h2">Valores Nucleares</h2>
+        <!-- 2. MISSION & VISION -->
+        <section data-index="2" class="py-32 bg-white/[0.02] h-auto px-6 border-y border-white/5">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
+                <div class="space-y-6">
+                    <div class="tag-line">02 — Misión</div>
+                    <h2 class="section-h2">Empoderar la Escala</h2>
+                    <p class="text-lg text-gray-400 leading-relaxed">
+                        Proveer sistemas robustos y estéticos que permitan a las empresas crecer sin fricción técnica.
+                        Eliminamos la barrera entre la idea y la ejecución mediante automatización inteligente.
+                    </p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="space-y-6">
+                    <div class="tag-line">03 — Visión</div>
+                    <h2 class="section-h2">La Web Sin Límites</h2>
+                    <p class="text-lg text-gray-400 leading-relaxed">
+                        Un futuro donde la complejidad del backend es invisible y la experiencia del usuario es
+                        inmersiva, instantánea y universal. Imaginamos una web que se adapta orgánicamente a las
+                        necesidades humanas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. VALUES -->
+        <section data-index="3" class="py-32 h-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-20">
+                    <div class="tag-line" style="justify-content: center;">04 — Principios</div>
+                    <h2 class="section-h2">Valores Fundamentales</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div
-                        class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:border-[var(--accent)] transition-colors text-center md:text-left">
-                        <div class="text-[var(--accent)] text-4xl mb-4">✦</div>
-                        <h4 class="text-xl text-white font-bold mb-2">Innovación Radical</h4>
-                        <p class="text-sm text-gray-400">No aceptamos el status quo. Si existe una mejor manera, la
-                            construimos.</p>
+                        class="p-10 border border-white/5 rounded-3xl bg-white/[0.01] hover:border-accent/30 transition-all duration-500 group">
+                        <div class="text-accent text-5xl mb-6 opacity-40 group-hover:opacity-100 transition-opacity">✦
+                        </div>
+                        <h4 class="text-2xl text-white font-light mb-4 tracking-tight">Innovación Radical</h4>
+                        <p class="text-gray-400 leading-relaxed">No aceptamos el status quo. Si existe una mejor manera
+                            de resolver un problema, la construimos desde cero.</p>
                     </div>
                     <div
-                        class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:border-[var(--accent)] transition-colors text-center md:text-left">
-                        <div class="text-[var(--accent)] text-4xl mb-4">⚡</div>
-                        <h4 class="text-xl text-white font-bold mb-2">Velocidad Absoluta</h4>
-                        <p class="text-sm text-gray-400">La latencia es el enemigo. Optimizamos cada milisegundo.</p>
+                        class="p-10 border border-white/5 rounded-3xl bg-white/[0.01] hover:border-accent/30 transition-all duration-500 group">
+                        <div class="text-accent text-5xl mb-6 opacity-40 group-hover:opacity-100 transition-opacity">⚡
+                        </div>
+                        <h4 class="text-2xl text-white font-light mb-4 tracking-tight">Velocidad Absoluta</h4>
+                        <p class="text-gray-400 leading-relaxed">La latencia es el enemigo. Optimizamos cada milisegundo
+                            de interacción para una experiencia fluida.</p>
                     </div>
                     <div
-                        class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:border-[var(--accent)] transition-colors text-center md:text-left">
-                        <div class="text-[var(--accent)] text-4xl mb-4">🛡️</div>
-                        <h4 class="text-xl text-white font-bold mb-2">Integridad</h4>
-                        <p class="text-sm text-gray-400">La seguridad no es una característica, es la base de todo lo
-                            que hacemos.</p>
+                        class="p-10 border border-white/5 rounded-3xl bg-white/[0.01] hover:border-accent/30 transition-all duration-500 group">
+                        <div class="text-accent text-5xl mb-6 opacity-40 group-hover:opacity-100 transition-opacity">🛡️
+                        </div>
+                        <h4 class="text-2xl text-white font-light mb-4 tracking-tight">Integridad</h4>
+                        <p class="text-gray-400 leading-relaxed">La seguridad y la transparencia no son características
+                            opcionales, son el cimiento de nuestra arquitectura.</p>
                     </div>
                 </div>
             </div>

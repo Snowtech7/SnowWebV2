@@ -10,6 +10,8 @@ const PHYSICS = { velocity: 0, lastScrollY: window.scrollY, lastInteract: Date.n
 
 // Global Source of Truth for Page Detect
 const isServicesPage = document.body.classList.contains('page-services') || window.location.pathname.includes('services.html');
+const isAboutPage = document.body.classList.contains('page-about') || window.location.pathname.includes('about.html');
+const isSimplePage = isServicesPage || isAboutPage;
 
 // --- SLIDERS ---
 function initSlider(id) {
@@ -44,8 +46,8 @@ let cssGroup = null;
 let partnerGroup = null;
 
 if (state.scene) {
-    // Only create WebGL shapes if NOT on services page (Optimization)
-    if (!isServicesPage) {
+    // Only create WebGL shapes if NOT on restricted pages
+    if (!isSimplePage) {
         shapes = [
             createWebGLShape(new THREE.IcosahedronGeometry(2.8, 4), 'sphere', state.scene, state.iceMat),
             createValuePropSystem(state.scene, state.iceMat),
@@ -62,7 +64,8 @@ if (state.cssScene) {
     cssGroup = createCSSCube(state.cssScene);
 
     // Partners only needed on Home, avoiding creation on Services
-    if (!isServicesPage) {
+    // Partners only needed on Home
+    if (!isSimplePage) {
         partnerGroup = createPartnerSystem(state.cssScene);
     }
 }
@@ -115,13 +118,13 @@ function animate() {
         state.camera.position.z += (targetCamZ - state.camera.position.z) * 0.05;
     }
 
-    updateShapes(shapes, PHYSICS, isServicesPage, isDesktop);
-    updateCube(PHYSICS, isServicesPage, now, isDesktop); // Note: Cube logic is handled inside
-    updatePartners(partnerGroup, PHYSICS, isServicesPage, now, isDesktop);
+    updateShapes(shapes, PHYSICS, isSimplePage, isDesktop);
+    updateCube(PHYSICS, isSimplePage, now, isDesktop);
+    updatePartners(partnerGroup, PHYSICS, isSimplePage, now, isDesktop);
 
     // 3. Render
-    // Only render WebGL if NOT services page or if we decide to show some WebGL there later
-    if (!isServicesPage && state.renderer && state.scene && state.camera) {
+    // Only render WebGL if NOT single/simple page
+    if (!isSimplePage && state.renderer && state.scene && state.camera) {
         state.renderer.render(state.scene, state.camera);
     }
 
