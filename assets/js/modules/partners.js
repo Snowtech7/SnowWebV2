@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+    import * as THREE from 'three';
 import { CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
 
 export function createPartnerSystem(cssScene) {
@@ -25,8 +25,8 @@ export function updatePartners(partnerGroup, physics, isServicesPage, now, isDes
     if (isServicesPage) {
         partnerGroup.scale.set(0, 0, 0);
     } else {
-        const isActive = physics.activeSection === 4;
-        const relIndex = 4 - physics.activeSection;
+        const isActive = physics.activeSection === 5;
+        const relIndex = 5 - physics.activeSection;
         let gy = isActive ? (isDesktop ? 0 : 0.5) : (relIndex * -15);
         let gs = isActive ? 0.01 : 0;
 

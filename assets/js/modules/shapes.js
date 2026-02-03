@@ -58,7 +58,7 @@ export function updateShapes(shapes, physics, isServicesPage, isDesktop = true) 
 
         if (isActive) {
             if (index === 0) { gx = 0; gy = 0; gs = 1.2; }
-            else if (index === 2 || index === 4) { gs = 0; }
+            else if (index === 2 || index === 5) { gs = 0; }
         } else {
             gy = relIndex * -15; gz = -20; gs = 0;
         }

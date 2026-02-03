@@ -53,7 +53,8 @@ if (state.scene) {
             createValuePropSystem(state.scene, state.iceMat),
             null, // Placeholder for Cube index (2)
             createWebGLShape(new THREE.OctahedronGeometry(2.7), 'octa', state.scene, state.iceMat),
-            null  // Placeholder for Partners index (4)
+            createWebGLShape(new THREE.DodecahedronGeometry(2.6), 'dodeca', state.scene, state.iceMat),
+            null  // Placeholder for Partners index (5)
         ];
     }
 }
