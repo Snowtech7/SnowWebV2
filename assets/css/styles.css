@@ -572,105 +572,35 @@ section.active .floating-header {
     }
 }
 
-/* --- ICE CRACK EFFECT --- */
-.freeze-wrapper {
+/* --- SOFT GLITCH EFFECT --- */
+.soft-glitch {
     position: relative;
     display: inline-block;
-    cursor: pointer;
-    perspective: 500px;
-    pointer-events: auto;
-    vertical-align: bottom;
-}
-
-.text-target {
-    margin: 0;
     color: var(--accent);
-    position: relative;
-    z-index: 1;
-    transition: color 0.4s ease-out, text-shadow 0.4s ease-out, transform 0.2s ease-in;
+    animation: soft-glitch 5s infinite;
 }
 
-.freeze-wrapper.frozen .text-target {
-    color: #2a3d55;
-    text-shadow:
-        0 0 10px #00b7ff,
-        0 0 30px #001e3c,
-        2px 2px 2px rgba(0, 0, 0, 0.8);
-    transform: scale(0.98) translateZ(-10px);
-}
+@keyframes soft-glitch {
 
-.cracks-svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120%;
-    /* Slightly larger to cover the glow */
-    height: 120%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    pointer-events: none;
-}
-
-.crack-path {
-    fill: none;
-    stroke: #d4f1ff;
-    stroke-width: 2.5px;
-    stroke-linecap: round;
-    stroke-linejoin: bevel;
-    filter: drop-shadow(0 0 2px #00b7ff);
-    stroke-dasharray: 1500;
-    stroke-dashoffset: 1500;
-    transition: stroke-dashoffset 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.freeze-wrapper.frozen {
-    animation: shiver 0.5s linear 1.5s;
-    /* Ocurre casi al final de la carga */
-}
-
-@keyframes shiver {
-    0% {
-        transform: translate(1px, 1px) rotate(0deg);
-    }
-
-    10% {
-        transform: translate(-1px, -2px) rotate(-1deg);
-    }
-
-    20% {
-        transform: translate(-3px, 0px) rotate(1deg);
-    }
-
-    30% {
-        transform: translate(3px, 2px) rotate(0deg);
-    }
-
-    40% {
-        transform: translate(1px, -1px) rotate(1deg);
-    }
-
-    50% {
-        transform: translate(-1px, 2px) rotate(-1deg);
-    }
-
-    60% {
-        transform: translate(-3px, 1px) rotate(0deg);
-    }
-
-    70% {
-        transform: translate(3px, 1px) rotate(-1deg);
-    }
-
-    80% {
-        transform: translate(-1px, -1px) rotate(1deg);
-    }
-
-    90% {
-        transform: translate(1px, 2px) rotate(0deg);
-    }
-
+    0%,
+    92%,
     100% {
-        transform: translate(1px, -2px) rotate(-1deg);
+        transform: translate(0);
+        text-shadow: 0 0 10px rgba(139, 242, 198, 0.4);
+    }
+
+    93% {
+        transform: translate(-1px, 0.5px);
+        text-shadow: 1px 0 rgba(255, 0, 255, 0.5), -1px 0 rgba(0, 255, 255, 0.5);
+    }
+
+    94% {
+        transform: translate(1px, -0.5px);
+    }
+
+    95% {
+        transform: translate(0);
+        text-shadow: 0 0 10px rgba(139, 242, 198, 0.4);
     }
 }
 
