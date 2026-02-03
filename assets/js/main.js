@@ -60,8 +60,10 @@ if (state.scene) {
 }
 
 if (state.cssScene) {
-    // Cube is needed on both pages, but logic handles visibility
-    cssGroup = createCSSCube(state.cssScene);
+    // Cube logic: usually on Home and Services, but user wants it gone from About
+    if (!isAboutPage) {
+        cssGroup = createCSSCube(state.cssScene);
+    }
 
     // Partners only needed on Home, avoiding creation on Services
     // Partners only needed on Home

@@ -84,11 +84,46 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 50;
-    padding: 2.5rem 4rem;
-    pointer-events: none;
+    z-index: 100;
+    padding: 1.5rem 2rem;
+    transition: all 0.3s ease;
+    /* Removed flex from header itself to allow mx-auto on inner div to work simply, 
+       while vertical padding handles the "centering" of the bar itself. */
+}
+
+header.scrolled {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 2rem;
+}
+
+.nav-desktop {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+}
+
+.cta-header {
+    background: var(--accent);
+    color: var(--bg-deep);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 2rem;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(139, 242, 198, 0.3);
+    display: inline-flex;
+    align-items: center;
+}
+
+.cta-header:hover {
+    background: white;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
 }
 
 .logo-small {
@@ -96,6 +131,8 @@ header {
     font-weight: 700;
     letter-spacing: 2px;
     color: var(--accent);
+    display: flex;
+    align-items: center;
 }
 
 .nav-link {
@@ -107,6 +144,9 @@ header {
     pointer-events: auto;
     cursor: pointer;
     transition: color 0.3s;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .nav-link:hover {
@@ -1055,4 +1095,146 @@ section[data-index="7"].active .card,
 section[data-index="6"].active .card {
     opacity: 1;
     transform: none;
+}
+
+/* --- 17. PROCESS TIMELINE --- */
+.process-section {
+    position: relative;
+    z-index: 10;
+}
+
+.process-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .process-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0;
+    }
+}
+
+.process-node {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+    .process-node {
+        width: 25%;
+    }
+}
+
+/* Dim other nodes on interaction */
+.process-container:hover .process-node {
+    opacity: 0.3;
+    filter: blur(1px);
+}
+
+.process-container .process-node:hover {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(-10px);
+}
+
+.node-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: all 0.4s ease;
+    color: var(--accent);
+}
+
+.process-node:hover .node-icon-wrapper {
+    border-color: var(--accent);
+    box-shadow: 0 0 30px rgba(139, 242, 198, 0.3);
+    background: var(--bg-deep);
+}
+
+.node-icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+    transition: transform 0.4s ease;
+}
+
+.process-node:hover .node-icon-wrapper svg {
+    transform: scale(1.1);
+}
+
+.node-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.process-node:hover .node-title {
+    color: var(--accent);
+}
+
+.node-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Progress Line (Desktop) */
+.timeline-track {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 12.5%;
+    width: 75%;
+    height: 1px;
+    background: none !important;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    .timeline-track {
+        display: block;
+    }
+}
+
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+    transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+section.active .timeline-progress {
+    width: 100%;
+}
+
+/* --- 18. TIMELINE POLISH --- */
+.timeline-progress {
+    border-radius: 4px;
 }
