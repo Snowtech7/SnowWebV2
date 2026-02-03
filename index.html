@@ -88,9 +88,17 @@
         <section data-index="0" class="flex flex-col justify-center items-center h-screen relative overflow-hidden">
             <div class="hero-content text-center pointer-events-none px-4">
                 <div class="hero-title">
-                    THE MOMENT I<div class="freeze-container" onclick="this.classList.toggle('frozen')">
-                        <span class="base-text">SNOW</span>
-                        <span class="ice-layer">SNOW</span>
+                    THE MOMENT I<div class="freeze-wrapper" onclick="this.classList.toggle('frozen')">
+                        <h2 class="text-target" style="font-size: inherit; display: inline-block;">SNOW</h2>
+                        <svg class="cracks-svg" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg"
+                            preserveAspectRatio="xMidYMid meet">
+                            <path class="crack-path"
+                                d="M300,75 L320,60 L310,40 L350,20 M300,75 L280,90 L290,110 L250,130 M300,75 L340,85 L360,70 L400,90" />
+                            <path class="crack-path" d="M100,10 L120,30 L110,50 L140,70 L130,100"
+                                style="transition-delay: 0.25s;" />
+                            <path class="crack-path" d="M500,140 L480,120 L510,100 L490,50"
+                                style="transition-delay: 0.3s;" />
+                        </svg>
                     </div>
                 </div>
                 <div
