@@ -106,7 +106,7 @@ document.querySelectorAll('section').forEach(s => observer.observe(s));
 function animate() {
     requestAnimationFrame(animate);
     const now = Date.now();
-    const isDesktop = window.innerWidth > 768;
+    const isDesktop = window.innerWidth > 1024;
 
     // 1. Physics Decay
     const idle = (now - PHYSICS.lastInteract) > 5000;

@@ -1,9 +1,11 @@
 export function initParticles(canvasBg) {
     if (!canvasBg) return [];
+    const isMobile = window.innerWidth <= 768;
     canvasBg.width = window.innerWidth;
     canvasBg.height = window.innerHeight;
+    const count = isMobile ? 80 : (window.innerWidth <= 1024 ? 120 : 200);
     const particles = [];
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < count; i++) {
         particles.push({
             x: Math.random() * canvasBg.width,
             y: Math.random() * canvasBg.height,
