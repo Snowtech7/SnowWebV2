@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNOW | Nosotros</title>
+    <meta name="description" content="Conoce a SNOW Tech. Nuestra esencia, misión y valores. Construimos la infraestructura digital de la próxima generación.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
         {
@@ -26,26 +27,26 @@
 </head>
 
 <body class="page-about">
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
     <canvas id="canvas-particles"></canvas>
     <div id="layer-webgl"></div>
     <div id="layer-css"></div>
 
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
-            <a href="index.html" class="logo-small pointer-events-auto"
-                style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
-                <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" style="height: 40px; width: auto;">
+            <a href="index.html" class="header-logo-container pointer-events-auto">
+                <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="header-logo-img" width="40" height="40">
                 <span>SNOW TECH</span>
             </a>
             <div class="nav-desktop hidden md:flex pointer-events-auto">
                 <a href="index.html" class="nav-link">INICIO</a>
-                <a href="about.html" class="nav-link" style="color:var(--accent)">NOSOTROS</a>
+                <a href="about.html" class="nav-link nav-link-active">NOSOTROS</a>
                 <a href="services.html" class="nav-link">SERVICIOS</a>
                 <a href="contact.html" class="nav-link">CONTACTO</a>
                 <a href="blog.html" class="nav-link">BLOG</a>
                 <a href="contact.html" class="cta-header">Auditoría Gratuita</a>
             </div>
-            <button class="mobile-menu-btn md:hidden pointer-events-auto" onclick="toggleMobileMenu()">☰</button>
+            <button type="button" class="mobile-menu-btn md:hidden pointer-events-auto" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-overlay" id="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
     </header>
 
@@ -61,29 +62,29 @@
     </script>
 
     <!-- MOBILE OVERLAY -->
-    <div id="mobile-overlay"
-        style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg-deep); z-index:100; display:none; flex-direction:column; justify-content:center; align-items:center; gap:2rem;">
-        <div onclick="toggleMobileMenu()"
-            style="position:absolute; top:2.5rem; right:4rem; cursor:pointer; color:white; font-size:2rem;">✕</div>
-        <a href="index.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">INICIO</a>
-        <a href="about.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">NOSOTROS</a>
-        <a href="services.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">SERVICIOS</a>
-        <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">CONTACTO</a>
-        <a href="blog.html" class="nav-link" onclick="toggleMobileMenu()" style="margin:0; font-size:1.5rem;">BLOG</a>
+    <div id="mobile-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+        <button type="button" onclick="toggleMobileMenu()" class="mobile-overlay-close" aria-label="Cerrar menú">✕</button>
+        <a href="index.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">INICIO</a>
+        <a href="about.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">NOSOTROS</a>
+        <a href="services.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">SERVICIOS</a>
+        <a href="contact.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">CONTACTO</a>
+        <a href="blog.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">BLOG</a>
     </div>
 
     <script>
         function toggleMobileMenu() {
             const overlay = document.getElementById('mobile-overlay');
-            overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
+            const toggle = document.getElementById('mobile-menu-toggle');
+            if (!overlay || !toggle) return;
+            const isOpen = overlay.style.display === 'flex';
+            overlay.style.display = isOpen ? 'none' : 'flex';
+            overlay.hidden = isOpen;
+            toggle.setAttribute('aria-expanded', !isOpen);
+            toggle.setAttribute('aria-label', isOpen ? 'Abrir menú de navegación' : 'Cerrar menú');
         }
     </script>
 
-    <main class="py-20">
+    <main id="main-content" class="py-20">
         <!-- 0. HERO -->
         <section data-index="0"
             class="flex flex-col justify-center items-center py-32 text-center relative overflow-hidden h-auto px-6">
@@ -192,23 +193,21 @@
     <footer>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8 text-left">
             <div>
-                <a href="index.html" class="logo-small mb-4"
-                    style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
-                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital"
-                        style="height: 35px; width: auto; filter: drop-shadow(0 0 5px var(--accent));">
+                <a href="index.html" class="header-logo-container mb-4">
+                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="footer-logo-img" width="35" height="35">
                     <span>SNOW TECH</span>
                 </a>
-                <p>Arquitectura digital para el futuro.</p>
+                <p class="opacity-60">Arquitectura digital para el futuro.</p>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Legal</h4>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Privacidad</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Términos</p>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition-opacity">Privacidad</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition-opacity">Términos</a>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Social</h4>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">LinkedIn</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Twitter</p>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">Twitter</a>
             </div>
         </div>
         <div class="pt-8 border-t border-white/10 opacity-50 text-xs text-center">

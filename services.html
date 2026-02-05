@@ -28,26 +28,25 @@
 </head>
 
 <body class="page-services">
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
     <canvas id="canvas-particles"></canvas>
     <div id="layer-css"></div>
 
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
-            <a href="index.html" class="logo-small pointer-events-auto"
-                style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
-                <img src="assets/logo.png" alt="Snow Tech - Agencia de Arquitectura Digital"
-                    style="height: 40px; width: auto;">
+            <a href="index.html" class="header-logo-container pointer-events-auto">
+                <img src="assets/logo.png" alt="Snow Tech - Agencia de Arquitectura Digital" class="header-logo-img" width="40" height="40">
                 <span>SNOW TECH</span>
             </a>
             <div class="nav-desktop hidden md:flex pointer-events-auto">
                 <a href="index.html" class="nav-link">INICIO</a>
                 <a href="about.html" class="nav-link">NOSOTROS</a>
-                <a href="services.html" class="nav-link" style="color:var(--accent)">SERVICIOS</a>
+                <a href="services.html" class="nav-link nav-link-active">SERVICIOS</a>
                 <a href="contact.html" class="nav-link">CONTACTO</a>
                 <a href="blog.html" class="nav-link">BLOG</a>
                 <a href="contact.html" class="cta-header">Auditoría Gratuita</a>
             </div>
-            <button class="mobile-menu-btn md:hidden pointer-events-auto" onclick="toggleMobileMenu()">☰</button>
+            <button type="button" class="mobile-menu-btn md:hidden pointer-events-auto" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-overlay" id="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
     </header>
 
@@ -63,42 +62,40 @@
     </script>
 
     <!-- MOBILE OVERLAY -->
-    <div id="mobile-overlay"
-        style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg-deep); z-index:100; display:none; flex-direction:column; justify-content:center; align-items:center; gap:2rem;">
-        <div onclick="toggleMobileMenu()"
-            style="position:absolute; top:2.5rem; right:4rem; cursor:pointer; color:white; font-size:2rem;">✕</div>
-        <a href="index.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">INICIO</a>
-        <a href="about.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">NOSOTROS</a>
-        <a href="services.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">SERVICIOS</a>
-        <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">CONTACTO</a>
-        <a href="blog.html" class="nav-link" onclick="toggleMobileMenu()" style="margin:0; font-size:1.5rem;">BLOG</a>
+    <div id="mobile-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+        <button type="button" onclick="toggleMobileMenu()" class="mobile-overlay-close" aria-label="Cerrar menú">✕</button>
+        <a href="index.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">INICIO</a>
+        <a href="about.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">NOSOTROS</a>
+        <a href="services.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">SERVICIOS</a>
+        <a href="contact.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">CONTACTO</a>
+        <a href="blog.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">BLOG</a>
     </div>
 
     <script>
         function toggleMobileMenu() {
             const overlay = document.getElementById('mobile-overlay');
-            overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
+            const toggle = document.getElementById('mobile-menu-toggle');
+            if (!overlay || !toggle) return;
+            const isOpen = overlay.style.display === 'flex';
+            overlay.style.display = isOpen ? 'none' : 'flex';
+            overlay.hidden = isOpen;
+            toggle.setAttribute('aria-expanded', !isOpen);
+            toggle.setAttribute('aria-label', isOpen ? 'Abrir menú de navegación' : 'Cerrar menú');
         }
     </script>
 
     <!-- MODAL -->
-    <div id="service-modal">
+    <div id="service-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-card">
-            <div onclick="closeModal()"
-                style="position:absolute; top:1rem; right:1.5rem; cursor:pointer; color:#fff; font-size:1.5rem;">✕</div>
-            <div id="modal-icon-container"
-                style="margin-bottom: 2rem; width: 60px; height: 60px; margin: 0 auto; fill:var(--accent);"></div>
-            <h2 id="modal-title" style="font-size: 2rem; margin-bottom: 1rem; color: #fff;">Service</h2>
-            <p id="modal-desc" style="color: #a0aec0; font-size: 1.1rem; line-height: 1.6;">Desc.</p>
+            <button type="button" onclick="closeModal()" class="modal-close-btn" aria-label="Cerrar">✕</button>
+            <div id="modal-icon-container"></div>
+            <h2 id="modal-title">Service</h2>
+            <p id="modal-desc">Desc.</p>
         </div>
     </div>
 
     <!-- 0. HERO -->
-    <section data-index="0"
+    <section id="main-content" data-index="0"
         class="flex flex-col justify-center items-center h-screen text-center relative overflow-hidden">
         <div class="relative z-10 pointer-events-none px-4">
             <div class="tag-line mb-4 animate-fade-in" style="justify-content: center;">Capacidades Modulares</div>
@@ -418,24 +415,22 @@
     <footer>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8 text-left">
             <div>
-                <a href="index.html" class="logo-small mb-4"
-                    style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
-                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital"
-                        style="height: 35px; width: auto; filter: drop-shadow(0 0 5px var(--accent));">
+                <a href="index.html" class="header-logo-container mb-4">
+                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="footer-logo-img" width="35" height="35">
                     <span>SNOW TECH</span>
                 </a>
-                <p style="opacity: 0.6;">Tu presencia digital evoluciona.</p>
+                <p class="opacity-60">Tu presencia digital evoluciona.</p>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Servicios</h4>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Presencia Digital</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Ventas Automatizadas</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Operaciones IA</p>
+                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Presencia Digital</a>
+                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Ventas Automatizadas</a>
+                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Operaciones IA</a>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Contacto</h4>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">hola@snowtech.io</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">LinkedIn</p>
+                <a href="mailto:hola@snowtech.io" class="block opacity-60 hover:opacity-100 transition-opacity">hola@snowtech.io</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
             </div>
         </div>
         <div class="pt-8 border-t border-white/10 opacity-50 text-xs">

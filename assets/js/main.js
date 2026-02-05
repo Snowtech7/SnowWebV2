@@ -13,12 +13,13 @@ const isServicesPage = document.body.classList.contains('page-services') || wind
 const isAboutPage = document.body.classList.contains('page-about') || window.location.pathname.includes('about.html');
 const isSimplePage = isServicesPage || isAboutPage;
 
-// --- SLIDERS ---
+// --- SLIDERS --- (only init if container and slides exist)
 function initSlider(id) {
-    let current = 0;
     const container = document.getElementById(id);
     if (!container) return;
     const slides = container.querySelectorAll('.slide-item');
+    if (!slides.length) return;
+    let current = 0;
     setInterval(() => {
         slides[current].classList.remove('active');
         current = (current + 1) % slides.length;

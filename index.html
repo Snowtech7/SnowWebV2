@@ -44,6 +44,7 @@
 </head>
 
 <body class="page-index">
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
     <!-- CAPAS -->
     <canvas id="canvas-particles"></canvas>
@@ -52,20 +53,20 @@
 
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
-            <a href="index.html" class="logo-small pointer-events-auto"
-                style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
-                <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" style="height: 40px; width: auto;">
+            <a href="index.html" class="header-logo-container pointer-events-auto">
+                <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="header-logo-img" width="40"
+                    height="40" loading="eager">
                 <span>SNOW TECH</span>
             </a>
             <div class="nav-desktop hidden md:flex pointer-events-auto">
-                <a href="index.html" class="nav-link" style="color:var(--accent)">INICIO</a>
+                <a href="index.html" class="nav-link nav-link-active">INICIO</a>
                 <a href="about.html" class="nav-link">NOSOTROS</a>
                 <a href="services.html" class="nav-link">SERVICIOS</a>
                 <a href="contact.html" class="nav-link">CONTACTO</a>
                 <a href="blog.html" class="nav-link">BLOG</a>
                 <a href="contact.html" class="cta-header">Auditoría Gratuita</a>
             </div>
-            <button class="mobile-menu-btn md:hidden pointer-events-auto" onclick="toggleMobileMenu()">☰</button>
+            <button type="button" class="mobile-menu-btn md:hidden pointer-events-auto" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-overlay" id="mobile-menu-toggle">☰</button>
         </div>
     </header>
 
@@ -81,49 +82,46 @@
     </script>
 
     <!-- MOBILE OVERLAY -->
-    <div id="mobile-overlay"
-        style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg-deep); z-index:100; display:none; flex-direction:column; justify-content:center; align-items:center; gap:2rem;">
-        <div onclick="toggleMobileMenu()"
-            style="position:absolute; top:2.5rem; right:4rem; cursor:pointer; color:white; font-size:2rem;">✕</div>
-        <a href="index.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">INICIO</a>
-        <a href="about.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">NOSOTROS</a>
-        <a href="services.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">SERVICIOS</a>
-        <a href="contact.html" class="nav-link" onclick="toggleMobileMenu()"
-            style="margin:0; font-size:1.5rem;">CONTACTO</a>
-        <a href="blog.html" class="nav-link" onclick="toggleMobileMenu()" style="margin:0; font-size:1.5rem;">BLOG</a>
+    <div id="mobile-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+        <button type="button" onclick="toggleMobileMenu()" class="mobile-overlay-close" aria-label="Cerrar menú">✕</button>
+        <a href="index.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">INICIO</a>
+        <a href="about.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">NOSOTROS</a>
+        <a href="services.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">SERVICIOS</a>
+        <a href="contact.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">CONTACTO</a>
+        <a href="blog.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">BLOG</a>
     </div>
 
     <script>
         function toggleMobileMenu() {
             const overlay = document.getElementById('mobile-overlay');
-            overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
+            const toggle = document.getElementById('mobile-menu-toggle');
+            if (!overlay || !toggle) return;
+            const isOpen = overlay.style.display === 'flex';
+            overlay.style.display = isOpen ? 'none' : 'flex';
+            overlay.hidden = isOpen;
+            toggle.setAttribute('aria-expanded', !isOpen);
+            toggle.setAttribute('aria-label', isOpen ? 'Abrir menú de navegación' : 'Cerrar menú');
         }
     </script>
 
     <!-- MODAL -->
-    <div id="service-modal">
+    <div id="service-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-card">
-            <div onclick="closeModal()"
-                style="position:absolute; top:1rem; right:1.5rem; cursor:pointer; color:#fff; font-size:1.5rem;">✕</div>
-            <div id="modal-icon-container"
-                style="margin-bottom: 2rem; width: 60px; height: 60px; margin: 0 auto; fill:var(--accent);"></div>
-            <h2 id="modal-title" style="font-size: 2rem; margin-bottom: 1rem; color: #fff;">Service</h2>
-            <p id="modal-desc" style="color: #a0aec0; font-size: 1.1rem; line-height: 1.6;">Desc.</p>
+            <button type="button" onclick="closeModal()" class="modal-close-btn" aria-label="Cerrar">✕</button>
+            <div id="modal-icon-container"></div>
+            <h2 id="modal-title">Service</h2>
+            <p id="modal-desc">Desc.</p>
         </div>
     </div>
 
-    <main>
+    <main id="main-content">
         <!-- 0. HERO - Evolution Story -->
         <section data-index="0" class="flex flex-col justify-center items-center h-screen relative overflow-hidden">
             <div class="hero-content text-center pointer-events-none px-4">
-                <div class="hero-title">
+                <h1 class="hero-title">
                     THE MOMENT I<span class="soft-glitch">SNOW</span>
-                </div>
-                <div
-                    style="font-family: 'JetBrains Mono'; letter-spacing: 0.3em; color: var(--accent); font-size: 0.75rem; text-shadow: 0 0 10px var(--accent); margin-top: 1rem;">
+                </h1>
+                <div class="hero-subtitle">
                     TECH PARTNER
                 </div>
             </div>
@@ -135,19 +133,18 @@
             <div class="max-w-6xl mx-auto w-full px-6 pointer-events-auto">
                 <div class="text-center mb-12">
                     <h2 class="section-h2">Soluciones que Escalan</h2>
-                    <p style="max-width: 550px; margin: 0 auto; opacity: 0.7;">Arquitectura modular diseñada para crecer
-                        junto a tu visión.</p>
+                    <p class="section-desc">Arquitectura modular diseñada para crecer junto a tu visión.</p>
                 </div>
 
                 <!-- Evolution Timeline -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Phase 1: Website -->
-                    <div class="card" style="max-width: none; position: relative; overflow: hidden;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌐</div>
-                        <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 0.8rem;">Presencia Inteligente</h3>
-                        <p style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 1.5rem;">Tu web deja de ser un
-                            folleto estático. Un chatbot IA responde, califica y guía visitantes 24/7.</p>
-                        <ul style="list-style: none; padding: 0; font-size: 0.8rem; opacity: 0.7; line-height: 1.8;">
+                    <div class="card evolution-card">
+                        <div class="card-icon-large">🌐</div>
+                        <h3 class="card-h3">Presencia Inteligente</h3>
+                        <p class="node-desc mb-6">Tu web deja de ser un folleto estático. Un chatbot IA responde,
+                            califica y guía visitantes 24/7.</p>
+                        <ul class="card-list">
                             <li>✓ Web de alto impacto</li>
                             <li>✓ Chatbot IA integrado</li>
                             <li>✓ Atención 24/7</li>
@@ -155,36 +152,29 @@
                     </div>
 
                     <!-- Phase 2: Sales Agent -->
-                    <div class="card"
-                        style="max-width: none; position: relative; overflow: hidden; border-color: var(--accent); transform: scale(1.02);">
-                        <div
-                            style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent);">
-                        </div>
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
-                        <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 0.8rem;">Agente de Ventas</h3>
-                        <p style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 1.5rem;">Tu entidad ahora interactúa
-                            y vende.
-                            Funnels automatizados, CRM y seguimiento sin intervención humana.</p>
-                        <ul style="list-style: none; padding: 0; font-size: 0.8rem; opacity: 0.7; line-height: 1.8;">
-                            <li style="color: var(--accent);">✓ Funnels automatizados</li>
-                            <li style="color: var(--accent);">✓ CRM integrado</li>
-                            <li style="color: var(--accent);">✓ Nurturing automático</li>
+                    <div class="card evolution-card card-accent-border">
+                        <div class="card-top-bar"></div>
+                        <div class="card-icon-large">🤖</div>
+                        <h3 class="card-h3">Agente de Ventas</h3>
+                        <p class="node-desc mb-6">Tu entidad ahora interactúa y vende. Funnels automatizados, CRM y
+                            seguimiento sin intervención humana.</p>
+                        <ul class="card-list">
+                            <li class="nav-link-active">✓ Funnels automatizados</li>
+                            <li class="nav-link-active">✓ CRM integrado</li>
+                            <li class="nav-link-active">✓ Nurturing automático</li>
                         </ul>
-                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                            <span
-                                style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);">Más
-                                Popular</span>
+                        <div class="card-tag-wrapper">
+                            <span class="card-tag">Más Popular</span>
                         </div>
                     </div>
 
                     <!-- Phase 3: Project Manager -->
-                    <div class="card" style="max-width: none; position: relative; overflow: hidden;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧠</div>
-                        <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 0.8rem;">Gestor de Operaciones</h3>
-                        <p style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 1.5rem;">Sistemas que orquestan
-                            tareas,
-                            aprenden nuevas habilidades y trabajan junto a tu equipo.</p>
-                        <ul style="list-style: none; padding: 0; font-size: 0.8rem; opacity: 0.7; line-height: 1.8;">
+                    <div class="card evolution-card">
+                        <div class="card-icon-large">🧠</div>
+                        <h3 class="card-h3">Gestor de Operaciones</h3>
+                        <p class="node-desc mb-6">Sistemas que orquestan tareas, aprenden nuevas habilidades y trabajan
+                            junto a tu equipo.</p>
+                        <ul class="card-list">
                             <li>✓ Dashboards en tiempo real</li>
                             <li>✓ Automatización de procesos</li>
                             <li>✓ Colaboración humano-IA</li>
@@ -193,9 +183,8 @@
                 </div>
 
                 <!-- Progress Arrow -->
-                <div style="text-align: center; margin-top: 2rem; opacity: 0.4;">
-                    <span style="font-size: 0.75rem; letter-spacing: 0.2em;">PRENSENCIA DIGITAL · AUTOMATIZACIÓN ·
-                        OPERACIONES INTELIGENTES</span>
+                <div class="evolution-footer-tag">
+                    <span>PRESENCIA DIGITAL · AUTOMATIZACIÓN · OPERACIONES INTELIGENTES</span>
                 </div>
             </div>
         </section>
@@ -205,13 +194,11 @@
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="service-container text-center">
                 <div class="floating-header">
-                    <div class="tag-line" style="justify-content:center;">Capacidades</div>
+                    <div class="tag-line flex-center">Capacidades</div>
                     <h2 class="section-h2" style="text-shadow: 0 0 30px rgba(139, 242, 198, 0.2);">¿Qué área quieres
                         conectar?</h2>
-                    <p
-                        style="font-size: 0.9rem; opacity: 0.6; margin-top: 1rem; max-width: 400px; margin-left: auto; margin-right: auto;">
-                        Cada servicio puede
-                        contratarse individual o como parte de tu sistema evolutivo.</p>
+                    <p class="section-desc">Cada servicio puede contratarse individual o como parte de tu sistema
+                        evolutivo.</p>
                 </div>
             </div>
         </section>
@@ -221,52 +208,40 @@
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="max-w-6xl mx-auto w-full px-6 pointer-events-auto">
                 <div class="text-center mb-10">
-                    <div class="tag-line" style="justify-content: center;">Resultados</div>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: white;">Métricas Que Importan</h2>
+                    <div class="tag-line flex-center">Resultados</div>
+                    <h2 class="section-h2">Métricas Que Importan</h2>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                    <div>
-                        <div class="metric-value" style="font-weight: bold; color: var(--accent);">+300%</div>
-                        <div
-                            style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5;">
-                            Leads cualificados</div>
+                    <div class="metric-item">
+                        <div class="metric-value">+300%</div>
+                        <div class="metric-label-small">Leads cualificados</div>
                     </div>
-                    <div>
-                        <div class="metric-value" style="font-weight: bold; color: var(--accent);">24/7</div>
-                        <div
-                            style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5;">
-                            Disponibilidad</div>
+                    <div class="metric-item">
+                        <div class="metric-value">24/7</div>
+                        <div class="metric-label-small">Disponibilidad</div>
                     </div>
-                    <div>
-                        <div class="metric-value" style="font-weight: bold; color: var(--accent);">20h</div>
-                        <div
-                            style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5;">
-                            Ahorro semanal</div>
+                    <div class="metric-item">
+                        <div class="metric-value">20h</div>
+                        <div class="metric-label-small">Ahorro semanal</div>
                     </div>
-                    <div>
-                        <div class="metric-value" style="font-weight: bold; color: var(--accent);">0%</div>
-                        <div
-                            style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5;">
-                            Leads perdidos</div>
+                    <div class="metric-item">
+                        <div class="metric-value">0%</div>
+                        <div class="metric-label-small">Leads perdidos</div>
                     </div>
                 </div>
 
                 <!-- Testimonial/Quote -->
-                <div class="card"
-                    style="max-width: 700px; margin: 3rem auto 0; text-align: center; border-color: rgba(255,255,255,0.1);">
-                    <p style="font-size: 1.2rem; font-style: italic; opacity: 0.8; line-height: 1.6;">
+                <div class="card testimonial-card-wrapper max-w-2xl mx-auto mt-12 p-8 border-white/10 text-center">
+                    <p class="testimonial-quote">
                         "Pasamos de responder emails manualmente a tener un sistema que califica, nurtura y cierra
                         ventas mientras dormimos."
                     </p>
-                    <div
-                        style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem;">
-                        <div
-                            style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold;">
-                            M</div>
-                        <div style="text-align: left;">
-                            <div style="font-size: 0.9rem; color: #fff;">María García</div>
-                            <div style="font-size: 0.75rem; opacity: 0.5;">CEO, TechStartup</div>
+                    <div class="testimonial-author-wrapper">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <div class="author-name">María García</div>
+                            <div class="author-title">CEO, TechStartup</div>
                         </div>
                     </div>
                 </div>
@@ -278,10 +253,9 @@
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="max-w-5xl mx-auto w-full px-6 pointer-events-auto">
                 <div class="text-center mb-10">
-                    <div class="tag-line" style="justify-content: center;">Proceso</div>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: white;">Cómo Funciona</h2>
-                    <p style="max-width: 500px; margin: 0 auto; opacity: 0.7;">De la auditoría al despliegue en 4 pasos
-                        claros.</p>
+                    <div class="tag-line flex-center">Proceso</div>
+                    <h2 class="section-h2">Cómo Funciona</h2>
+                    <p class="section-desc">De la auditoría al despliegue en 4 pasos claros.</p>
                 </div>
                 <div class="process-container">
                     <!-- Progress line (Background) -->
@@ -343,13 +317,10 @@
         <section data-index="5"
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="service-container text-center">
-                <div class="floating-header" style="margin-bottom: 20rem;">
-                    <div class="tag-line" style="justify-content:center;">Tecnología</div>
-                    <h2 style="font-size: 3rem; margin:0; color: white;">Stack Moderno</h2>
-                    <p
-                        style="font-size: 0.9rem; opacity: 0.6; margin-top: 1rem; max-width: 450px; margin-left: auto; margin-right: auto;">
-                        OpenAI · Next.js ·
-                        Python · n8n · Notion · Stripe</p>
+                <div class="floating-header mb-80">
+                    <div class="tag-line flex-center">Tecnología</div>
+                    <h2 class="section-h2 mb-0">Stack Moderno</h2>
+                    <p class="section-desc mt-4 max-w-md mx-auto">OpenAI · Next.js · Python · n8n · Notion · Stripe</p>
                 </div>
             </div>
         </section>
@@ -360,30 +331,31 @@
             <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-4">
                 <!-- Left: Floating Logo -->
                 <div class="flex justify-center items-center opacity-60 order-2 md:order-1">
-                    <img src="assets/logo.png" alt="Logotipo animado de Snow Tech" class="animate-spin-slow"
-                        style="width: 100%; max-width: 280px; height: auto;">
+                    <img src="assets/logo.png" alt="Logotipo animado de Snow Tech" class="animate-spin-slow" width="280"
+                        height="280" loading="lazy">
                 </div>
 
                 <!-- Right: Form Card -->
-                <div class="card order-1 md:order-2"
-                    style="border: 1px solid var(--accent); background: linear-gradient(135deg, rgba(139, 242, 198, 0.08) 0%, rgba(0,0,0,0.4) 100%); width: 100%; max-width: none;">
-                    <div class="tag-line" style="color: var(--accent);">Empieza Aquí</div>
-                    <h2 style="font-size: 2rem; color: white;">Auditoría Gratuita</h2>
-                    <p class="mb-4" style="opacity: 0.8;">Descubrimos en qué fase estás y cómo evolucionar tu presencia
-                        digital.</p>
+                <div
+                    class="card order-1 md:order-2 evolution-card card-accent-border bg-gradient-to-br from-[#8BF2C614] to-black/40 w-full max-w-none">
+                    <div class="tag-line nav-link-active">Empieza Aquí</div>
+                    <h2 class="card-h3 text-white">Auditoría Gratuita</h2>
+                    <p class="mb-4 opacity-80">Descubrimos en qué fase estás y cómo evolucionar tu presencia digital.
+                    </p>
 
-                    <ul
-                        style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; font-size: 0.85rem; line-height: 1.8;">
-                        <li style="color: var(--accent);">✓ Análisis de tu web actual</li>
-                        <li style="color: var(--accent);">✓ Oportunidades de automatización</li>
-                        <li style="color: var(--accent);">✓ Roadmap personalizado</li>
+                    <ul class="card-list mb-6">
+                        <li class="nav-link-active">✓ Análisis de tu web actual</li>
+                        <li class="nav-link-active">✓ Oportunidades de automatización</li>
+                        <li class="nav-link-active">✓ Roadmap personalizado</li>
                     </ul>
 
-                    <form class="flex flex-col gap-3">
-                        <input type="text" placeholder="URL de tu sitio web"
+                    <form class="flex flex-col gap-3" action="#" method="post">
+                        <label for="audit-url" class="sr-only">URL de tu sitio web</label>
+                        <input id="audit-url" type="url" name="site_url" placeholder="URL de tu sitio web"
                             class="bg-white/5 border border-white/10 px-4 py-3 rounded text-white text-sm w-full focus:border-[var(--accent)] outline-none transition-colors"
                             required>
-                        <input type="email" placeholder="Email corporativo"
+                        <label for="audit-email" class="sr-only">Email corporativo</label>
+                        <input id="audit-email" type="email" name="email" placeholder="Email corporativo"
                             class="bg-white/5 border border-white/10 px-4 py-3 rounded text-white text-sm w-full focus:border-[var(--accent)] outline-none transition-colors"
                             required>
                         <button type="submit"
@@ -401,35 +373,30 @@
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="max-w-3xl mx-auto w-full px-6 pointer-events-auto">
                 <div class="text-center mb-10">
-                    <div class="tag-line" style="justify-content: center;">FAQ</div>
-                    <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: white;">Preguntas Frecuentes</h2>
+                    <div class="tag-line flex-center">FAQ</div>
+                    <h2 class="section-h2 text-4xl mb-2">Preguntas Frecuentes</h2>
                 </div>
 
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div class="card" style="max-width: none; padding: 1.5rem;">
-                        <h4 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">¿Puedo contratar solo un
-                            servicio sin el sistema completo?</h4>
-                        <p style="font-size: 0.85rem; opacity: 0.6;">Sí. Cada servicio funciona de forma independiente.
-                            Pero juntos, se potencian para crear una entidad digital completa.</p>
+                <div class="faq-container">
+                    <div class="card faq-card">
+                        <h4 class="faq-h4">¿Puedo contratar solo un servicio sin el sistema completo?</h4>
+                        <p class="node-desc opacity-60">Sí. Cada servicio funciona de forma independiente. Pero juntos,
+                            se potencian para crear una entidad digital completa.</p>
                     </div>
-                    <div class="card" style="max-width: none; padding: 1.5rem;">
-                        <h4 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">¿Cuánto tiempo toma implementar
-                            cada fase?</h4>
-                        <p style="font-size: 0.85rem; opacity: 0.6;">Fase 1: 2-4 semanas. Fase 2: 4-6 semanas. Fase 3:
-                            depende de la complejidad de tus operaciones.</p>
+                    <div class="card faq-card">
+                        <h4 class="faq-h4">¿Cuánto tiempo toma implementar cada fase?</h4>
+                        <p class="node-desc opacity-60">Fase 1: 2-4 semanas. Fase 2: 4-6 semanas. Fase 3: depende de la
+                            complejidad de tus operaciones.</p>
                     </div>
-                    <div class="card" style="max-width: none; padding: 1.5rem;">
-                        <h4 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">¿El sistema puede trabajar
-                            junto con mi equipo humano?</h4>
-                        <p style="font-size: 0.85rem; opacity: 0.6;">Absolutamente. La Fase 3 está diseñada para
-                            colaboración humano-IA. Tu equipo toma las decisiones estratégicas, el sistema ejecuta y
-                            reporta.</p>
+                    <div class="card faq-card">
+                        <h4 class="faq-h4">¿El sistema puede trabajar junto con mi equipo humano?</h4>
+                        <p class="node-desc opacity-60">Absolutamente. La Fase 3 está diseñada para colaboración
+                            humano-IA. Tu equipo toma las decisiones estratégicas, el sistema ejecuta y reporta.</p>
                     </div>
-                    <div class="card" style="max-width: none; padding: 1.5rem;">
-                        <h4 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">¿Qué pasa si mi negocio crece y
-                            necesito más capacidades?</h4>
-                        <p style="font-size: 0.85rem; opacity: 0.6;">El sistema evoluciona contigo. Añadimos nuevas
-                            habilidades, integraciones y "agentes trabajadores" según necesites escalar.</p>
+                    <div class="card faq-card">
+                        <h4 class="faq-h4">¿Qué pasa si mi negocio crece y necesito más capacidades?</h4>
+                        <p class="node-desc opacity-60">El sistema evoluciona contigo. Añadimos nuevas habilidades,
+                            integraciones y "agentes trabajadores" según necesites escalar.</p>
                     </div>
                 </div>
             </div>
@@ -439,36 +406,36 @@
     <footer>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8 text-left">
             <div>
-                <a href="index.html" class="logo-small mb-4"
-                    style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
-                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura para el futuro"
-                        style="height: 35px; width: auto; filter: drop-shadow(0 0 5px var(--accent));">
+                <a href="index.html" class="header-logo-container mb-4">
+                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura para el futuro" class="footer-logo-img"
+                        width="35" height="35" loading="lazy">
                     <span>SNOW TECH</span>
                 </a>
-                <p style="opacity: 0.6;">Tu presencia digital evoluciona.</p>
+                <p class="opacity-60">Tu presencia digital evoluciona.</p>
 
                 <!-- Newsletter Form -->
                 <div class="mt-8 pt-6 border-t border-white/10">
-                    <p class="text-xs font-bold uppercase tracking-widest text-[var(--accent)] mb-3">Newsletter</p>
-                    <form class="flex gap-2">
-                        <input type="email" placeholder="Email"
+                    <p class="newsletter-title">Newsletter</p>
+                    <form class="flex gap-2" action="#" method="post">
+                        <label for="newsletter-email-index" class="sr-only">Email para newsletter</label>
+                        <input id="newsletter-email-index" type="email" name="newsletter_email" placeholder="Email"
                             class="bg-white/5 border border-white/10 px-3 py-2 rounded text-white text-xs w-full focus:border-[var(--accent)] outline-none transition-colors">
-                        <button
+                        <button type="submit"
                             class="bg-[var(--accent)] text-black px-3 py-2 rounded font-bold hover:bg-white transition-colors">></button>
                     </form>
                 </div>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Servicios</h4>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Desarrollo Web</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Automatización</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">AI & Chatbots</p>
+                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Desarrollo Web</a>
+                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Automatización</a>
+                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">AI & Chatbots</a>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Contacto</h4>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">hola@snowtech.io</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">LinkedIn</p>
-                <p class="opacity-60 hover:opacity-100 cursor-pointer">Twitter</p>
+                <a href="mailto:hola@snowtech.io" class="block opacity-60 hover:opacity-100 transition-opacity">hola@snowtech.io</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">Twitter</a>
             </div>
         </div>
         <div class="pt-8 border-t border-white/10 opacity-50 text-xs">

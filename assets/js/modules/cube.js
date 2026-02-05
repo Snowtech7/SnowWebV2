@@ -37,15 +37,30 @@ const services = {
 let isHovering = false;
 let cssGroup = null;
 
-// Initialize global modal handlers
-window.closeModal = () => document.getElementById('service-modal').classList.remove('open');
+// Initialize global modal handlers (guarded for pages without modal)
+window.closeModal = () => {
+    const modal = document.getElementById('service-modal');
+    if (modal) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+};
 window.openService = (key) => {
+    const modal = document.getElementById('service-modal');
+    if (!modal) return;
     const data = services[key];
-    document.getElementById('modal-title').innerText = data.title;
-    document.getElementById('modal-desc').innerText = data.desc;
-    const svgPath = `<svg viewBox="0 0 24 24" style="width:100%;height:100%;fill:#00f0ff;"><path d="${data.path}"/></svg>`;
-    document.getElementById('modal-icon-container').innerHTML = svgPath;
-    document.getElementById('service-modal').classList.add('open');
+    if (!data) return;
+    const titleEl = document.getElementById('modal-title');
+    const descEl = document.getElementById('modal-desc');
+    const iconEl = document.getElementById('modal-icon-container');
+    if (titleEl) titleEl.textContent = data.title;
+    if (descEl) descEl.textContent = data.desc;
+    if (iconEl) {
+        const svgPath = `<svg viewBox="0 0 24 24" style="width:100%;height:100%;fill:#00f0ff;" aria-hidden="true"><path d="${data.path}"/></svg>`;
+        iconEl.innerHTML = svgPath;
+    }
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
 };
 
 export function createCSSCube(cssScene) {
