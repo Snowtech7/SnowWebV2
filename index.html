@@ -484,9 +484,9 @@
         var hint    = document.getElementById('intro-hint');
         var endFade = document.getElementById('video-end-fade');
 
-        // DEV MODE: siempre muestra el intro (quitar para producción)
-        // if (sessionStorage.getItem('snow_intro_played')) { intro.remove(); return; }
-        // sessionStorage.setItem('snow_intro_played', '1');
+        // Mostrar intro solo una vez por sesión
+        if (sessionStorage.getItem('snow_intro_played')) { intro.remove(); return; }
+        sessionStorage.setItem('snow_intro_played', '1');
 
         document.body.style.overflow = 'hidden';
 

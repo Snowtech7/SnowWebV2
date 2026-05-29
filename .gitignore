@@ -17,3 +17,11 @@ Thumbs.db
 node_modules/
 dist/
 build/
+
+# Claude Code session data
+.claude/
+
+# Unused/duplicate media (keep scene-hero.mp4, ignore originals)
+assets/Grabación*
+"assets/Grabaci*"
+assets/SCENE_*
