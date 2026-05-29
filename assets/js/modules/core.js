@@ -17,8 +17,9 @@ export function initCore(container3D, cssContainer) {
 
     // --- WEBGL ---
     if (container3D) {
-        state.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        state.renderer.setPixelRatio(window.devicePixelRatio);
+        const isMobile = window.innerWidth <= 768;
+        state.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !isMobile });
+        state.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         state.renderer.setSize(window.innerWidth, window.innerHeight);
         state.renderer.toneMapping = THREE.ACESFilmicToneMapping;
         container3D.appendChild(state.renderer.domElement);
@@ -38,10 +39,18 @@ export function initCore(container3D, cssContainer) {
         rimLight.angle = Math.PI / 4;
         state.scene.add(rimLight);
 
-        state.iceMat = new THREE.MeshPhysicalMaterial({
-            color: 0xffffff, roughness: 0.1, metalness: 0.1, transmission: 0.95, thickness: 2.0,
-            ior: 1.4, clearcoat: 1, attenuationColor: new THREE.Color(0xccf5ff), attenuationDistance: 3
-        });
+        // On mobile: skip transmission (requires extra render pass, expensive on mobile GPU)
+        if (isMobile) {
+            state.iceMat = new THREE.MeshPhysicalMaterial({
+                color: 0xccf5ff, roughness: 0.15, metalness: 0.2,
+                transparent: true, opacity: 0.55, clearcoat: 0.5
+            });
+        } else {
+            state.iceMat = new THREE.MeshPhysicalMaterial({
+                color: 0xffffff, roughness: 0.1, metalness: 0.1, transmission: 0.95, thickness: 2.0,
+                ior: 1.4, clearcoat: 1, attenuationColor: new THREE.Color(0xccf5ff), attenuationDistance: 3
+            });
+        }
     }
 
     // --- CSS ---

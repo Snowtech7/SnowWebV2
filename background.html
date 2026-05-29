@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SNOW | Fondo Interactivo (Demo)</title>
+    <meta name="description" content="Visualización exclusiva de los elementos gráficos de fondo de SNOW TECH: partículas y figuras 3D scrollables.">
+
+    <!-- IMPORT MAP -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body class="page-index">
+
+    <!-- CAPAS DE RENDERIZADO GRAPHICS -->
+    <canvas id="canvas-particles"></canvas>
+    <div id="layer-webgl"></div>
+    <div id="layer-css"></div>
+
+    <!-- SECCIONES VACÍAS (Trigger para transiciones 3D de IntersectionObserver) -->
+    <main id="main-content">
+        <section data-index="0" class="h-screen relative"></section>
+        <section data-index="1" class="h-screen relative"></section>
+        <section data-index="2" class="h-screen relative"></section>
+        <section data-index="3" class="h-screen relative"></section>
+        <section data-index="4" class="h-screen relative"></section>
+        <section data-index="5" class="h-screen relative"></section>
+        <section data-index="6" class="h-screen relative"></section>
+        <section data-index="7" class="h-screen relative"></section>
+    </main>
+
+    <!-- Modal guard (vacio por si hacen click en el cubo) -->
+    <div id="service-modal" style="display:none;" role="dialog" aria-modal="true" aria-hidden="true"></div>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+
+</html>

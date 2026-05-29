@@ -50,7 +50,7 @@ if (state.scene) {
     // Only create WebGL shapes if NOT on restricted pages
     if (!isSimplePage) {
         shapes = [
-            createWebGLShape(new THREE.IcosahedronGeometry(2.8, 4), 'sphere', state.scene, state.iceMat),
+            null, // Logo CSS3D replaces sphere in section 0
             createValuePropSystem(state.scene, state.iceMat),
             null, // Placeholder for Cube index (2)
             createWebGLShape(new THREE.OctahedronGeometry(2.7), 'octa', state.scene, state.iceMat),
@@ -66,7 +66,6 @@ if (state.cssScene) {
         cssGroup = createCSSCube(state.cssScene);
     }
 
-    // Partners only needed on Home, avoiding creation on Services
     // Partners only needed on Home
     if (!isSimplePage) {
         partnerGroup = createPartnerSystem(state.cssScene);

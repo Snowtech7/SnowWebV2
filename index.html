@@ -20,6 +20,11 @@
         }
     </script>
 
+    <!-- Fonts: preconnect + single request, font-display:swap evita FOUT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
+
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- Open Graph / SEO -->
@@ -46,6 +51,20 @@
 <body class="page-index">
     <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
+    <!-- ===== HERO VIDEO INTRO ===== -->
+    <div id="hero-intro" role="presentation" aria-hidden="true">
+        <video id="intro-video" muted playsinline preload="auto">
+            <source src="assets/scene-hero.mp4" type="video/mp4">
+        </video>
+        <div id="video-end-fade"></div>
+        <div id="intro-hint" aria-hidden="true">
+            <div class="hint-line"></div>
+            <span>TOCA PARA ENTRAR</span>
+            <div class="hint-line"></div>
+        </div>
+    </div>
+    <!-- ============================== -->
+
     <!-- CAPAS -->
     <canvas id="canvas-particles"></canvas>
     <div id="layer-webgl"></div>
@@ -54,8 +73,10 @@
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
             <a href="index.html" class="header-logo-container pointer-events-auto">
-                <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="header-logo-img" width="40"
-                    height="40" loading="eager">
+                <picture>
+                    <source srcset="assets/logo.webp" type="image/webp">
+                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="header-logo-img" width="40" height="40" loading="eager">
+                </picture>
                 <span>SNOW TECH</span>
             </a>
             <div class="nav-desktop hidden md:flex pointer-events-auto">
@@ -123,6 +144,15 @@
                 </h1>
                 <div class="hero-subtitle">
                     TECH PARTNER
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span class="scroll-label">DESLIZAR</span>
+                <div class="scroll-line"></div>
+                <div class="scroll-chevron">
+                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                        <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
             </div>
         </section>
@@ -331,8 +361,10 @@
             <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-4">
                 <!-- Left: Floating Logo -->
                 <div class="flex justify-center items-center opacity-60 order-2 md:order-1">
-                    <img src="assets/logo.png" alt="Logotipo animado de Snow Tech" class="animate-spin-slow" width="280"
-                        height="280" loading="lazy">
+                    <picture>
+                        <source srcset="assets/logo.webp" type="image/webp">
+                        <img src="assets/logo.png" alt="Logotipo animado de Snow Tech" class="animate-spin-slow" width="280" height="280" loading="lazy">
+                    </picture>
                 </div>
 
                 <!-- Right: Form Card -->
@@ -407,8 +439,10 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8 text-left">
             <div>
                 <a href="index.html" class="header-logo-container mb-4">
-                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura para el futuro" class="footer-logo-img"
-                        width="35" height="35" loading="lazy">
+                    <picture>
+                        <source srcset="assets/logo.webp" type="image/webp">
+                        <img src="assets/logo.png" alt="Snow Tech - Arquitectura para el futuro" class="footer-logo-img" width="35" height="35" loading="lazy">
+                    </picture>
                     <span>SNOW TECH</span>
                 </a>
                 <p class="opacity-60">Tu presencia digital evoluciona.</p>
@@ -442,6 +476,69 @@
             © 2026 SNOW Inc. All systems operational.
         </div>
     </footer>
+
+    <script>
+    (function () {
+        var intro   = document.getElementById('hero-intro');
+        var video   = document.getElementById('intro-video');
+        var hint    = document.getElementById('intro-hint');
+        var endFade = document.getElementById('video-end-fade');
+
+        // DEV MODE: siempre muestra el intro (quitar para producción)
+        // if (sessionStorage.getItem('snow_intro_played')) { intro.remove(); return; }
+        // sessionStorage.setItem('snow_intro_played', '1');
+
+        document.body.style.overflow = 'hidden';
+
+        // Logo aparece a los 0.8s (antes del click, da vida al overlay)
+        // Hint aparece a los 1.0s
+        var hintTimer = setTimeout(function () { hint.classList.add('visible'); }, 1000);
+
+        /* ---- SALIDA ---- */
+        var exited = false;
+        function exitIntro() {
+            if (exited) return;
+            exited = true;
+            intro.classList.add('exit');
+            document.body.style.overflow = '';
+            setTimeout(function () { intro.remove(); }, 1300);
+        }
+
+        /* ---- FADE FINAL del video al fondo ---- */
+        var fadeFired = false;
+        video.addEventListener('timeupdate', function () {
+            if (fadeFired || !video.duration) return;
+            if (video.currentTime >= video.duration * 0.80) {
+                fadeFired = true;
+                endFade.classList.add('active');
+            }
+        });
+
+        // Video termina → salir automáticamente
+        video.addEventListener('ended', exitIntro, { once: true });
+
+        /* ---- INICIO por gesto del usuario ---- */
+        var started = false;
+        function startVideo() {
+            if (started) return;
+            started = true;
+            intro.removeEventListener('click', startVideo);
+            intro.removeEventListener('touchstart', startVideo);
+            hint.classList.remove('visible');
+            hint.style.display = 'none';
+
+            video.play().catch(function () {
+                exitIntro();
+            });
+        }
+
+        intro.addEventListener('click',      startVideo);
+        intro.addEventListener('touchstart', startVideo, { passive: true });
+
+        // Fallback duro a los 20s por si algo falla
+        setTimeout(exitIntro, 20000);
+    })();
+    </script>
 
     <script type="module" src="assets/js/main.js"></script>
 </body>
