@@ -2137,9 +2137,11 @@ a, button, [role="button"],
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
     }
+    /* Cube faces keep backdrop-filter — needed to hide back faces */
     .face-original {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        background: rgba(10, 20, 40, 0.75);
     }
 }
 

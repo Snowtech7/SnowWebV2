@@ -5,7 +5,15 @@ export function createPartnerSystem(cssScene) {
     if (!cssScene) return null;
     const group = new THREE.Group();
     const partners = ["AWS", "META", "GOOGLE", "AZURE", "OPENAI"];
-    const positions = [{ x: -400, y: 50, z: 0 }, { x: -200, y: -100, z: 50 }, { x: 0, y: 150, z: -50 }, { x: 200, y: -100, z: 50 }, { x: 400, y: 50, z: 0 }];
+    const isMobile = window.innerWidth <= 768;
+    const s = isMobile ? 180 : 400;
+    const positions = [
+        { x: -s,     y: isMobile ?  30 :  50,  z:   0 },
+        { x: -s*0.5, y: isMobile ? -60 : -100, z:  50 },
+        { x:  0,     y: isMobile ?  80 :  150, z: -50 },
+        { x:  s*0.5, y: isMobile ? -60 : -100, z:  50 },
+        { x:  s,     y: isMobile ?  30 :  50,  z:   0 }
+    ];
     partners.forEach((name, i) => {
         const div = document.createElement('div');
         div.className = 'partner-orb interactive-3d';

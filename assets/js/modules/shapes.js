@@ -52,12 +52,15 @@ export function updateShapes(shapes, physics, isServicesPage, isDesktop = true) 
 
         const isActive = index === physics.activeSection;
         const relIndex = index - physics.activeSection;
-        let gx = isDesktop ? 4 : 0, gy = isDesktop ? 0 : 1.5, gz = 0, gs = 1;
+        let gx = isDesktop ? 4 : 0;
+        let gy = isDesktop ? 0 : 2.5;
+        let gz = isDesktop ? 0 : -4;
+        let gs = isDesktop ? 1 : 0.38;
 
         if (index === 3 && isDesktop) gx = -4;
 
         if (isActive) {
-            if (index === 0) { gx = 0; gy = 0; gs = 1.2; }
+            if (index === 0) { gx = 0; gy = isDesktop ? 0 : 2.5; gs = isDesktop ? 1.2 : 0.42; }
             else if (index === 2 || index === 5) { gs = 0; }
         } else {
             gy = relIndex * -15; gz = -20; gs = 0;
