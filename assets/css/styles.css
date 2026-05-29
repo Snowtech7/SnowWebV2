@@ -83,7 +83,7 @@ body {
 }
 
 .metric-value {
-    font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
+    font-size: clamp(2.2rem, 6vw, 3rem) !important;
 }
 
 /* --- 2. CAPAS DE RENDERIZADO --- */
@@ -808,11 +808,11 @@ section.active .floating-header {
 
     /* Metrics grid - 2 cols on mobile */
     .metric-item {
-        padding: 0.5rem 0;
+        padding: 1.25rem 1rem 1rem;
     }
 
     .metric-value {
-        font-size: 2rem !important;
+        font-size: 1.9rem !important;
     }
 
     /* Tech stack - wrap better */
@@ -1118,11 +1118,11 @@ section.active .floating-header {
 }
 
 .metric-value {
-    font-family: 'JetBrains Mono';
+    font-family: 'JetBrains Mono', monospace;
     font-size: 3.5rem;
     font-weight: 700;
-    color: white;
-    text-shadow: 0 0 30px rgba(139, 242, 198, 0.3);
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(0,217,255,0.5), 0 0 40px rgba(0,217,255,0.2);
     line-height: 1;
 }
 
@@ -1142,6 +1142,21 @@ section.active .floating-header {
 
     .metric-value {
         font-size: 2.5rem;
+    }
+
+    .testimonial-card-wrapper {
+        padding: 1.75rem 1.5rem !important;
+        margin-top: 1.5rem !important;
+    }
+
+    .testimonial-card-wrapper::before {
+        font-size: 4rem;
+        top: -0.2rem;
+        left: 1rem;
+    }
+
+    .testimonial-quote {
+        font-size: 0.95rem;
     }
 }
 
@@ -1790,24 +1805,111 @@ section.active .timeline-progress {
 /* Metrics & Social Proof */
 .metric-item {
     text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-top: 2px solid var(--accent);
+    border-radius: 4px;
+    padding: 2rem 1.25rem 1.75rem;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.metric-label-small {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+.metric-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,217,255,0.04) 0%, transparent 60%);
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+.metric-item:hover {
+    border-color: rgba(0,217,255,0.5);
+    box-shadow: 0 0 24px rgba(0,217,255,0.12), inset 0 0 20px rgba(0,217,255,0.04);
+}
+
+section[data-index="3"].active .metric-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+section[data-index="3"].active .metric-item:nth-child(1) { transition-delay: 0.05s; }
+section[data-index="3"].active .metric-item:nth-child(2) { transition-delay: 0.15s; }
+section[data-index="3"].active .metric-item:nth-child(3) { transition-delay: 0.25s; }
+section[data-index="3"].active .metric-item:nth-child(4) { transition-delay: 0.35s; }
+
+.metric-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(2.2rem, 6vw, 3rem) !important;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(0,217,255,0.5), 0 0 40px rgba(0,217,255,0.2);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.metric-divider {
+    width: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 0.65rem auto 0;
     opacity: 0.5;
 }
 
+.metric-label-small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.55;
+    margin-top: 0.5rem;
+    color: #fff;
+}
+
+/* Testimonial card overrides */
+.testimonial-card-wrapper {
+    height: auto !important;
+    max-width: 700px !important;
+    padding: 2.5rem 3rem !important;
+    border-left: none !important;
+    border-top: 2px solid var(--accent) !important;
+    border-radius: 4px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+}
+
+section[data-index="3"].active .testimonial-card-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.testimonial-card-wrapper::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.3rem;
+    left: 1.5rem;
+    font-size: 6rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.18;
+    font-family: Georgia, serif;
+    pointer-events: none;
+}
+
 .testimonial-quote {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-style: italic;
-    opacity: 0.8;
-    line-height: 1.6;
+    opacity: 0.85;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.9);
 }
 
 .testimonial-author-wrapper {
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1815,15 +1917,19 @@ section.active .timeline-progress {
 }
 
 .author-avatar {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background: var(--accent);
+    background: linear-gradient(135deg, var(--accent), rgba(0,217,255,0.3));
+    border: 1px solid rgba(0,217,255,0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #000;
-    font-weight: bold;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    box-shadow: 0 0 12px rgba(0,217,255,0.3);
 }
 
 .author-info {
@@ -1832,12 +1938,17 @@ section.active .timeline-progress {
 
 .author-name {
     font-size: 0.9rem;
+    font-weight: 600;
     color: #fff;
+    letter-spacing: 0.02em;
 }
 
 .author-title {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.15rem;
 }
 
 /* FAQ Styling */
