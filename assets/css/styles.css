@@ -1707,6 +1707,10 @@ section.active .timeline-progress {
 }
 
 /* Hero & Section Typography */
+.hero-isnow {
+    white-space: nowrap;
+}
+
 .hero-subtitle {
     font-family: "JetBrains Mono";
     letter-spacing: 0.3em;
