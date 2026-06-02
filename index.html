@@ -157,66 +157,192 @@
             </div>
         </section>
 
-        <!-- 1. EVOLUTION VISUAL - The 3 Phases -->
+        <!-- 1. VALUE PROP - Single Window -->
         <section data-index="1"
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
-            <div class="max-w-6xl mx-auto w-full px-6 pointer-events-auto">
-                <div class="text-center mb-12">
-                    <h2 class="section-h2">Soluciones que Escalan</h2>
-                    <p class="section-desc">Arquitectura modular diseñada para crecer junto a tu visión.</p>
+            <div class="vp-outer pointer-events-auto">
+
+                <!-- Section label above window -->
+                <div class="vp-section-label">
+                    <span class="vp-label-dot"></span>
+                    PROPUESTA DE VALOR
                 </div>
 
-                <!-- Evolution Timeline -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Phase 1: Website -->
-                    <div class="card evolution-card">
-                        <div class="card-icon-large">🌐</div>
-                        <h3 class="card-h3">Presencia Inteligente</h3>
-                        <p class="node-desc mb-6">Tu web deja de ser un folleto estático. Un chatbot IA responde,
-                            califica y guía visitantes 24/7.</p>
-                        <ul class="card-list">
-                            <li>✓ Web de alto impacto</li>
-                            <li>✓ Chatbot IA integrado</li>
-                            <li>✓ Atención 24/7</li>
-                        </ul>
-                    </div>
+                <!-- The window -->
+                <div class="vp-window" id="vp-window">
 
-                    <!-- Phase 2: Sales Agent -->
-                    <div class="card evolution-card card-accent-border">
-                        <div class="card-top-bar"></div>
-                        <div class="card-icon-large">🤖</div>
-                        <h3 class="card-h3">Agente de Ventas</h3>
-                        <p class="node-desc mb-6">Tu entidad ahora interactúa y vende. Funnels automatizados, CRM y
-                            seguimiento sin intervención humana.</p>
-                        <ul class="card-list">
-                            <li class="nav-link-active">✓ Funnels automatizados</li>
-                            <li class="nav-link-active">✓ CRM integrado</li>
-                            <li class="nav-link-active">✓ Nurturing automático</li>
-                        </ul>
-                        <div class="card-tag-wrapper">
-                            <span class="card-tag">Más Popular</span>
+                    <!-- Title bar -->
+                    <div class="vp-titlebar">
+                        <div class="vp-traffic">
+                            <span class="vp-tr vp-tr-r"></span>
+                            <span class="vp-tr vp-tr-y"></span>
+                            <span class="vp-tr vp-tr-g"></span>
                         </div>
+                        <nav class="vp-tabs" role="tablist" aria-label="Pilares">
+                            <button class="vp-tab active" data-vp="0" role="tab" aria-selected="true">
+                                <span class="vp-tab-n">01</span> Presencia
+                            </button>
+                            <button class="vp-tab" data-vp="1" role="tab" aria-selected="false">
+                                <span class="vp-tab-n">02</span> Automatización
+                            </button>
+                            <button class="vp-tab" data-vp="2" role="tab" aria-selected="false">
+                                <span class="vp-tab-n">03</span> Agentes IA
+                            </button>
+                        </nav>
+                        <div class="vp-winid">ISNOW·SYS</div>
                     </div>
 
-                    <!-- Phase 3: Project Manager -->
-                    <div class="card evolution-card">
-                        <div class="card-icon-large">🧠</div>
-                        <h3 class="card-h3">Gestor de Operaciones</h3>
-                        <p class="node-desc mb-6">Sistemas que orquestan tareas, aprenden nuevas habilidades y trabajan
-                            junto a tu equipo.</p>
-                        <ul class="card-list">
-                            <li>✓ Dashboards en tiempo real</li>
-                            <li>✓ Automatización de procesos</li>
-                            <li>✓ Colaboración humano-IA</li>
-                        </ul>
-                    </div>
-                </div>
+                    <!-- Pane body -->
+                    <div class="vp-body">
 
-                <!-- Progress Arrow -->
-                <div class="evolution-footer-tag">
-                    <span>PRESENCIA DIGITAL · AUTOMATIZACIÓN · OPERACIONES INTELIGENTES</span>
-                </div>
-            </div>
+                        <!-- Pane 0: Presencia Digital -->
+                        <div class="vp-pane active" data-pane="0" role="tabpanel">
+                            <div class="vp-pane-left">
+                                <div class="vp-num">01</div>
+                                <h3 class="vp-title">Presencia<br>Inteligente</h3>
+                                <p class="vp-desc">Tu web deja de ser un folleto estático. Un sistema IA responde, califica y guía visitantes en tiempo real, sin intervención humana.</p>
+                                <ul class="vp-list">
+                                    <li>Web de alto impacto</li>
+                                    <li>Chatbot IA integrado</li>
+                                    <li>Atención 24/7</li>
+                                </ul>
+                            </div>
+                            <div class="vp-pane-right" aria-hidden="true">
+                                <div class="vp-codeblock">
+                                    <div class="vcb-row"><span class="vcb-k">STATUS</span><span class="vcb-v">ONLINE</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">VISITORS</span><span class="vcb-n">+847</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">QUALIFIED</span><span class="vcb-n">312</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">RESPONSE</span><span class="vcb-v">&lt;2s</span></div>
+                                    <div class="vcb-sep"></div>
+                                    <div class="vcb-row"><span class="vcb-k">UPTIME</span><span class="vcb-g">99.9%</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">LEADS</span><span class="vcb-g">+300%</span></div>
+                                    <div class="vcb-cursor">▋</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pane 1: Automatización -->
+                        <div class="vp-pane" data-pane="1" role="tabpanel">
+                            <div class="vp-pane-left">
+                                <div class="vp-num">02</div>
+                                <h3 class="vp-title">Automatización<br>Total</h3>
+                                <p class="vp-desc">Funnels, CRM y seguimiento que operan solos. Tu pipeline de ventas se ejecuta mientras duermes, sin un solo clic manual.</p>
+                                <ul class="vp-list">
+                                    <li>Funnels automatizados</li>
+                                    <li>CRM integrado</li>
+                                    <li>Nurturing automático</li>
+                                </ul>
+                            </div>
+                            <div class="vp-pane-right" aria-hidden="true">
+                                <div class="vp-codeblock">
+                                    <div class="vcb-row"><span class="vcb-k">PIPELINE</span><span class="vcb-v">ACTIVE</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">LEADS_IN</span><span class="vcb-n">156</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">NURTURING</span><span class="vcb-n">89</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">CLOSED</span><span class="vcb-g">43</span></div>
+                                    <div class="vcb-sep"></div>
+                                    <div class="vcb-row"><span class="vcb-k">MANUAL_OPS</span><span class="vcb-a">0h</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">SAVINGS</span><span class="vcb-g">20h/wk</span></div>
+                                    <div class="vcb-cursor">▋</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pane 2: Agentes IA -->
+                        <div class="vp-pane" data-pane="2" role="tabpanel">
+                            <div class="vp-pane-left">
+                                <div class="vp-num">03</div>
+                                <h3 class="vp-title">Agentes<br>Inteligentes</h3>
+                                <p class="vp-desc">Sistemas autónomos que orquestan tareas, aprenden y colaboran con tu equipo como un miembro más de la organización.</p>
+                                <ul class="vp-list">
+                                    <li>Dashboards en tiempo real</li>
+                                    <li>Automatización de procesos</li>
+                                    <li>Colaboración humano-IA</li>
+                                </ul>
+                            </div>
+                            <div class="vp-pane-right" aria-hidden="true">
+                                <div class="vp-codeblock">
+                                    <div class="vcb-row"><span class="vcb-k">AGENT</span><span class="vcb-v">RUNNING</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">TASKS</span><span class="vcb-n">1,284</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">LEARNED</span><span class="vcb-n">37</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">ACCURACY</span><span class="vcb-g">98.2%</span></div>
+                                    <div class="vcb-sep"></div>
+                                    <div class="vcb-row"><span class="vcb-k">COLLAB</span><span class="vcb-v">HUMAN+AI</span></div>
+                                    <div class="vcb-row"><span class="vcb-k">ROI</span><span class="vcb-g">+340%</span></div>
+                                    <div class="vcb-cursor">▋</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /vp-body -->
+
+                    <!-- Bottom bar -->
+                    <div class="vp-bottombar">
+                        <div class="vp-pdots" role="group" aria-label="Navegar pilares">
+                            <button class="vp-pdot active" data-vp="0" aria-label="Presencia Digital"></button>
+                            <button class="vp-pdot" data-vp="1" aria-label="Automatización"></button>
+                            <button class="vp-pdot" data-vp="2" aria-label="Agentes IA"></button>
+                        </div>
+                        <div class="vp-progress-bar"><div class="vp-progress-fill" id="vp-progress"></div></div>
+                    </div>
+
+                </div><!-- /vp-window -->
+            </div><!-- /vp-outer -->
+
+            <script>
+            (function() {
+                var cur = 0;
+                var total = 3;
+                var autoTimer = null;
+
+                function goTo(n) {
+                    var tabs = document.querySelectorAll('.vp-tab');
+                    var panes = document.querySelectorAll('.vp-pane');
+                    var dots = document.querySelectorAll('.vp-pdot');
+                    var fill = document.getElementById('vp-progress');
+
+                    tabs.forEach(function(t) {
+                        var active = parseInt(t.dataset.vp) === n;
+                        t.classList.toggle('active', active);
+                        t.setAttribute('aria-selected', active);
+                    });
+                    panes.forEach(function(p) { p.classList.toggle('active', parseInt(p.dataset.pane) === n); });
+                    dots.forEach(function(d) { d.classList.toggle('active', parseInt(d.dataset.vp) === n); });
+                    if (fill) fill.style.width = ((n + 1) / total * 100) + '%';
+                    cur = n;
+                }
+
+                function startAuto() {
+                    clearInterval(autoTimer);
+                    autoTimer = setInterval(function() { goTo((cur + 1) % total); }, 5000);
+                }
+
+                document.querySelectorAll('[data-vp]').forEach(function(el) {
+                    el.addEventListener('click', function() {
+                        clearInterval(autoTimer);
+                        goTo(parseInt(el.dataset.vp));
+                        startAuto();
+                    });
+                });
+
+                // Touch swipe support
+                var touchStartX = 0;
+                var body = document.querySelector('.vp-body');
+                if (body) {
+                    body.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+                    body.addEventListener('touchend', function(e) {
+                        var dx = e.changedTouches[0].clientX - touchStartX;
+                        if (Math.abs(dx) > 40) {
+                            clearInterval(autoTimer);
+                            goTo((cur + (dx < 0 ? 1 : -1) + total) % total);
+                            startAuto();
+                        }
+                    }, { passive: true });
+                }
+
+                goTo(0);
+                startAuto();
+            })();
+            </script>
         </section>
 
         <!-- 2. SERVICIOS - Cube -->
