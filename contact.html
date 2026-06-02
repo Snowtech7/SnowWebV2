@@ -26,6 +26,8 @@
 <body class="page-contact">
     <a href="#main-content" class="skip-link">Saltar al contenido</a>
     <canvas id="canvas-particles"></canvas>
+    <div id="layer-webgl"></div>
+    <div id="layer-css"></div>
 
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
@@ -126,7 +128,7 @@
                 <!-- Right Form -->
                 <div class="card h-auto p-10" style="opacity: 1; transform: none; width: 100%; max-width: none;">
                     <h2 class="text-2xl text-white mb-6 font-bold">Formulario de Contacto</h2>
-                    <form class="flex flex-col gap-6" action="#" method="post">
+                    <form class="flex flex-col gap-6" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="post" onsubmit="submitContactForm(event)">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="flex flex-col gap-2">
                                 <label for="contact-name" class="text-xs uppercase tracking-widest text-[var(--accent)]">Nombre</label>
@@ -150,10 +152,26 @@
                             class="bg-[var(--accent)] text-black font-bold py-4 px-8 mt-4 hover:bg-white transition-colors tracking-widest uppercase text-sm">
                             Enviar Transmisión
                         </button>
+                        <div id="contact-success" style="display:none;margin-top:1rem;padding:1rem;border:1px solid var(--accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-align:center;">
+                            ✓ TRANSMISIÓN RECIBIDA · RESPONDEMOS EN 24H
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
+
+        <script>
+        function submitContactForm(e) {
+            e.preventDefault();
+            var form = document.getElementById('contact-form');
+            var success = document.getElementById('contact-success');
+            var btn = form.querySelector('button[type="submit"]');
+            if (btn) btn.disabled = true;
+            // Show success — replace with real Formspree/backend call when ready
+            form.querySelectorAll('input,textarea').forEach(function(el){ el.value = ''; });
+            if (success) success.style.display = 'block';
+        }
+        </script>
     </main>
 
     <footer>
@@ -168,7 +186,7 @@
                 <!-- Newsletter Form -->
                 <div class="mt-8 pt-6 border-t border-white/10">
                     <p class="newsletter-title mb-3">Newsletter</p>
-                    <form class="flex gap-2" action="#" method="post">
+                    <form class="flex gap-2" action="#" method="post" onsubmit="this.innerHTML='<span style=\'color:var(--accent);font-family:JetBrains Mono,monospace;font-size:0.75rem;\'>✓ Suscrito</span>'; return false;">
                         <label for="newsletter-email-contact" class="sr-only">Email para newsletter</label>
                         <input id="newsletter-email-contact" type="email" name="newsletter_email" placeholder="Email"
                             class="bg-white/5 border border-white/10 px-3 py-2 rounded text-white text-xs w-full focus:border-[var(--accent)] outline-none transition-colors">

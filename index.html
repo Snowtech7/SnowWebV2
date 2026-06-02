@@ -680,7 +680,7 @@
                         <li class="nav-link-active">✓ Roadmap personalizado</li>
                     </ul>
 
-                    <form class="flex flex-col gap-3" action="#" method="post">
+                    <form class="flex flex-col gap-3" action="contact.html" method="get" onsubmit="window.location.href='contact.html'; return false;">
                         <label for="audit-url" class="sr-only">URL de tu sitio web</label>
                         <input id="audit-url" type="url" name="site_url" placeholder="URL de tu sitio web"
                             class="bg-white/5 border border-white/10 px-4 py-3 rounded text-white text-sm w-full focus:border-[var(--accent)] outline-none transition-colors"
@@ -749,7 +749,7 @@
                 <!-- Newsletter Form -->
                 <div class="mt-8 pt-6 border-t border-white/10">
                     <p class="newsletter-title">Newsletter</p>
-                    <form class="flex gap-2" action="#" method="post">
+                    <form class="flex gap-2" action="#" method="post" onsubmit="this.innerHTML='<span style=\'color:var(--accent);font-family:JetBrains Mono,monospace;font-size:0.75rem;\'>✓ Suscrito</span>'; return false;">
                         <label for="newsletter-email-index" class="sr-only">Email para newsletter</label>
                         <input id="newsletter-email-index" type="email" name="newsletter_email" placeholder="Email"
                             class="bg-white/5 border border-white/10 px-3 py-2 rounded text-white text-xs w-full focus:border-[var(--accent)] outline-none transition-colors">

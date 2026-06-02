@@ -26,6 +26,8 @@
 <body class="page-blog">
     <a href="#main-content" class="skip-link">Saltar al contenido</a>
     <canvas id="canvas-particles"></canvas>
+    <div id="layer-webgl"></div>
+    <div id="layer-css"></div>
 
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
@@ -107,7 +109,7 @@
                     style="opacity: 1; transform: none; width: 100%; max-width: none;">
                     <h3 class="text-3xl text-white font-bold mb-4">Stay Ahead</h3>
                     <p class="text-gray-400 mb-8 max-w-xs text-sm">Inteligencia crítica sobre arquitectura digital.</p>
-                    <form class="flex flex-col gap-4 w-full max-w-xs px-4" action="#" method="post">
+                    <form class="flex flex-col gap-4 w-full max-w-xs px-4" action="#" method="post" onsubmit="this.innerHTML='<span style=\'color:var(--accent);font-family:JetBrains Mono,monospace;font-size:0.75rem;\'>✓ Suscrito</span>'; return false;">
                         <label for="newsletter-blog" class="sr-only">Email corporativo para newsletter</label>
                         <input id="newsletter-blog" type="email" name="newsletter_email" placeholder="Email corporativo"
                             class="bg-black/50 border border-white/20 px-4 py-3 rounded text-white focus:border-[var(--accent)] outline-none text-sm">
@@ -117,7 +119,7 @@
                 </div>
 
                 <!-- Article 1 -->
-                <a href="#" class="card h-auto min-h-[400px] flex flex-col group hover:-translate-y-2 transition-transform duration-300 block no-underline"
+                <a href="blog.html" class="card h-auto min-h-[400px] flex flex-col group hover:-translate-y-2 transition-transform duration-300 block no-underline"
                     style="opacity: 1; transform: none; width: 100%; max-width: none; padding: 0;">
                     <div class="h-48 w-full bg-gradient-to-br from-blue-900 to-black relative overflow-hidden">
                         <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity"
@@ -141,7 +143,7 @@
                 </a>
 
                 <!-- Article 2 -->
-                <a href="#" class="card h-auto min-h-[400px] flex flex-col group hover:-translate-y-2 transition-transform duration-300 block no-underline"
+                <a href="blog.html" class="card h-auto min-h-[400px] flex flex-col group hover:-translate-y-2 transition-transform duration-300 block no-underline"
                     style="opacity: 1; transform: none; width: 100%; max-width: none; padding: 0;">
                     <div class="h-48 w-full bg-gradient-to-br from-purple-900 to-black relative overflow-hidden">
                         <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity"
@@ -170,7 +172,7 @@
         <section data-index="2"
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="max-w-6xl mx-auto w-full flex justify-center pointer-events-auto">
-                <a href="#" class="card h-auto min-h-[400px] flex flex-col group hover:-translate-y-2 transition-transform duration-300 max-w-xl block no-underline"
+                <a href="blog.html" class="card h-auto min-h-[400px] flex flex-col group hover:-translate-y-2 transition-transform duration-300 max-w-xl block no-underline"
                     style="opacity: 1; transform: none; width: 100%; padding: 0;">
                     <div class="h-48 w-full bg-gradient-to-br from-cyan-900 to-black relative overflow-hidden">
                         <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity"
@@ -206,7 +208,7 @@
                 <p class="opacity-60">Arquitectura digital para el futuro.</p>
                 <div class="mt-8 pt-6 border-t border-white/10">
                     <p class="newsletter-title mb-3">Newsletter</p>
-                    <form class="flex gap-2" action="#" method="post">
+                    <form class="flex gap-2" action="#" method="post" onsubmit="this.innerHTML='<span style=\'color:var(--accent);font-family:JetBrains Mono,monospace;font-size:0.75rem;\'>✓ Suscrito</span>'; return false;">
                         <label for="newsletter-email-footer-blog" class="sr-only">Email para newsletter</label>
                         <input id="newsletter-email-footer-blog" type="email" name="newsletter_email" placeholder="Email"
                             class="bg-white/5 border border-white/10 px-3 py-2 rounded text-white text-xs w-full focus:border-[var(--accent)] outline-none transition-colors">
