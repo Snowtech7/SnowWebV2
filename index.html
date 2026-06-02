@@ -598,14 +598,16 @@
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="max-w-6xl mx-auto w-full px-4 pointer-events-auto">
 
-                <!-- ── CLIENTES ── -->
-                <div class="sp-block-label">
-                    <span class="sp-label-line"></span>
-                    <span class="sp-label-text">Clientes</span>
-                    <span class="sp-label-line"></span>
-                </div>
+                <!-- Single container split in two -->
+                <div class="sp-container">
 
-                <div class="clients-grid">
+                <!-- ── TOP: CLIENTES ── -->
+                <div class="sp-half sp-top">
+                    <div class="sp-half-header">
+                        <span class="sp-half-tag">Resultados</span>
+                        <h2 class="sp-half-title">Clientes</h2>
+                    </div>
+                    <div class="clients-grid">
 
                     <!-- Card 1: Velox Finance -->
                     <article class="client-card" style="--cc:#00d9ff">
@@ -716,16 +718,21 @@
                         </div>
                     </article>
 
-                </div><!-- /clients-grid -->
+                    </div><!-- /clients-grid -->
+                </div><!-- /sp-top -->
 
-                <!-- ── ALIANZAS ── -->
-                <div class="sp-block-label sp-block-label--mt">
-                    <span class="sp-label-line"></span>
-                    <span class="sp-label-text">Alianzas</span>
-                    <span class="sp-label-line"></span>
+                <!-- ── DIVIDER ── -->
+                <div class="sp-divider">
+                    <span class="sp-divider-line"></span>
                 </div>
 
-                <div class="partners-strip">
+                <!-- ── BOTTOM: ALIANZAS ── -->
+                <div class="sp-half sp-bottom">
+                    <div class="sp-half-header">
+                        <span class="sp-half-tag">Ecosistema</span>
+                        <h2 class="sp-half-title">Alianzas</h2>
+                    </div>
+                    <div class="partners-strip">
 
                     <div class="partner-pill">
                         <div class="pp-logo">
@@ -775,7 +782,10 @@
                         </div>
                     </div>
 
-                </div><!-- /partners-strip -->
+                    </div><!-- /partners-strip -->
+                </div><!-- /sp-bottom -->
+
+                </div><!-- /sp-container -->
 
             </div>
         </section>
