@@ -2455,6 +2455,311 @@ section[data-index="4"].active .testimonial-card-wrapper {
     margin-top: 0.15rem;
 }
 
+/* =====================================================
+   ALIANZAS & CLIENTES — Section 4 Portfolio Grid
+   ===================================================== */
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+/* Base card */
+.client-card {
+    background: rgba(4, 8, 22, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-top: 2px solid var(--cc, var(--accent));
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease,
+                box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.client-card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45),
+                0 0 22px rgba(0,217,255,0.07);
+    transform: translateY(-3px) !important;
+}
+
+section[data-index="4"].active .client-card { opacity: 1; transform: translateY(0); }
+section[data-index="4"].active .client-card:nth-child(1) { transition-delay: 0.06s; }
+section[data-index="4"].active .client-card:nth-child(2) { transition-delay: 0.15s; }
+section[data-index="4"].active .client-card:nth-child(3) { transition-delay: 0.24s; }
+section[data-index="4"].active .client-card:nth-child(4) { transition-delay: 0.33s; }
+
+/* ── Mini web mockup (thumb) ── */
+.client-thumb {
+    height: 110px;
+    background: rgba(2, 6, 18, 0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+.ct-chrome {
+    height: 18px;
+    background: rgba(255,255,255,0.025);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    padding: 0 7px;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.ct-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0.75;
+    flex-shrink: 0;
+}
+
+.ct-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 5px;
+    color: rgba(255,255,255,0.22);
+    margin-left: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ct-body {
+    padding: 5px 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ct-hero {
+    height: 26px;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.04);
+    margin-bottom: 2px;
+}
+
+/* Placeholder lines */
+.ct-line {
+    height: 3.5px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.08);
+}
+.ct-l-h { width: 45%; }
+.ct-l-m { width: 68%; }
+.ct-l-s { width: 40%; }
+
+/* Row of chip placeholders */
+.ct-row {
+    display: flex;
+    gap: 4px;
+    margin-top: 2px;
+}
+.ct-chip {
+    flex: 1;
+    height: 14px;
+    border-radius: 2px;
+    border: 1px solid;
+}
+
+/* 2-column product grid */
+.ct-grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin-top: 2px;
+}
+.ct-pcard {
+    height: 18px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* Sidebar layout */
+.ct-sidebar-layout {
+    display: flex;
+    gap: 5px;
+    margin-top: 2px;
+    flex: 1;
+}
+.ct-sidebar {
+    width: 20px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+.ct-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* ── Card body ── */
+.client-body {
+    padding: 0.85rem;
+}
+
+.client-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.client-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.12em;
+}
+
+.client-kpi {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+    border: 1px solid;
+    white-space: nowrap;
+}
+
+.client-desc {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.55;
+    margin-bottom: 0.65rem;
+}
+
+.client-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.client-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(0,217,255,0.55);
+    border: 1px solid rgba(0,217,255,0.15);
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+/* ── CTA Card ── */
+.client-card--cta {
+    background: rgba(0,217,255,0.025);
+    border: 1px dashed rgba(0,217,255,0.22);
+    border-top: 2px dashed rgba(0,217,255,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+}
+
+.client-cta-inner {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.client-cta-plus {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    color: rgba(0,217,255,0.35);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    animation: vpDotPulse 2.5s ease-in-out infinite;
+}
+
+.client-cta-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.client-cta-sub {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.client-cta-btn {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(0,217,255,0.3);
+    padding: 6px 14px;
+    border-radius: 3px;
+    transition: all 0.25s ease;
+}
+.client-cta-btn:hover {
+    background: rgba(0,217,255,0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(0,217,255,0.2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section[data-index="4"] {
+        height: auto !important;
+        min-height: 100dvh;
+        padding-top: calc(4.5rem + var(--safe-top));
+        padding-bottom: calc(2rem + var(--safe-bottom));
+        justify-content: flex-start;
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.65rem;
+    }
+
+    .client-thumb { height: 90px; }
+    .ct-hero { height: 20px; }
+    .client-body { padding: 0.65rem; }
+    .client-logo { font-size: 0.7rem; }
+    .client-kpi { font-size: 0.55rem; }
+    .client-desc { font-size: 0.65rem; }
+    .client-tag { font-size: 0.45rem; }
+    .client-card--cta { min-height: 160px; }
+    .client-cta-plus { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .client-cta-title { font-size: 0.8rem; }
+    .client-cta-sub { font-size: 0.62rem; }
+}
+
+@media (max-width: 480px) {
+    .clients-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    .client-thumb { height: 75px; }
+    .ct-chrome { height: 14px; }
+    .ct-hero { height: 16px; }
+}
+
 /* FAQ Styling */
 .faq-container {
     display: flex;

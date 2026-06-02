@@ -593,51 +593,127 @@
             </div>
         </section>
 
-        <!-- 4. SOCIAL PROOF - Trust Signals (moved from index 3) -->
+        <!-- 4. ALIANZAS & CLIENTES - Portfolio -->
         <section data-index="4"
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
-            <div class="max-w-6xl mx-auto w-full px-6 pointer-events-auto">
-                <div class="text-center mb-10">
+            <div class="max-w-6xl mx-auto w-full px-4 pointer-events-auto">
+                <div class="text-center mb-8">
                     <div class="tag-line flex-center">Resultados</div>
-                    <h2 class="section-h2">Métricas Que Importan</h2>
+                    <h2 class="section-h2">Alianzas & Clientes</h2>
+                    <p class="section-desc">Empresas que confiaron en nuestra arquitectura digital.</p>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 text-center">
-                    <div class="metric-item">
-                        <div class="metric-value">+300%</div>
-                        <div class="metric-divider"></div>
-                        <div class="metric-label-small">Leads cualificados</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-value">24/7</div>
-                        <div class="metric-divider"></div>
-                        <div class="metric-label-small">Disponibilidad</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-value">20h</div>
-                        <div class="metric-divider"></div>
-                        <div class="metric-label-small">Ahorro semanal</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-value">0%</div>
-                        <div class="metric-divider"></div>
-                        <div class="metric-label-small">Leads perdidos</div>
-                    </div>
-                </div>
+                <div class="clients-grid">
 
-                <!-- Testimonial/Quote -->
-                <div class="card testimonial-card-wrapper max-w-2xl mx-auto mt-12 p-8 border-white/10 text-center">
-                    <p class="testimonial-quote">
-                        "Pasamos de responder emails manualmente a tener un sistema que califica, nurtura y cierra
-                        ventas mientras dormimos."
-                    </p>
-                    <div class="testimonial-author-wrapper">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <div class="author-name">María García</div>
-                            <div class="author-title">CEO, TechStartup</div>
+                    <!-- Card 1: Velox Finance -->
+                    <article class="client-card" style="--cc:#00d9ff">
+                        <div class="client-thumb">
+                            <div class="ct-chrome">
+                                <span class="ct-dot" style="background:#ff5f57"></span>
+                                <span class="ct-dot" style="background:#febc2e"></span>
+                                <span class="ct-dot" style="background:#28c840"></span>
+                                <span class="ct-url">veloxfinance.io</span>
+                            </div>
+                            <div class="ct-body">
+                                <div class="ct-hero" style="background:linear-gradient(120deg,rgba(0,120,220,0.35) 0%,rgba(0,217,255,0.08) 100%)"></div>
+                                <div class="ct-line ct-l-h"></div>
+                                <div class="ct-line ct-l-m"></div>
+                                <div class="ct-row">
+                                    <div class="ct-chip" style="background:rgba(0,217,255,0.12);border-color:rgba(0,217,255,0.2)"></div>
+                                    <div class="ct-chip" style="background:rgba(0,217,255,0.07);border-color:rgba(0,217,255,0.12)"></div>
+                                    <div class="ct-chip" style="background:rgba(0,217,255,0.05);border-color:rgba(0,217,255,0.08)"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="client-body">
+                            <div class="client-header">
+                                <span class="client-logo">VELOX</span>
+                                <span class="client-kpi" style="color:var(--cc);border-color:rgba(0,217,255,0.3);box-shadow:0 0 10px rgba(0,217,255,0.15)">+340% leads</span>
+                            </div>
+                            <p class="client-desc">SaaS de gestión financiera para PYMEs. Agente de ventas IA con pipeline automatizado.</p>
+                            <div class="client-tags">
+                                <span class="client-tag">Presencia Digital</span>
+                                <span class="client-tag">Agente IA</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Nexis Store -->
+                    <article class="client-card" style="--cc:#8b5cf6">
+                        <div class="client-thumb">
+                            <div class="ct-chrome">
+                                <span class="ct-dot" style="background:#ff5f57"></span>
+                                <span class="ct-dot" style="background:#febc2e"></span>
+                                <span class="ct-dot" style="background:#28c840"></span>
+                                <span class="ct-url">nexisstore.com</span>
+                            </div>
+                            <div class="ct-body">
+                                <div class="ct-hero" style="background:linear-gradient(120deg,rgba(139,92,246,0.3) 0%,rgba(0,0,0,0) 100%)"></div>
+                                <div class="ct-grid2">
+                                    <div class="ct-pcard"></div>
+                                    <div class="ct-pcard"></div>
+                                    <div class="ct-pcard"></div>
+                                    <div class="ct-pcard"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="client-body">
+                            <div class="client-header">
+                                <span class="client-logo">NEXIS</span>
+                                <span class="client-kpi" style="color:#8b5cf6;border-color:rgba(139,92,246,0.35);box-shadow:0 0 10px rgba(139,92,246,0.18)">3× conversión</span>
+                            </div>
+                            <p class="client-desc">E-commerce de moda sostenible. Funnels automatizados y nurturing de leads 24/7.</p>
+                            <div class="client-tags">
+                                <span class="client-tag">Automatización</span>
+                                <span class="client-tag">CRM</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Orbita Agency -->
+                    <article class="client-card" style="--cc:#22c55e">
+                        <div class="client-thumb">
+                            <div class="ct-chrome">
+                                <span class="ct-dot" style="background:#ff5f57"></span>
+                                <span class="ct-dot" style="background:#febc2e"></span>
+                                <span class="ct-dot" style="background:#28c840"></span>
+                                <span class="ct-url">orbitaagency.co</span>
+                            </div>
+                            <div class="ct-body">
+                                <div class="ct-hero" style="background:linear-gradient(120deg,rgba(34,197,94,0.2) 0%,rgba(0,0,0,0) 100%)"></div>
+                                <div class="ct-sidebar-layout">
+                                    <div class="ct-sidebar"></div>
+                                    <div class="ct-main">
+                                        <div class="ct-line ct-l-h" style="width:85%"></div>
+                                        <div class="ct-line ct-l-m" style="width:70%"></div>
+                                        <div class="ct-line ct-l-s" style="width:55%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="client-body">
+                            <div class="client-header">
+                                <span class="client-logo">ORBITA</span>
+                                <span class="client-kpi" style="color:#22c55e;border-color:rgba(34,197,94,0.35);box-shadow:0 0 10px rgba(34,197,94,0.18)">−20h/sem</span>
+                            </div>
+                            <p class="client-desc">Agencia creativa. Operaciones IA que liberaron 20 horas semanales del equipo creativo.</p>
+                            <div class="client-tags">
+                                <span class="client-tag">Operaciones IA</span>
+                                <span class="client-tag">Automatización</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: CTA -->
+                    <article class="client-card client-card--cta">
+                        <div class="client-cta-inner">
+                            <div class="client-cta-plus">+</div>
+                            <h3 class="client-cta-title">Tu empresa<br>aquí</h3>
+                            <p class="client-cta-sub">Únete a las empresas que ya evolucionaron su presencia digital.</p>
+                            <a href="contact.html" class="client-cta-btn pointer-events-auto">Agendar Auditoría</a>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
