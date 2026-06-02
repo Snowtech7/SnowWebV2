@@ -2878,22 +2878,24 @@ section[data-index="4"].active .partner-pill:nth-child(4) { transition-delay: 0.
 section[data-index="4"].active .partner-pill:nth-child(5) { transition-delay: 0.67s; }
 
 .pp-logo {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: rgba(255,255,255,0.5);
-    background: rgba(255,255,255,0.04);
+    background: rgba(0,217,255,0.06);
+    border: 1px solid rgba(0,217,255,0.15);
     border-radius: 4px;
 }
-.pp-logo svg { width: 16px; height: 16px; }
-.pp-logo--text {
+
+.pp-mono {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.55);
+    color: rgba(0,217,255,0.7);
+    letter-spacing: -0.02em;
+    line-height: 1;
 }
 
 .pp-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
