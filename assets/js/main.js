@@ -121,17 +121,17 @@ function animate() {
     }
 
     updateShapes(shapes, PHYSICS, isSimplePage, isDesktop);
-    updateCube(PHYSICS, isSimplePage, now, isDesktop);
+    if (!isSimplePage) updateCube(PHYSICS, isSimplePage, now, isDesktop);
     updatePartners(partnerGroup, PHYSICS, isSimplePage, now, isDesktop);
 
-    // 3. Render
-    // Only render WebGL if NOT single/simple page
-    if (!isSimplePage && state.renderer && state.scene && state.camera) {
-        state.renderer.render(state.scene, state.camera);
-    }
-
-    if (state.cssRenderer && state.cssScene && state.camera) {
-        state.cssRenderer.render(state.cssScene, state.camera);
+    // 3. Render — skip all 3D on simple pages (services, about)
+    if (!isSimplePage) {
+        if (state.renderer && state.scene && state.camera) {
+            state.renderer.render(state.scene, state.camera);
+        }
+        if (state.cssRenderer && state.cssScene && state.camera) {
+            state.cssRenderer.render(state.cssScene, state.camera);
+        }
     }
 }
 animate();
