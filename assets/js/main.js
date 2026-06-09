@@ -61,8 +61,8 @@ if (state.scene) {
 }
 
 if (state.cssScene) {
-    // Cube logic: usually on Home and Services, but user wants it gone from About
-    if (!isAboutPage) {
+    // Cube only on Home page
+    if (!isSimplePage) {
         cssGroup = createCSSCube(state.cssScene);
     }
 
