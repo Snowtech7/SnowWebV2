@@ -23,7 +23,8 @@
     <!-- Fonts: preconnect + single request, font-display:swap evita FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
 
     <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -54,7 +55,7 @@
     <!-- ===== HERO VIDEO INTRO ===== -->
     <div id="hero-intro" role="presentation" aria-hidden="true">
         <video id="intro-video" muted playsinline preload="auto">
-            <source src="assets/scene-hero.mp4" type="video/mp4">
+            <source src="assets/Hero video.mp4" type="video/mp4">
         </video>
         <div id="video-end-fade"></div>
         <div id="intro-hint" aria-hidden="true">
@@ -75,19 +76,22 @@
             <a href="index.html" class="header-logo-container pointer-events-auto">
                 <picture>
                     <source srcset="assets/logo.webp" type="image/webp">
-                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="header-logo-img" width="40" height="40" loading="eager">
+                    <img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="header-logo-img" width="40"
+                        height="40" loading="eager">
                 </picture>
                 <span>SNOW TECH</span>
             </a>
             <div class="nav-desktop hidden md:flex pointer-events-auto">
-                <a href="index.html" class="nav-link nav-link-active">INICIO</a>
+                <a href="https://snowtech7.github.io/SnowWebV2/" class="nav-link nav-link-active">INICIO</a>
                 <a href="about.html" class="nav-link">NOSOTROS</a>
                 <a href="services.html" class="nav-link">SERVICIOS</a>
                 <a href="contact.html" class="nav-link">CONTACTO</a>
                 <a href="blog.html" class="nav-link">BLOG</a>
                 <a href="contact.html" class="cta-header">Auditoría Gratuita</a>
             </div>
-            <button type="button" class="mobile-menu-btn md:hidden pointer-events-auto" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-overlay" id="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <button type="button" class="mobile-menu-btn md:hidden pointer-events-auto"
+                aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-overlay"
+                id="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
     </header>
 
@@ -104,7 +108,8 @@
 
     <!-- MOBILE OVERLAY -->
     <div id="mobile-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
-        <button type="button" onclick="toggleMobileMenu()" class="mobile-overlay-close" aria-label="Cerrar menú">✕</button>
+        <button type="button" onclick="toggleMobileMenu()" class="mobile-overlay-close"
+            aria-label="Cerrar menú">✕</button>
         <a href="index.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">INICIO</a>
         <a href="about.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">NOSOTROS</a>
         <a href="services.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">SERVICIOS</a>
@@ -151,7 +156,8 @@
                 <div class="scroll-line"></div>
                 <div class="scroll-chevron">
                     <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
-                        <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                 </div>
             </div>
@@ -200,7 +206,8 @@
                             <div class="vp-pane-left">
                                 <div class="vp-num">01</div>
                                 <h3 class="vp-title">Presencia<br>Inteligente</h3>
-                                <p class="vp-desc">Tu web deja de ser un folleto estático. Un sistema IA responde, califica y guía visitantes en tiempo real, sin intervención humana.</p>
+                                <p class="vp-desc">Tu web deja de ser un folleto estático. Un sistema IA responde,
+                                    califica y guía visitantes en tiempo real, sin intervención humana.</p>
                                 <ul class="vp-list">
                                     <li>Web de alto impacto</li>
                                     <li>Chatbot IA integrado</li>
@@ -211,60 +218,87 @@
                             <div class="vp-pane-right" aria-hidden="true">
                                 <svg class="vp-diagram" viewBox="0 0 220 192" xmlns="http://www.w3.org/2000/svg">
                                     <!-- ── BROWSER WINDOW ── -->
-                                    <rect x="4" y="2" width="212" height="96" rx="5" fill="rgba(5,10,25,0.7)" stroke="rgba(0,217,255,0.18)" stroke-width="1"/>
+                                    <rect x="4" y="2" width="212" height="96" rx="5" fill="rgba(5,10,25,0.7)"
+                                        stroke="rgba(0,217,255,0.18)" stroke-width="1" />
                                     <!-- Chrome bar -->
-                                    <rect x="4" y="2" width="212" height="19" rx="5" fill="rgba(0,217,255,0.05)"/>
-                                    <rect x="4" y="16" width="212" height="5" fill="rgba(0,217,255,0.05)"/>
+                                    <rect x="4" y="2" width="212" height="19" rx="5" fill="rgba(0,217,255,0.05)" />
+                                    <rect x="4" y="16" width="212" height="5" fill="rgba(0,217,255,0.05)" />
                                     <!-- Traffic lights -->
-                                    <circle cx="16" cy="11" r="3.2" fill="#ff5f57" opacity="0.75"/>
-                                    <circle cx="25" cy="11" r="3.2" fill="#febc2e" opacity="0.75"/>
-                                    <circle cx="34" cy="11" r="3.2" fill="#28c840" opacity="0.75"/>
+                                    <circle cx="16" cy="11" r="3.2" fill="#ff5f57" opacity="0.75" />
+                                    <circle cx="25" cy="11" r="3.2" fill="#febc2e" opacity="0.75" />
+                                    <circle cx="34" cy="11" r="3.2" fill="#28c840" opacity="0.75" />
                                     <!-- URL bar -->
-                                    <rect x="46" y="6" width="118" height="10" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-                                    <circle cx="52" cy="11" r="2.5" fill="rgba(74,222,128,0.5)"/>
-                                    <text x="58" y="14" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.35)">snowtech.io</text>
+                                    <rect x="46" y="6" width="118" height="10" rx="3" fill="rgba(255,255,255,0.04)"
+                                        stroke="rgba(255,255,255,0.08)" stroke-width="0.5" />
+                                    <circle cx="52" cy="11" r="2.5" fill="rgba(74,222,128,0.5)" />
+                                    <text x="58" y="14" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.35)">snowtech.io</text>
                                     <!-- Hero banner zone -->
-                                    <rect x="8" y="22" width="204" height="38" rx="2" fill="rgba(0,217,255,0.04)" stroke="rgba(0,217,255,0.08)" stroke-width="0.5"/>
+                                    <rect x="8" y="22" width="204" height="38" rx="2" fill="rgba(0,217,255,0.04)"
+                                        stroke="rgba(0,217,255,0.08)" stroke-width="0.5" />
                                     <!-- H1 + subtitle placeholder lines -->
-                                    <rect x="16" y="28" width="72" height="5" rx="1" fill="rgba(255,255,255,0.22)"/>
-                                    <rect x="16" y="36" width="48" height="3.5" rx="1" fill="rgba(255,255,255,0.1)"/>
+                                    <rect x="16" y="28" width="72" height="5" rx="1" fill="rgba(255,255,255,0.22)" />
+                                    <rect x="16" y="36" width="48" height="3.5" rx="1" fill="rgba(255,255,255,0.1)" />
                                     <!-- CTA button -->
-                                    <rect x="16" y="43" width="30" height="9" rx="2" fill="rgba(0,217,255,0.28)" stroke="rgba(0,217,255,0.6)" stroke-width="0.8"/>
-                                    <text x="31" y="50" font-family="JetBrains Mono,monospace" font-size="5" fill="rgba(0,217,255,0.95)" text-anchor="middle">DEMO</text>
+                                    <rect x="16" y="43" width="30" height="9" rx="2" fill="rgba(0,217,255,0.28)"
+                                        stroke="rgba(0,217,255,0.6)" stroke-width="0.8" />
+                                    <text x="31" y="50" font-family="JetBrains Mono,monospace" font-size="5"
+                                        fill="rgba(0,217,255,0.95)" text-anchor="middle">DEMO</text>
                                     <!-- Hero right: abstract shape placeholder -->
-                                    <rect x="130" y="26" width="74" height="28" rx="2" fill="rgba(0,217,255,0.06)" stroke="rgba(0,217,255,0.1)" stroke-width="0.5"/>
-                                    <line x1="136" y1="32" x2="198" y2="32" stroke="rgba(0,217,255,0.12)" stroke-width="0.8"/>
-                                    <line x1="136" y1="38" x2="188" y2="38" stroke="rgba(0,217,255,0.08)" stroke-width="0.8"/>
-                                    <line x1="136" y1="44" x2="172" y2="44" stroke="rgba(0,217,255,0.06)" stroke-width="0.8"/>
+                                    <rect x="130" y="26" width="74" height="28" rx="2" fill="rgba(0,217,255,0.06)"
+                                        stroke="rgba(0,217,255,0.1)" stroke-width="0.5" />
+                                    <line x1="136" y1="32" x2="198" y2="32" stroke="rgba(0,217,255,0.12)"
+                                        stroke-width="0.8" />
+                                    <line x1="136" y1="38" x2="188" y2="38" stroke="rgba(0,217,255,0.08)"
+                                        stroke-width="0.8" />
+                                    <line x1="136" y1="44" x2="172" y2="44" stroke="rgba(0,217,255,0.06)"
+                                        stroke-width="0.8" />
                                     <!-- Content body lines -->
-                                    <rect x="8" y="64" width="140" height="3.5" rx="1" fill="rgba(255,255,255,0.07)"/>
-                                    <rect x="8" y="70" width="120" height="3.5" rx="1" fill="rgba(255,255,255,0.05)"/>
-                                    <rect x="8" y="76" width="100" height="3.5" rx="1" fill="rgba(255,255,255,0.04)"/>
+                                    <rect x="8" y="64" width="140" height="3.5" rx="1" fill="rgba(255,255,255,0.07)" />
+                                    <rect x="8" y="70" width="120" height="3.5" rx="1" fill="rgba(255,255,255,0.05)" />
+                                    <rect x="8" y="76" width="100" height="3.5" rx="1" fill="rgba(255,255,255,0.04)" />
                                     <!-- Service cards row -->
-                                    <rect x="8"  y="83" width="44" height="12" rx="2" fill="rgba(0,217,255,0.07)" stroke="rgba(0,217,255,0.15)" stroke-width="0.5"/>
-                                    <rect x="56" y="83" width="44" height="12" rx="2" fill="rgba(0,217,255,0.07)" stroke="rgba(0,217,255,0.15)" stroke-width="0.5"/>
-                                    <rect x="104" y="83" width="44" height="12" rx="2" fill="rgba(0,217,255,0.07)" stroke="rgba(0,217,255,0.15)" stroke-width="0.5"/>
+                                    <rect x="8" y="83" width="44" height="12" rx="2" fill="rgba(0,217,255,0.07)"
+                                        stroke="rgba(0,217,255,0.15)" stroke-width="0.5" />
+                                    <rect x="56" y="83" width="44" height="12" rx="2" fill="rgba(0,217,255,0.07)"
+                                        stroke="rgba(0,217,255,0.15)" stroke-width="0.5" />
+                                    <rect x="104" y="83" width="44" height="12" rx="2" fill="rgba(0,217,255,0.07)"
+                                        stroke="rgba(0,217,255,0.15)" stroke-width="0.5" />
                                     <!-- Chatbot bubble (bottom-right, pulsing) -->
-                                    <circle cx="200" cy="87" r="9" fill="rgba(0,217,255,0.12)" stroke="rgba(0,217,255,0.55)" stroke-width="1" class="vp-glow-pulse"/>
-                                    <text x="200" y="91" font-family="sans-serif" font-size="9" text-anchor="middle">💬</text>
+                                    <circle cx="200" cy="87" r="9" fill="rgba(0,217,255,0.12)"
+                                        stroke="rgba(0,217,255,0.55)" stroke-width="1" class="vp-glow-pulse" />
+                                    <text x="200" y="91" font-family="sans-serif" font-size="9"
+                                        text-anchor="middle">💬</text>
 
                                     <!-- ── FUNNEL ── -->
-                                    <text x="4" y="109" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.18)" letter-spacing="0.2em">CONVERSION FUNNEL</text>
+                                    <text x="4" y="109" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.18)" letter-spacing="0.2em">CONVERSION FUNNEL</text>
                                     <!-- Stage 1: VISITAS (full width 212) -->
-                                    <polygon points="4,113 178,113 172,129 10,129" fill="rgba(0,217,255,0.18)" class="vp-bar-in" style="transform-origin:left center"/>
-                                    <text x="10" y="124" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(255,255,255,0.55)">VISITAS</text>
-                                    <text x="184" y="124" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(0,217,255,0.7)" text-anchor="start">847/d</text>
+                                    <polygon points="4,113 178,113 172,129 10,129" fill="rgba(0,217,255,0.18)"
+                                        class="vp-bar-in" style="transform-origin:left center" />
+                                    <text x="10" y="124" font-family="JetBrains Mono,monospace" font-size="6"
+                                        fill="rgba(255,255,255,0.55)">VISITAS</text>
+                                    <text x="184" y="124" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(0,217,255,0.7)" text-anchor="start">847/d</text>
                                     <!-- Stage 2: ENGAGEMENT (70%) -->
-                                    <polygon points="10,131 172,131 162,147 20,147" fill="rgba(0,217,255,0.13)" class="vp-bar-in" style="transform-origin:left center;animation-delay:0.1s"/>
-                                    <text x="16" y="142" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(255,255,255,0.45)">CHATBOT IA</text>
-                                    <text x="168" y="142" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(0,217,255,0.6)" text-anchor="start">24/7</text>
+                                    <polygon points="10,131 172,131 162,147 20,147" fill="rgba(0,217,255,0.13)"
+                                        class="vp-bar-in" style="transform-origin:left center;animation-delay:0.1s" />
+                                    <text x="16" y="142" font-family="JetBrains Mono,monospace" font-size="6"
+                                        fill="rgba(255,255,255,0.45)">CHATBOT IA</text>
+                                    <text x="168" y="142" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(0,217,255,0.6)" text-anchor="start">24/7</text>
                                     <!-- Stage 3: CALIFICADO (42%) -->
-                                    <polygon points="20,149 162,149 148,165 34,165" fill="rgba(0,217,255,0.09)" class="vp-bar-in" style="transform-origin:left center;animation-delay:0.2s"/>
-                                    <text x="28" y="160" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(255,255,255,0.4)">CALIFICADO</text>
-                                    <text x="154" y="160" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(0,217,255,0.55)" text-anchor="start">312</text>
+                                    <polygon points="20,149 162,149 148,165 34,165" fill="rgba(0,217,255,0.09)"
+                                        class="vp-bar-in" style="transform-origin:left center;animation-delay:0.2s" />
+                                    <text x="28" y="160" font-family="JetBrains Mono,monospace" font-size="6"
+                                        fill="rgba(255,255,255,0.4)">CALIFICADO</text>
+                                    <text x="154" y="160" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(0,217,255,0.55)" text-anchor="start">312</text>
                                     <!-- Stage 4: LEAD (22%, green) -->
-                                    <polygon points="34,167 148,167 136,183 46,183" fill="rgba(74,222,128,0.25)" class="vp-bar-in" style="transform-origin:left center;animation-delay:0.3s"/>
-                                    <text x="48" y="178" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(74,222,128,0.85)" font-weight="700">LEAD  +300%</text>
+                                    <polygon points="34,167 148,167 136,183 46,183" fill="rgba(74,222,128,0.25)"
+                                        class="vp-bar-in" style="transform-origin:left center;animation-delay:0.3s" />
+                                    <text x="48" y="178" font-family="JetBrains Mono,monospace" font-size="6"
+                                        fill="rgba(74,222,128,0.85)" font-weight="700">LEAD +300%</text>
                                 </svg>
                             </div>
                         </div>
@@ -274,7 +308,8 @@
                             <div class="vp-pane-left">
                                 <div class="vp-num">02</div>
                                 <h3 class="vp-title">Automatización<br>Total</h3>
-                                <p class="vp-desc">Funnels, CRM y seguimiento que operan solos. Tu pipeline de ventas se ejecuta mientras duermes, sin un solo clic manual.</p>
+                                <p class="vp-desc">Funnels, CRM y seguimiento que operan solos. Tu pipeline de ventas se
+                                    ejecuta mientras duermes, sin un solo clic manual.</p>
                                 <ul class="vp-list">
                                     <li>Funnels automatizados</li>
                                     <li>CRM integrado</li>
@@ -286,92 +321,130 @@
                                 <svg class="vp-diagram" viewBox="0 0 220 192" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
                                         <!-- Arrow marker -->
-                                        <marker id="n8n-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                                            <path d="M0,0.5 L5,3 L0,5.5 Z" fill="rgba(0,217,255,0.55)"/>
+                                        <marker id="n8n-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                                            orient="auto">
+                                            <path d="M0,0.5 L5,3 L0,5.5 Z" fill="rgba(0,217,255,0.55)" />
                                         </marker>
                                         <!-- Green arrow -->
-                                        <marker id="n8n-arrow-g" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                                            <path d="M0,0.5 L5,3 L0,5.5 Z" fill="rgba(74,222,128,0.7)"/>
+                                        <marker id="n8n-arrow-g" markerWidth="6" markerHeight="6" refX="5" refY="3"
+                                            orient="auto">
+                                            <path d="M0,0.5 L5,3 L0,5.5 Z" fill="rgba(74,222,128,0.7)" />
                                         </marker>
                                     </defs>
                                     <!-- Dotted grid background (n8n aesthetic) -->
-                                    <pattern id="n8n-grid" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
-                                        <circle cx="7" cy="7" r="0.7" fill="rgba(255,255,255,0.04)"/>
+                                    <pattern id="n8n-grid" x="0" y="0" width="14" height="14"
+                                        patternUnits="userSpaceOnUse">
+                                        <circle cx="7" cy="7" r="0.7" fill="rgba(255,255,255,0.04)" />
                                     </pattern>
-                                    <rect width="220" height="192" fill="url(#n8n-grid)"/>
+                                    <rect width="220" height="192" fill="url(#n8n-grid)" />
 
                                     <!-- ── ROW 1 NODES ── -->
                                     <!-- Node: WEBHOOK (trigger – amber) -->
-                                    <rect x="2" y="28" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-                                    <rect x="2" y="28" width="3" height="24" rx="2" fill="#f59e0b"/>
-                                    <text x="10" y="37" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.45)">TRIGGER</text>
-                                    <text x="10" y="46" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(255,255,255,0.9)" font-weight="700">WEBHOOK</text>
-                                    <circle cx="50" cy="40" r="3" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.7)" stroke-width="0.8" class="vp-glow-pulse"/>
+                                    <rect x="2" y="28" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)"
+                                        stroke="rgba(255,255,255,0.1)" stroke-width="0.8" />
+                                    <rect x="2" y="28" width="3" height="24" rx="2" fill="#f59e0b" />
+                                    <text x="10" y="37" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.45)">TRIGGER</text>
+                                    <text x="10" y="46" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(255,255,255,0.9)" font-weight="700">WEBHOOK</text>
+                                    <circle cx="50" cy="40" r="3" fill="rgba(245,158,11,0.2)"
+                                        stroke="rgba(245,158,11,0.7)" stroke-width="0.8" class="vp-glow-pulse" />
 
                                     <!-- Node: FILTRAR IA (action – cyan) -->
-                                    <rect x="70" y="28" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-                                    <rect x="70" y="28" width="3" height="24" rx="2" fill="#00d9ff"/>
-                                    <text x="78" y="37" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.45)">IA NODE</text>
-                                    <text x="78" y="46" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(255,255,255,0.9)" font-weight="700">FILTRAR</text>
+                                    <rect x="70" y="28" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)"
+                                        stroke="rgba(255,255,255,0.1)" stroke-width="0.8" />
+                                    <rect x="70" y="28" width="3" height="24" rx="2" fill="#00d9ff" />
+                                    <text x="78" y="37" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.45)">IA NODE</text>
+                                    <text x="78" y="46" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(255,255,255,0.9)" font-weight="700">FILTRAR</text>
 
                                     <!-- Node: NURTURE EMAIL (action – cyan) -->
-                                    <rect x="138" y="28" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-                                    <rect x="138" y="28" width="3" height="24" rx="2" fill="#00d9ff"/>
-                                    <text x="146" y="37" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.45)">EMAIL</text>
-                                    <text x="146" y="46" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(255,255,255,0.9)" font-weight="700">NURTURE</text>
+                                    <rect x="138" y="28" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)"
+                                        stroke="rgba(255,255,255,0.1)" stroke-width="0.8" />
+                                    <rect x="138" y="28" width="3" height="24" rx="2" fill="#00d9ff" />
+                                    <text x="146" y="37" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.45)">EMAIL</text>
+                                    <text x="146" y="46" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(255,255,255,0.9)" font-weight="700">NURTURE</text>
 
                                     <!-- ── ROW 2 NODES ── -->
                                     <!-- Node: CRM LOG (purple) -->
-                                    <rect x="70" y="110" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-                                    <rect x="70" y="110" width="3" height="24" rx="2" fill="#8b5cf6"/>
-                                    <text x="78" y="119" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.45)">DATABASE</text>
-                                    <text x="78" y="128" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(255,255,255,0.9)" font-weight="700">CRM LOG</text>
+                                    <rect x="70" y="110" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)"
+                                        stroke="rgba(255,255,255,0.1)" stroke-width="0.8" />
+                                    <rect x="70" y="110" width="3" height="24" rx="2" fill="#8b5cf6" />
+                                    <text x="78" y="119" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.45)">DATABASE</text>
+                                    <text x="78" y="128" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(255,255,255,0.9)" font-weight="700">CRM LOG</text>
 
                                     <!-- Node: CERRADO (green – success) -->
-                                    <rect x="138" y="110" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)" stroke="rgba(74,222,128,0.3)" stroke-width="0.8"/>
-                                    <rect x="138" y="110" width="3" height="24" rx="2" fill="#22c55e"/>
-                                    <text x="146" y="119" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.45)">OUTPUT</text>
-                                    <text x="146" y="128" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(74,222,128,0.95)" font-weight="700">CERRADO ✓</text>
+                                    <rect x="138" y="110" width="54" height="24" rx="3" fill="rgba(15,18,38,0.95)"
+                                        stroke="rgba(74,222,128,0.3)" stroke-width="0.8" />
+                                    <rect x="138" y="110" width="3" height="24" rx="2" fill="#22c55e" />
+                                    <text x="146" y="119" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.45)">OUTPUT</text>
+                                    <text x="146" y="128" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(74,222,128,0.95)" font-weight="700">CERRADO ✓</text>
 
                                     <!-- ── CONNECTIONS (bezier curves) ── -->
                                     <!-- WEBHOOK → FILTRAR (horizontal) -->
-                                    <path d="M56,40 C63,40 63,40 70,40" stroke="rgba(0,217,255,0.45)" stroke-width="1" fill="none" marker-end="url(#n8n-arrow)" class="vp-dash-flow"/>
+                                    <path d="M56,40 C63,40 63,40 70,40" stroke="rgba(0,217,255,0.45)" stroke-width="1"
+                                        fill="none" marker-end="url(#n8n-arrow)" class="vp-dash-flow" />
 
                                     <!-- FILTRAR → NURTURE (horizontal) -->
-                                    <path d="M124,40 C131,40 131,40 138,40" stroke="rgba(0,217,255,0.45)" stroke-width="1" fill="none" marker-end="url(#n8n-arrow)" class="vp-dash-flow"/>
+                                    <path d="M124,40 C131,40 131,40 138,40" stroke="rgba(0,217,255,0.45)"
+                                        stroke-width="1" fill="none" marker-end="url(#n8n-arrow)"
+                                        class="vp-dash-flow" />
 
                                     <!-- FILTRAR → CRM LOG (downward branch) -->
-                                    <path d="M97,52 C97,75 97,90 97,110" stroke="rgba(139,92,246,0.5)" stroke-width="1" fill="none" marker-end="url(#n8n-arrow)" stroke-dasharray="4 3" class="vp-dash-flow"/>
+                                    <path d="M97,52 C97,75 97,90 97,110" stroke="rgba(139,92,246,0.5)" stroke-width="1"
+                                        fill="none" marker-end="url(#n8n-arrow)" stroke-dasharray="4 3"
+                                        class="vp-dash-flow" />
 
                                     <!-- NURTURE → CERRADO (downward) -->
-                                    <path d="M165,52 C165,75 165,90 165,110" stroke="rgba(74,222,128,0.45)" stroke-width="1" fill="none" marker-end="url(#n8n-arrow-g)" stroke-dasharray="4 3" class="vp-dash-flow"/>
+                                    <path d="M165,52 C165,75 165,90 165,110" stroke="rgba(74,222,128,0.45)"
+                                        stroke-width="1" fill="none" marker-end="url(#n8n-arrow-g)"
+                                        stroke-dasharray="4 3" class="vp-dash-flow" />
 
                                     <!-- CRM LOG → CERRADO (horizontal) -->
-                                    <path d="M124,122 C131,122 131,122 138,122" stroke="rgba(74,222,128,0.45)" stroke-width="1" fill="none" marker-end="url(#n8n-arrow-g)" class="vp-dash-flow"/>
+                                    <path d="M124,122 C131,122 131,122 138,122" stroke="rgba(74,222,128,0.45)"
+                                        stroke-width="1" fill="none" marker-end="url(#n8n-arrow-g)"
+                                        class="vp-dash-flow" />
 
                                     <!-- Branch labels -->
-                                    <text x="99" y="84" font-family="JetBrains Mono,monospace" font-size="5" fill="rgba(139,92,246,0.55)" transform="rotate(-90,99,84)">LOG</text>
-                                    <text x="167" y="84" font-family="JetBrains Mono,monospace" font-size="5" fill="rgba(74,222,128,0.45)" transform="rotate(-90,167,84)">SEND</text>
+                                    <text x="99" y="84" font-family="JetBrains Mono,monospace" font-size="5"
+                                        fill="rgba(139,92,246,0.55)" transform="rotate(-90,99,84)">LOG</text>
+                                    <text x="167" y="84" font-family="JetBrains Mono,monospace" font-size="5"
+                                        fill="rgba(74,222,128,0.45)" transform="rotate(-90,167,84)">SEND</text>
 
                                     <!-- ── EXECUTION STATS ── -->
-                                    <line x1="2" y1="145" x2="218" y2="145" stroke="rgba(0,217,255,0.07)" stroke-width="1"/>
-                                    <text x="2" y="157" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.18)">ÚLTIMAS EJECUCIONES</text>
+                                    <line x1="2" y1="145" x2="218" y2="145" stroke="rgba(0,217,255,0.07)"
+                                        stroke-width="1" />
+                                    <text x="2" y="157" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.18)">ÚLTIMAS EJECUCIONES</text>
                                     <!-- Mini execution history bars -->
-                                    <rect x="2"   y="163" width="6" height="18" rx="1" fill="rgba(74,222,128,0.5)"/>
-                                    <rect x="10"  y="167" width="6" height="14" rx="1" fill="rgba(74,222,128,0.4)"/>
-                                    <rect x="18"  y="165" width="6" height="16" rx="1" fill="rgba(74,222,128,0.5)"/>
-                                    <rect x="26"  y="163" width="6" height="18" rx="1" fill="rgba(74,222,128,0.45)"/>
-                                    <rect x="34"  y="168" width="6" height="13" rx="1" fill="rgba(245,158,11,0.45)"/>
-                                    <rect x="42"  y="164" width="6" height="17" rx="1" fill="rgba(74,222,128,0.5)"/>
-                                    <rect x="50"  y="166" width="6" height="15" rx="1" fill="rgba(74,222,128,0.4)"/>
-                                    <rect x="58"  y="163" width="6" height="18" rx="1" fill="rgba(74,222,128,0.5)"/>
+                                    <rect x="2" y="163" width="6" height="18" rx="1" fill="rgba(74,222,128,0.5)" />
+                                    <rect x="10" y="167" width="6" height="14" rx="1" fill="rgba(74,222,128,0.4)" />
+                                    <rect x="18" y="165" width="6" height="16" rx="1" fill="rgba(74,222,128,0.5)" />
+                                    <rect x="26" y="163" width="6" height="18" rx="1" fill="rgba(74,222,128,0.45)" />
+                                    <rect x="34" y="168" width="6" height="13" rx="1" fill="rgba(245,158,11,0.45)" />
+                                    <rect x="42" y="164" width="6" height="17" rx="1" fill="rgba(74,222,128,0.5)" />
+                                    <rect x="50" y="166" width="6" height="15" rx="1" fill="rgba(74,222,128,0.4)" />
+                                    <rect x="58" y="163" width="6" height="18" rx="1" fill="rgba(74,222,128,0.5)" />
                                     <!-- Stats text -->
-                                    <text x="72" y="168" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(255,255,255,0.3)">RUNS</text>
-                                    <text x="72" y="178" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(0,217,255,0.8)" font-weight="700">1,284</text>
-                                    <text x="120" y="168" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(255,255,255,0.3)">AHORRO</text>
-                                    <text x="120" y="178" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(74,222,128,0.8)" font-weight="700">20h/wk</text>
-                                    <text x="175" y="168" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(255,255,255,0.3)">OPS</text>
-                                    <text x="175" y="178" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(0,217,255,0.8)" font-weight="700">0h</text>
+                                    <text x="72" y="168" font-family="JetBrains Mono,monospace" font-size="6"
+                                        fill="rgba(255,255,255,0.3)">RUNS</text>
+                                    <text x="72" y="178" font-family="JetBrains Mono,monospace" font-size="7.5"
+                                        fill="rgba(0,217,255,0.8)" font-weight="700">1,284</text>
+                                    <text x="120" y="168" font-family="JetBrains Mono,monospace" font-size="6"
+                                        fill="rgba(255,255,255,0.3)">AHORRO</text>
+                                    <text x="120" y="178" font-family="JetBrains Mono,monospace" font-size="7.5"
+                                        fill="rgba(74,222,128,0.8)" font-weight="700">20h/wk</text>
+                                    <text x="175" y="168" font-family="JetBrains Mono,monospace" font-size="6"
+                                        fill="rgba(255,255,255,0.3)">OPS</text>
+                                    <text x="175" y="178" font-family="JetBrains Mono,monospace" font-size="7.5"
+                                        fill="rgba(0,217,255,0.8)" font-weight="700">0h</text>
                                 </svg>
                             </div>
                         </div>
@@ -381,7 +454,8 @@
                             <div class="vp-pane-left">
                                 <div class="vp-num">03</div>
                                 <h3 class="vp-title">Agentes<br>Inteligentes</h3>
-                                <p class="vp-desc">Sistemas autónomos que orquestan tareas, aprenden y colaboran con tu equipo como un miembro más de la organización.</p>
+                                <p class="vp-desc">Sistemas autónomos que orquestan tareas, aprenden y colaboran con tu
+                                    equipo como un miembro más de la organización.</p>
                                 <ul class="vp-list">
                                     <li>Dashboards en tiempo real</li>
                                     <li>Automatización de procesos</li>
@@ -393,51 +467,72 @@
                                 <svg class="vp-diagram" viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg">
                                     <!-- Spoke lines (behind nodes) -->
                                     <!-- Top: CRM -->
-                                    <line x1="110" y1="85" x2="110" y2="28" stroke="rgba(0,217,255,0.18)" stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow"/>
+                                    <line x1="110" y1="85" x2="110" y2="28" stroke="rgba(0,217,255,0.18)"
+                                        stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow" />
                                     <!-- Top-right: VENTAS -->
-                                    <line x1="126" y1="75" x2="178" y2="42" stroke="rgba(0,217,255,0.18)" stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow"/>
+                                    <line x1="126" y1="75" x2="178" y2="42" stroke="rgba(0,217,255,0.18)"
+                                        stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow" />
                                     <!-- Bottom-right: OPS -->
-                                    <line x1="126" y1="105" x2="178" y2="142" stroke="rgba(0,217,255,0.18)" stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow"/>
+                                    <line x1="126" y1="105" x2="178" y2="142" stroke="rgba(0,217,255,0.18)"
+                                        stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow" />
                                     <!-- Bottom: ANALYTICS -->
-                                    <line x1="110" y1="125" x2="110" y2="162" stroke="rgba(0,217,255,0.18)" stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow"/>
+                                    <line x1="110" y1="125" x2="110" y2="162" stroke="rgba(0,217,255,0.18)"
+                                        stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow" />
                                     <!-- Left: COMMS -->
-                                    <line x1="94" y1="95" x2="42" y2="95" stroke="rgba(0,217,255,0.18)" stroke-width="1" stroke-dasharray="3 2" class="vp-dash-flow"/>
+                                    <line x1="94" y1="95" x2="42" y2="95" stroke="rgba(0,217,255,0.18)" stroke-width="1"
+                                        stroke-dasharray="3 2" class="vp-dash-flow" />
                                     <!-- Central AI hexagon -->
-                                    <polygon points="110,75 126,85 126,105 110,115 94,105 94,85" fill="rgba(0,217,255,0.10)" stroke="rgba(0,217,255,0.7)" stroke-width="1.5" class="vp-glow-pulse"/>
-                                    <text x="110" y="96" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(0,217,255,0.95)" text-anchor="middle" font-weight="700">AI</text>
-                                    <text x="110" y="108" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(0,217,255,0.45)" text-anchor="middle" letter-spacing="0.1em">AGENT</text>
+                                    <polygon points="110,75 126,85 126,105 110,115 94,105 94,85"
+                                        fill="rgba(0,217,255,0.10)" stroke="rgba(0,217,255,0.7)" stroke-width="1.5"
+                                        class="vp-glow-pulse" />
+                                    <text x="110" y="96" font-family="JetBrains Mono,monospace" font-size="10"
+                                        fill="rgba(0,217,255,0.95)" text-anchor="middle" font-weight="700">AI</text>
+                                    <text x="110" y="108" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(0,217,255,0.45)" text-anchor="middle"
+                                        letter-spacing="0.1em">AGENT</text>
                                     <!-- Satellite nodes -->
                                     <!-- CRM (top) -->
-                                    <rect x="82" y="10" width="56" height="18" rx="3" fill="rgba(0,217,255,0.06)" stroke="rgba(0,217,255,0.32)" stroke-width="1"/>
-                                    <text x="110" y="22" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(0,217,255,0.7)" text-anchor="middle">CRM</text>
+                                    <rect x="82" y="10" width="56" height="18" rx="3" fill="rgba(0,217,255,0.06)"
+                                        stroke="rgba(0,217,255,0.32)" stroke-width="1" />
+                                    <text x="110" y="22" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(0,217,255,0.7)" text-anchor="middle">CRM</text>
                                     <!-- VENTAS (top-right) -->
-                                    <rect x="175" y="32" width="44" height="18" rx="3" fill="rgba(0,217,255,0.06)" stroke="rgba(0,217,255,0.32)" stroke-width="1"/>
-                                    <text x="197" y="44" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(0,217,255,0.7)" text-anchor="middle">VENTAS</text>
+                                    <rect x="175" y="32" width="44" height="18" rx="3" fill="rgba(0,217,255,0.06)"
+                                        stroke="rgba(0,217,255,0.32)" stroke-width="1" />
+                                    <text x="197" y="44" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(0,217,255,0.7)" text-anchor="middle">VENTAS</text>
                                     <!-- OPS (bottom-right) -->
-                                    <rect x="175" y="142" width="44" height="18" rx="3" fill="rgba(0,217,255,0.06)" stroke="rgba(0,217,255,0.32)" stroke-width="1"/>
-                                    <text x="197" y="154" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(0,217,255,0.7)" text-anchor="middle">OPS</text>
+                                    <rect x="175" y="142" width="44" height="18" rx="3" fill="rgba(0,217,255,0.06)"
+                                        stroke="rgba(0,217,255,0.32)" stroke-width="1" />
+                                    <text x="197" y="154" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(0,217,255,0.7)" text-anchor="middle">OPS</text>
                                     <!-- ANALYTICS (bottom) -->
-                                    <rect x="70" y="162" width="80" height="18" rx="3" fill="rgba(0,217,255,0.06)" stroke="rgba(0,217,255,0.32)" stroke-width="1"/>
-                                    <text x="110" y="174" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(0,217,255,0.7)" text-anchor="middle">ANALYTICS</text>
+                                    <rect x="70" y="162" width="80" height="18" rx="3" fill="rgba(0,217,255,0.06)"
+                                        stroke="rgba(0,217,255,0.32)" stroke-width="1" />
+                                    <text x="110" y="174" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(0,217,255,0.7)" text-anchor="middle">ANALYTICS</text>
                                     <!-- COMMS (left) -->
-                                    <rect x="2" y="86" width="44" height="18" rx="3" fill="rgba(0,217,255,0.06)" stroke="rgba(0,217,255,0.32)" stroke-width="1"/>
-                                    <text x="24" y="98" font-family="JetBrains Mono,monospace" font-size="6.5" fill="rgba(0,217,255,0.7)" text-anchor="middle">COMMS</text>
+                                    <rect x="2" y="86" width="44" height="18" rx="3" fill="rgba(0,217,255,0.06)"
+                                        stroke="rgba(0,217,255,0.32)" stroke-width="1" />
+                                    <text x="24" y="98" font-family="JetBrains Mono,monospace" font-size="6.5"
+                                        fill="rgba(0,217,255,0.7)" text-anchor="middle">COMMS</text>
                                     <!-- Traveling dots: 2 per spoke with staggered delay -->
                                     <!-- Spoke top -->
-                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-t1"/>
-                                    <circle r="2.5" fill="rgba(0,217,255,0.6)" class="vp-dot-t2"/>
+                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-t1" />
+                                    <circle r="2.5" fill="rgba(0,217,255,0.6)" class="vp-dot-t2" />
                                     <!-- Spoke top-right -->
-                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-tr1"/>
-                                    <circle r="2.5" fill="rgba(0,217,255,0.6)" class="vp-dot-tr2"/>
+                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-tr1" />
+                                    <circle r="2.5" fill="rgba(0,217,255,0.6)" class="vp-dot-tr2" />
                                     <!-- Spoke bottom-right -->
-                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-br1"/>
+                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-br1" />
                                     <!-- Spoke bottom -->
-                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-b1"/>
+                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-b1" />
                                     <!-- Spoke left -->
-                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-l1"/>
-                                    <circle r="2.5" fill="rgba(0,217,255,0.6)" class="vp-dot-l2"/>
+                                    <circle r="2.5" fill="rgba(0,217,255,0.9)" class="vp-dot-l1" />
+                                    <circle r="2.5" fill="rgba(0,217,255,0.6)" class="vp-dot-l2" />
                                     <!-- ROI badge -->
-                                    <text x="4" y="188" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(255,255,255,0.15)">ACCURACY 98.2% · TASKS 1,284 · ROI +340%</text>
+                                    <text x="4" y="188" font-family="JetBrains Mono,monospace" font-size="5.5"
+                                        fill="rgba(255,255,255,0.15)">ACCURACY 98.2% · TASKS 1,284 · ROI +340%</text>
                                 </svg>
                             </div>
                         </div>
@@ -451,66 +546,68 @@
                             <button class="vp-pdot" data-vp="1" aria-label="Automatización"></button>
                             <button class="vp-pdot" data-vp="2" aria-label="Agentes IA"></button>
                         </div>
-                        <div class="vp-progress-bar"><div class="vp-progress-fill" id="vp-progress"></div></div>
+                        <div class="vp-progress-bar">
+                            <div class="vp-progress-fill" id="vp-progress"></div>
+                        </div>
                     </div>
 
                 </div><!-- /vp-window -->
             </div><!-- /vp-outer -->
 
             <script>
-            (function() {
-                var cur = 0;
-                var total = 3;
-                var autoTimer = null;
+                (function () {
+                    var cur = 0;
+                    var total = 3;
+                    var autoTimer = null;
 
-                function goTo(n) {
-                    var tabs = document.querySelectorAll('.vp-tab');
-                    var panes = document.querySelectorAll('.vp-pane');
-                    var dots = document.querySelectorAll('.vp-pdot');
-                    var fill = document.getElementById('vp-progress');
+                    function goTo(n) {
+                        var tabs = document.querySelectorAll('.vp-tab');
+                        var panes = document.querySelectorAll('.vp-pane');
+                        var dots = document.querySelectorAll('.vp-pdot');
+                        var fill = document.getElementById('vp-progress');
 
-                    tabs.forEach(function(t) {
-                        var active = parseInt(t.dataset.vp) === n;
-                        t.classList.toggle('active', active);
-                        t.setAttribute('aria-selected', active);
-                    });
-                    panes.forEach(function(p) { p.classList.toggle('active', parseInt(p.dataset.pane) === n); });
-                    dots.forEach(function(d) { d.classList.toggle('active', parseInt(d.dataset.vp) === n); });
-                    if (fill) fill.style.width = ((n + 1) / total * 100) + '%';
-                    cur = n;
-                }
+                        tabs.forEach(function (t) {
+                            var active = parseInt(t.dataset.vp) === n;
+                            t.classList.toggle('active', active);
+                            t.setAttribute('aria-selected', active);
+                        });
+                        panes.forEach(function (p) { p.classList.toggle('active', parseInt(p.dataset.pane) === n); });
+                        dots.forEach(function (d) { d.classList.toggle('active', parseInt(d.dataset.vp) === n); });
+                        if (fill) fill.style.width = ((n + 1) / total * 100) + '%';
+                        cur = n;
+                    }
 
-                function startAuto() {
-                    clearInterval(autoTimer);
-                    autoTimer = setInterval(function() { goTo((cur + 1) % total); }, 5000);
-                }
-
-                document.querySelectorAll('[data-vp]').forEach(function(el) {
-                    el.addEventListener('click', function() {
+                    function startAuto() {
                         clearInterval(autoTimer);
-                        goTo(parseInt(el.dataset.vp));
-                        startAuto();
-                    });
-                });
+                        autoTimer = setInterval(function () { goTo((cur + 1) % total); }, 5000);
+                    }
 
-                // Touch swipe support
-                var touchStartX = 0;
-                var body = document.querySelector('.vp-body');
-                if (body) {
-                    body.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
-                    body.addEventListener('touchend', function(e) {
-                        var dx = e.changedTouches[0].clientX - touchStartX;
-                        if (Math.abs(dx) > 40) {
+                    document.querySelectorAll('[data-vp]').forEach(function (el) {
+                        el.addEventListener('click', function () {
                             clearInterval(autoTimer);
-                            goTo((cur + (dx < 0 ? 1 : -1) + total) % total);
+                            goTo(parseInt(el.dataset.vp));
                             startAuto();
-                        }
-                    }, { passive: true });
-                }
+                        });
+                    });
 
-                goTo(0);
-                startAuto();
-            })();
+                    // Touch swipe support
+                    var touchStartX = 0;
+                    var body = document.querySelector('.vp-body');
+                    if (body) {
+                        body.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+                        body.addEventListener('touchend', function (e) {
+                            var dx = e.changedTouches[0].clientX - touchStartX;
+                            if (Math.abs(dx) > 40) {
+                                clearInterval(autoTimer);
+                                goTo((cur + (dx < 0 ? 1 : -1) + total) % total);
+                                startAuto();
+                            }
+                        }, { passive: true });
+                    }
+
+                    goTo(0);
+                    startAuto();
+                })();
             </script>
         </section>
 
@@ -601,181 +698,202 @@
                 <!-- Single container split in two -->
                 <div class="sp-container">
 
-                <!-- ── TOP: CLIENTES ── -->
-                <div class="sp-half sp-top">
-                    <div class="sp-half-header">
-                        <span class="sp-half-tag">Resultados</span>
-                        <h2 class="sp-half-title">Clientes</h2>
-                    </div>
-                    <div class="clients-grid">
+                    <!-- ── TOP: CLIENTES ── -->
+                    <div class="sp-half sp-top">
+                        <div class="sp-half-header">
+                            <span class="sp-half-tag">Resultados</span>
+                            <h2 class="sp-half-title">Clientes</h2>
+                        </div>
+                        <div class="clients-grid">
 
-                    <!-- Card 1: Velox Finance -->
-                    <article class="client-card" style="--cc:#00d9ff">
-                        <div class="client-thumb">
-                            <div class="ct-chrome">
-                                <span class="ct-dot" style="background:#ff5f57"></span>
-                                <span class="ct-dot" style="background:#febc2e"></span>
-                                <span class="ct-dot" style="background:#28c840"></span>
-                                <span class="ct-url">veloxfinance.io</span>
-                            </div>
-                            <div class="ct-body">
-                                <div class="ct-hero" style="background:linear-gradient(120deg,rgba(0,120,220,0.35) 0%,rgba(0,217,255,0.08) 100%)"></div>
-                                <div class="ct-line ct-l-h"></div>
-                                <div class="ct-line ct-l-m"></div>
-                                <div class="ct-row">
-                                    <div class="ct-chip" style="background:rgba(0,217,255,0.12);border-color:rgba(0,217,255,0.2)"></div>
-                                    <div class="ct-chip" style="background:rgba(0,217,255,0.07);border-color:rgba(0,217,255,0.12)"></div>
-                                    <div class="ct-chip" style="background:rgba(0,217,255,0.05);border-color:rgba(0,217,255,0.08)"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="client-body">
-                            <div class="client-header">
-                                <span class="client-logo">VELOX</span>
-                                <span class="client-kpi" style="color:var(--cc);border-color:rgba(0,217,255,0.3);box-shadow:0 0 10px rgba(0,217,255,0.15)">+340% leads</span>
-                            </div>
-                            <p class="client-desc">SaaS de gestión financiera para PYMEs. Agente de ventas IA con pipeline automatizado.</p>
-                            <div class="client-tags">
-                                <span class="client-tag">Presencia Digital</span>
-                                <span class="client-tag">Agente IA</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 2: Nexis Store -->
-                    <article class="client-card" style="--cc:#8b5cf6">
-                        <div class="client-thumb">
-                            <div class="ct-chrome">
-                                <span class="ct-dot" style="background:#ff5f57"></span>
-                                <span class="ct-dot" style="background:#febc2e"></span>
-                                <span class="ct-dot" style="background:#28c840"></span>
-                                <span class="ct-url">nexisstore.com</span>
-                            </div>
-                            <div class="ct-body">
-                                <div class="ct-hero" style="background:linear-gradient(120deg,rgba(139,92,246,0.3) 0%,rgba(0,0,0,0) 100%)"></div>
-                                <div class="ct-grid2">
-                                    <div class="ct-pcard"></div>
-                                    <div class="ct-pcard"></div>
-                                    <div class="ct-pcard"></div>
-                                    <div class="ct-pcard"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="client-body">
-                            <div class="client-header">
-                                <span class="client-logo">NEXIS</span>
-                                <span class="client-kpi" style="color:#8b5cf6;border-color:rgba(139,92,246,0.35);box-shadow:0 0 10px rgba(139,92,246,0.18)">3× conversión</span>
-                            </div>
-                            <p class="client-desc">E-commerce de moda sostenible. Funnels automatizados y nurturing de leads 24/7.</p>
-                            <div class="client-tags">
-                                <span class="client-tag">Automatización</span>
-                                <span class="client-tag">CRM</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 3: Orbita Agency -->
-                    <article class="client-card" style="--cc:#22c55e">
-                        <div class="client-thumb">
-                            <div class="ct-chrome">
-                                <span class="ct-dot" style="background:#ff5f57"></span>
-                                <span class="ct-dot" style="background:#febc2e"></span>
-                                <span class="ct-dot" style="background:#28c840"></span>
-                                <span class="ct-url">orbitaagency.co</span>
-                            </div>
-                            <div class="ct-body">
-                                <div class="ct-hero" style="background:linear-gradient(120deg,rgba(34,197,94,0.2) 0%,rgba(0,0,0,0) 100%)"></div>
-                                <div class="ct-sidebar-layout">
-                                    <div class="ct-sidebar"></div>
-                                    <div class="ct-main">
-                                        <div class="ct-line ct-l-h" style="width:85%"></div>
-                                        <div class="ct-line ct-l-m" style="width:70%"></div>
-                                        <div class="ct-line ct-l-s" style="width:55%"></div>
+                            <!-- Card 1: Velox Finance -->
+                            <article class="client-card" style="--cc:#00d9ff">
+                                <div class="client-thumb">
+                                    <div class="ct-chrome">
+                                        <span class="ct-dot" style="background:#ff5f57"></span>
+                                        <span class="ct-dot" style="background:#febc2e"></span>
+                                        <span class="ct-dot" style="background:#28c840"></span>
+                                        <span class="ct-url">veloxfinance.io</span>
+                                    </div>
+                                    <div class="ct-body">
+                                        <div class="ct-hero"
+                                            style="background:linear-gradient(120deg,rgba(0,120,220,0.35) 0%,rgba(0,217,255,0.08) 100%)">
+                                        </div>
+                                        <div class="ct-line ct-l-h"></div>
+                                        <div class="ct-line ct-l-m"></div>
+                                        <div class="ct-row">
+                                            <div class="ct-chip"
+                                                style="background:rgba(0,217,255,0.12);border-color:rgba(0,217,255,0.2)">
+                                            </div>
+                                            <div class="ct-chip"
+                                                style="background:rgba(0,217,255,0.07);border-color:rgba(0,217,255,0.12)">
+                                            </div>
+                                            <div class="ct-chip"
+                                                style="background:rgba(0,217,255,0.05);border-color:rgba(0,217,255,0.08)">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="client-body">
-                            <div class="client-header">
-                                <span class="client-logo">ORBITA</span>
-                                <span class="client-kpi" style="color:#22c55e;border-color:rgba(34,197,94,0.35);box-shadow:0 0 10px rgba(34,197,94,0.18)">−20h/sem</span>
-                            </div>
-                            <p class="client-desc">Agencia creativa. Operaciones IA que liberaron 20 horas semanales del equipo creativo.</p>
-                            <div class="client-tags">
-                                <span class="client-tag">Operaciones IA</span>
-                                <span class="client-tag">Automatización</span>
-                            </div>
-                        </div>
-                    </article>
+                                <div class="client-body">
+                                    <div class="client-header">
+                                        <span class="client-logo">VELOX</span>
+                                        <span class="client-kpi"
+                                            style="color:var(--cc);border-color:rgba(0,217,255,0.3);box-shadow:0 0 10px rgba(0,217,255,0.15)">+340%
+                                            leads</span>
+                                    </div>
+                                    <p class="client-desc">SaaS de gestión financiera para PYMEs. Agente de ventas IA
+                                        con pipeline automatizado.</p>
+                                    <div class="client-tags">
+                                        <span class="client-tag">Presencia Digital</span>
+                                        <span class="client-tag">Agente IA</span>
+                                    </div>
+                                </div>
+                            </article>
 
-                    <!-- Card 4: CTA -->
-                    <article class="client-card client-card--cta">
-                        <div class="client-cta-inner">
-                            <div class="client-cta-plus">+</div>
-                            <h3 class="client-cta-title">Tu empresa<br>aquí</h3>
-                            <p class="client-cta-sub">Únete a las empresas que ya evolucionaron.</p>
-                            <a href="contact.html" class="client-cta-btn pointer-events-auto">Agendar Auditoría</a>
-                        </div>
-                    </article>
+                            <!-- Card 2: Nexis Store -->
+                            <article class="client-card" style="--cc:#8b5cf6">
+                                <div class="client-thumb">
+                                    <div class="ct-chrome">
+                                        <span class="ct-dot" style="background:#ff5f57"></span>
+                                        <span class="ct-dot" style="background:#febc2e"></span>
+                                        <span class="ct-dot" style="background:#28c840"></span>
+                                        <span class="ct-url">nexisstore.com</span>
+                                    </div>
+                                    <div class="ct-body">
+                                        <div class="ct-hero"
+                                            style="background:linear-gradient(120deg,rgba(139,92,246,0.3) 0%,rgba(0,0,0,0) 100%)">
+                                        </div>
+                                        <div class="ct-grid2">
+                                            <div class="ct-pcard"></div>
+                                            <div class="ct-pcard"></div>
+                                            <div class="ct-pcard"></div>
+                                            <div class="ct-pcard"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="client-body">
+                                    <div class="client-header">
+                                        <span class="client-logo">NEXIS</span>
+                                        <span class="client-kpi"
+                                            style="color:#8b5cf6;border-color:rgba(139,92,246,0.35);box-shadow:0 0 10px rgba(139,92,246,0.18)">3×
+                                            conversión</span>
+                                    </div>
+                                    <p class="client-desc">E-commerce de moda sostenible. Funnels automatizados y
+                                        nurturing de leads 24/7.</p>
+                                    <div class="client-tags">
+                                        <span class="client-tag">Automatización</span>
+                                        <span class="client-tag">CRM</span>
+                                    </div>
+                                </div>
+                            </article>
 
-                    </div><!-- /clients-grid -->
-                </div><!-- /sp-top -->
+                            <!-- Card 3: Orbita Agency -->
+                            <article class="client-card" style="--cc:#22c55e">
+                                <div class="client-thumb">
+                                    <div class="ct-chrome">
+                                        <span class="ct-dot" style="background:#ff5f57"></span>
+                                        <span class="ct-dot" style="background:#febc2e"></span>
+                                        <span class="ct-dot" style="background:#28c840"></span>
+                                        <span class="ct-url">orbitaagency.co</span>
+                                    </div>
+                                    <div class="ct-body">
+                                        <div class="ct-hero"
+                                            style="background:linear-gradient(120deg,rgba(34,197,94,0.2) 0%,rgba(0,0,0,0) 100%)">
+                                        </div>
+                                        <div class="ct-sidebar-layout">
+                                            <div class="ct-sidebar"></div>
+                                            <div class="ct-main">
+                                                <div class="ct-line ct-l-h" style="width:85%"></div>
+                                                <div class="ct-line ct-l-m" style="width:70%"></div>
+                                                <div class="ct-line ct-l-s" style="width:55%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="client-body">
+                                    <div class="client-header">
+                                        <span class="client-logo">ORBITA</span>
+                                        <span class="client-kpi"
+                                            style="color:#22c55e;border-color:rgba(34,197,94,0.35);box-shadow:0 0 10px rgba(34,197,94,0.18)">−20h/sem</span>
+                                    </div>
+                                    <p class="client-desc">Agencia creativa. Operaciones IA que liberaron 20 horas
+                                        semanales del equipo creativo.</p>
+                                    <div class="client-tags">
+                                        <span class="client-tag">Operaciones IA</span>
+                                        <span class="client-tag">Automatización</span>
+                                    </div>
+                                </div>
+                            </article>
 
-                <!-- ── DIVIDER ── -->
-                <div class="sp-divider">
-                    <span class="sp-divider-line"></span>
-                </div>
+                            <!-- Card 4: CTA -->
+                            <article class="client-card client-card--cta">
+                                <div class="client-cta-inner">
+                                    <div class="client-cta-plus">+</div>
+                                    <h3 class="client-cta-title">Tu empresa<br>aquí</h3>
+                                    <p class="client-cta-sub">Únete a las empresas que ya evolucionaron.</p>
+                                    <a href="contact.html" class="client-cta-btn pointer-events-auto">Agendar
+                                        Auditoría</a>
+                                </div>
+                            </article>
 
-                <!-- ── BOTTOM: ALIANZAS ── -->
-                <div class="sp-half sp-bottom">
-                    <div class="sp-half-header">
-                        <span class="sp-half-tag">Ecosistema</span>
-                        <h2 class="sp-half-title">Alianzas</h2>
+                        </div><!-- /clients-grid -->
+                    </div><!-- /sp-top -->
+
+                    <!-- ── DIVIDER ── -->
+                    <div class="sp-divider">
+                        <span class="sp-divider-line"></span>
                     </div>
-                    <div class="partners-strip">
 
-                        <div class="partner-pill">
-                            <div class="pp-logo"><span class="pp-mono">M</span></div>
-                            <div class="pp-info">
-                                <span class="pp-name">Meta</span>
-                                <span class="pp-label">Partner de Marketing</span>
-                            </div>
+                    <!-- ── BOTTOM: ALIANZAS ── -->
+                    <div class="sp-half sp-bottom">
+                        <div class="sp-half-header">
+                            <span class="sp-half-tag">Ecosistema</span>
+                            <h2 class="sp-half-title">Alianzas</h2>
                         </div>
+                        <div class="partners-strip">
 
-                        <div class="partner-pill">
-                            <div class="pp-logo"><span class="pp-mono">G</span></div>
-                            <div class="pp-info">
-                                <span class="pp-name">Google</span>
-                                <span class="pp-label">Partner de Anuncios</span>
+                            <div class="partner-pill">
+                                <div class="pp-logo"><span class="pp-mono">M</span></div>
+                                <div class="pp-info">
+                                    <span class="pp-name">Meta</span>
+                                    <span class="pp-label">Partner de Marketing</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="partner-pill">
-                            <div class="pp-logo"><span class="pp-mono">AI</span></div>
-                            <div class="pp-info">
-                                <span class="pp-name">OpenAI</span>
-                                <span class="pp-label">Partner de IA</span>
+                            <div class="partner-pill">
+                                <div class="pp-logo"><span class="pp-mono">G</span></div>
+                                <div class="pp-info">
+                                    <span class="pp-name">Google</span>
+                                    <span class="pp-label">Partner de Anuncios</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="partner-pill">
-                            <div class="pp-logo"><span class="pp-mono">n8n</span></div>
-                            <div class="pp-info">
-                                <span class="pp-name">n8n</span>
-                                <span class="pp-label">Partner de Automatización</span>
+                            <div class="partner-pill">
+                                <div class="pp-logo"><span class="pp-mono">AI</span></div>
+                                <div class="pp-info">
+                                    <span class="pp-name">OpenAI</span>
+                                    <span class="pp-label">Partner de IA</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="partner-pill">
-                            <div class="pp-logo"><span class="pp-mono">N</span></div>
-                            <div class="pp-info">
-                                <span class="pp-name">Notion</span>
-                                <span class="pp-label">Partner de Operaciones</span>
+                            <div class="partner-pill">
+                                <div class="pp-logo"><span class="pp-mono">n8n</span></div>
+                                <div class="pp-info">
+                                    <span class="pp-name">n8n</span>
+                                    <span class="pp-label">Partner de Automatización</span>
+                                </div>
                             </div>
-                        </div>
 
-                    </div><!-- /partners-strip -->
-                </div><!-- /sp-bottom -->
+                            <div class="partner-pill">
+                                <div class="pp-logo"><span class="pp-mono">N</span></div>
+                                <div class="pp-info">
+                                    <span class="pp-name">Notion</span>
+                                    <span class="pp-label">Partner de Operaciones</span>
+                                </div>
+                            </div>
+
+                        </div><!-- /partners-strip -->
+                    </div><!-- /sp-bottom -->
 
                 </div><!-- /sp-container -->
 
@@ -802,7 +920,8 @@
                 <div class="flex justify-center items-center opacity-60 order-2 md:order-1">
                     <picture>
                         <source srcset="assets/logo.webp" type="image/webp">
-                        <img src="assets/logo.png" alt="Logotipo animado de Snow Tech" class="animate-spin-slow" width="280" height="280" loading="lazy">
+                        <img src="assets/logo.png" alt="Logotipo animado de Snow Tech" class="animate-spin-slow"
+                            width="280" height="280" loading="lazy">
                     </picture>
                 </div>
 
@@ -820,7 +939,8 @@
                         <li class="nav-link-active">✓ Roadmap personalizado</li>
                     </ul>
 
-                    <form class="flex flex-col gap-3" action="contact.html" method="get" onsubmit="window.location.href='contact.html'; return false;">
+                    <form class="flex flex-col gap-3" action="contact.html" method="get"
+                        onsubmit="window.location.href='contact.html'; return false;">
                         <label for="audit-url" class="sr-only">URL de tu sitio web</label>
                         <input id="audit-url" type="url" name="site_url" placeholder="URL de tu sitio web"
                             class="bg-white/5 border border-white/10 px-4 py-3 rounded text-white text-sm w-full focus:border-[var(--accent)] outline-none transition-colors"
@@ -864,7 +984,8 @@
                             </button>
                             <div class="faq-body">
                                 <div class="faq-body-inner">
-                                    <p class="faq-answer">Sí. Cada servicio funciona de forma independiente. Pero juntos se potencian para crear una entidad digital completa.</p>
+                                    <p class="faq-answer">Sí. Cada servicio funciona de forma independiente. Pero juntos
+                                        se potencian para crear una entidad digital completa.</p>
                                 </div>
                             </div>
                         </div>
@@ -877,7 +998,8 @@
                             </button>
                             <div class="faq-body">
                                 <div class="faq-body-inner">
-                                    <p class="faq-answer">Fase 1: 2–4 semanas. Fase 2: 4–6 semanas. Fase 3: depende de la complejidad de tus operaciones actuales.</p>
+                                    <p class="faq-answer">Fase 1: 2–4 semanas. Fase 2: 4–6 semanas. Fase 3: depende de
+                                        la complejidad de tus operaciones actuales.</p>
                                 </div>
                             </div>
                         </div>
@@ -890,7 +1012,8 @@
                             </button>
                             <div class="faq-body">
                                 <div class="faq-body-inner">
-                                    <p class="faq-answer">Absolutamente. Está diseñado para colaboración humano-IA. Tu equipo toma decisiones estratégicas, el sistema ejecuta, aprende y reporta.</p>
+                                    <p class="faq-answer">Absolutamente. Está diseñado para colaboración humano-IA. Tu
+                                        equipo toma decisiones estratégicas, el sistema ejecuta, aprende y reporta.</p>
                                 </div>
                             </div>
                         </div>
@@ -903,7 +1026,8 @@
                             </button>
                             <div class="faq-body">
                                 <div class="faq-body-inner">
-                                    <p class="faq-answer">El sistema evoluciona contigo. Añadimos nuevas habilidades, integraciones y agentes especializados según necesites escalar.</p>
+                                    <p class="faq-answer">El sistema evoluciona contigo. Añadimos nuevas habilidades,
+                                        integraciones y agentes especializados según necesites escalar.</p>
                                 </div>
                             </div>
                         </div>
@@ -913,26 +1037,26 @@
             </div>
 
             <script>
-            (function () {
-                var items = document.querySelectorAll('.faq-item');
-                items.forEach(function (item) {
-                    item.querySelector('.faq-trigger').addEventListener('click', function () {
-                        var isOpen = item.classList.contains('open');
-                        // close all
-                        items.forEach(function (i) {
-                            i.classList.remove('open');
-                            i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
-                            i.querySelector('.faq-icon').textContent = '+';
+                (function () {
+                    var items = document.querySelectorAll('.faq-item');
+                    items.forEach(function (item) {
+                        item.querySelector('.faq-trigger').addEventListener('click', function () {
+                            var isOpen = item.classList.contains('open');
+                            // close all
+                            items.forEach(function (i) {
+                                i.classList.remove('open');
+                                i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                                i.querySelector('.faq-icon').textContent = '+';
+                            });
+                            // open clicked (unless it was already open)
+                            if (!isOpen) {
+                                item.classList.add('open');
+                                this.setAttribute('aria-expanded', 'true');
+                                item.querySelector('.faq-icon').textContent = '−';
+                            }
                         });
-                        // open clicked (unless it was already open)
-                        if (!isOpen) {
-                            item.classList.add('open');
-                            this.setAttribute('aria-expanded', 'true');
-                            item.querySelector('.faq-icon').textContent = '−';
-                        }
                     });
-                });
-            })();
+                })();
             </script>
         </section>
     </main>
@@ -943,7 +1067,8 @@
                 <a href="index.html" class="header-logo-container mb-4">
                     <picture>
                         <source srcset="assets/logo.webp" type="image/webp">
-                        <img src="assets/logo.png" alt="Snow Tech - Arquitectura para el futuro" class="footer-logo-img" width="35" height="35" loading="lazy">
+                        <img src="assets/logo.png" alt="Snow Tech - Arquitectura para el futuro" class="footer-logo-img"
+                            width="35" height="35" loading="lazy">
                     </picture>
                     <span>SNOW TECH</span>
                 </a>
@@ -952,7 +1077,8 @@
                 <!-- Newsletter Form -->
                 <div class="mt-8 pt-6 border-t border-white/10">
                     <p class="newsletter-title">Newsletter</p>
-                    <form class="flex gap-2" action="#" method="post" onsubmit="this.innerHTML='<span style=\'color:var(--accent);font-family:JetBrains Mono,monospace;font-size:0.75rem;\'>✓ Suscrito</span>'; return false;">
+                    <form class="flex gap-2" action="#" method="post"
+                        onsubmit="this.innerHTML='<span style=\'color:var(--accent);font-family:JetBrains Mono,monospace;font-size:0.75rem;\'>✓ Suscrito</span>'; return false;">
                         <label for="newsletter-email-index" class="sr-only">Email para newsletter</label>
                         <input id="newsletter-email-index" type="email" name="newsletter_email" placeholder="Email"
                             class="bg-white/5 border border-white/10 px-3 py-2 rounded text-white text-xs w-full focus:border-[var(--accent)] outline-none transition-colors">
@@ -969,9 +1095,12 @@
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Contacto</h4>
-                <a href="mailto:hola@snowtech.io" class="block opacity-60 hover:opacity-100 transition-opacity">hola@snowtech.io</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">Twitter</a>
+                <a href="mailto:hola@snowtech.io"
+                    class="block opacity-60 hover:opacity-100 transition-opacity">hola@snowtech.io</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                    class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                    class="block opacity-60 hover:opacity-100 transition-opacity">Twitter</a>
             </div>
         </div>
         <div class="pt-8 border-t border-white/10 opacity-50 text-xs">
@@ -980,66 +1109,66 @@
     </footer>
 
     <script>
-    (function () {
-        var intro   = document.getElementById('hero-intro');
-        var video   = document.getElementById('intro-video');
-        var hint    = document.getElementById('intro-hint');
-        var endFade = document.getElementById('video-end-fade');
+        (function () {
+            var intro = document.getElementById('hero-intro');
+            var video = document.getElementById('intro-video');
+            var hint = document.getElementById('intro-hint');
+            var endFade = document.getElementById('video-end-fade');
 
-        // Mostrar intro solo una vez por sesión
-        if (sessionStorage.getItem('snow_intro_played')) { intro.remove(); return; }
-        sessionStorage.setItem('snow_intro_played', '1');
+            // Mostrar intro solo una vez por sesión
+            if (sessionStorage.getItem('snow_intro_played')) { intro.remove(); return; }
+            sessionStorage.setItem('snow_intro_played', '1');
 
-        document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
 
-        // Logo aparece a los 0.8s (antes del click, da vida al overlay)
-        // Hint aparece a los 1.0s
-        var hintTimer = setTimeout(function () { hint.classList.add('visible'); }, 1000);
+            // Logo aparece a los 0.8s (antes del click, da vida al overlay)
+            // Hint aparece a los 1.0s
+            var hintTimer = setTimeout(function () { hint.classList.add('visible'); }, 1000);
 
-        /* ---- SALIDA ---- */
-        var exited = false;
-        function exitIntro() {
-            if (exited) return;
-            exited = true;
-            intro.classList.add('exit');
-            document.body.style.overflow = '';
-            setTimeout(function () { intro.remove(); }, 1300);
-        }
-
-        /* ---- FADE FINAL del video al fondo ---- */
-        var fadeFired = false;
-        video.addEventListener('timeupdate', function () {
-            if (fadeFired || !video.duration) return;
-            if (video.currentTime >= video.duration * 0.80) {
-                fadeFired = true;
-                endFade.classList.add('active');
+            /* ---- SALIDA ---- */
+            var exited = false;
+            function exitIntro() {
+                if (exited) return;
+                exited = true;
+                intro.classList.add('exit');
+                document.body.style.overflow = '';
+                setTimeout(function () { intro.remove(); }, 1300);
             }
-        });
 
-        // Video termina → salir automáticamente
-        video.addEventListener('ended', exitIntro, { once: true });
-
-        /* ---- INICIO por gesto del usuario ---- */
-        var started = false;
-        function startVideo() {
-            if (started) return;
-            started = true;
-            intro.removeEventListener('click', startVideo);
-            intro.removeEventListener('touchstart', startVideo);
-            hint.classList.remove('visible');
-            hint.style.display = 'none';
-
-            video.play().catch(function () {
-                exitIntro();
+            /* ---- FADE FINAL del video al fondo ---- */
+            var fadeFired = false;
+            video.addEventListener('timeupdate', function () {
+                if (fadeFired || !video.duration) return;
+                if (video.currentTime >= video.duration * 0.80) {
+                    fadeFired = true;
+                    endFade.classList.add('active');
+                }
             });
-        }
 
-        intro.addEventListener('click',      startVideo);
-        intro.addEventListener('touchstart', startVideo, { passive: true });
+            // Video termina → salir automáticamente
+            video.addEventListener('ended', exitIntro, { once: true });
 
-        // Fallback duro a los 20s por si algo falla
-        setTimeout(exitIntro, 20000);
-    })();
+            /* ---- INICIO por gesto del usuario ---- */
+            var started = false;
+            function startVideo() {
+                if (started) return;
+                started = true;
+                intro.removeEventListener('click', startVideo);
+                intro.removeEventListener('touchstart', startVideo);
+                hint.classList.remove('visible');
+                hint.style.display = 'none';
+
+                video.play().catch(function () {
+                    exitIntro();
+                });
+            }
+
+            intro.addEventListener('click', startVideo);
+            intro.addEventListener('touchstart', startVideo, { passive: true });
+
+            // Fallback duro a los 20s por si algo falla
+            setTimeout(exitIntro, 20000);
+        })();
     </script>
 
     <script type="module" src="assets/js/main.js"></script>
