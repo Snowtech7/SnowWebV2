@@ -7,6 +7,9 @@
     <title>SNOW | Servicios - Construye Tu Entidad Digital</title>
     <meta name="description"
         content="Servicios de desarrollo web, marketing, IA, diseño y automatización. Cada uno puede contratarse solo o como parte de tu sistema evolutivo.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta name="theme-color" content="#020408">
+    <link rel="canonical" href="https://snowtech7.github.io/SnowWebV2/services.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
         {
@@ -18,7 +21,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/site.js" defer></script>
     <meta property="og:type" content="website">
@@ -54,7 +57,7 @@
 
         .svc-nav-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.55rem;
+            font-size: 0.62rem;
             letter-spacing: 0.15em;
             color: rgba(255, 255, 255, 0.25);
             text-transform: uppercase;
@@ -116,7 +119,7 @@
 
         .svc-tab-num {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.5rem;
+            font-size: 0.62rem;
             color: rgba(255, 255, 255, 0.6);
             letter-spacing: 0.1em;
         }
@@ -174,7 +177,7 @@
             padding: 0.25rem 0.65rem;
             border-radius: 20px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.55rem;
+            font-size: 0.62rem;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             background: rgba(139, 242, 198, 0.12);
@@ -242,6 +245,40 @@
 
         .svc-evolves:hover { opacity: 0.75; }
 
+        /* ── Mini-CTA de conversión por servicio ── */
+        .svc-start {
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            padding: 0.5rem 0.95rem;
+            border: 1px solid rgba(139, 242, 198, 0.3);
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .svc-start:hover {
+            background: rgba(139, 242, 198, 0.08);
+            border-color: rgba(139, 242, 198, 0.5);
+        }
+
+        /* ── Línea de inversión en fases de evolución ── */
+        .node-invest {
+            margin-top: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(139, 242, 198, 0.55);
+        }
+
         .svc-evolves span {
             color: var(--accent);
             text-decoration: underline;
@@ -272,7 +309,7 @@
         }
 
         .svc-metric-label {
-            font-size: 0.55rem;
+            font-size: 0.62rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
             color: rgba(255, 255, 255, 0.65);
@@ -322,7 +359,7 @@
         .svc-browser-url::after {
             content: 'snowtech.io';
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.5rem;
+            font-size: 0.62rem;
             color: rgba(255,255,255,0.3);
             position: absolute;
             left: 6px;
@@ -361,7 +398,7 @@
         }
 
         .svc-stat-card-lbl {
-            font-size: 0.6rem;
+            font-size: 0.62rem;
             color: rgba(255,255,255,0.65);
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -474,7 +511,7 @@
         .svc-bar.accent { background: var(--accent); }
 
         .svc-bar-lbl {
-            font-size: 0.5rem;
+            font-size: 0.62rem;
             color: rgba(255,255,255,0.3);
             text-align: center;
             font-family: 'JetBrains Mono', monospace;
@@ -703,7 +740,7 @@
         </div>
         <!-- Scroll cue -->
         <div style="position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.4rem;opacity:0.3;pointer-events:none;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;">SCROLL</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;">SCROLL</span>
             <svg width="16" height="24" viewBox="0 0 16 24" fill="none" style="animation:svcBounce 1.8s ease-in-out infinite">
                 <path d="M8 0v20M1 13l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
@@ -812,6 +849,7 @@
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
                                 Siguiente paso → <span>IA & Chatbots</span>
                             </button>
+                            <a class="svc-start" href="contact.html?service=Desarrollo%20Web" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-web'})">Empezar por aquí →</a>
                         </div>
                         <!-- Right: Visual -->
                         <div class="svc-visual">
@@ -831,7 +869,7 @@
                                         <div style="height:50px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;"></div>
                                     </div>
                                     <div style="height:28px;background:rgba(139,242,198,0.15);border:1px solid rgba(139,242,198,0.3);border-radius:6px;display:flex;align-items:center;justify-content:center;">
-                                        <span style="font-size:0.55rem;color:var(--accent);font-family:'JetBrains Mono',monospace;">CTA PRINCIPAL →</span>
+                                        <span style="font-size:0.62rem;color:var(--accent);font-family:'JetBrains Mono',monospace;">CTA PRINCIPAL →</span>
                                     </div>
                                 </div>
                             </div>
@@ -890,6 +928,7 @@
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
                                 Siguiente paso → <span>Sales Funnels</span>
                             </button>
+                            <a class="svc-start" href="contact.html?service=IA%20%26%20Chatbots" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-ai'})">Empezar por aquí →</a>
                         </div>
                         <div class="svc-visual">
                             <div class="svc-browser">
@@ -899,7 +938,7 @@
                                     <div class="svc-browser-dot" style="background:#28c840"></div>
                                     <div style="margin-left:auto;display:flex;align-items:center;gap:0.3rem;">
                                         <div style="width:6px;height:6px;border-radius:50%;background:#28c840;animation:svcChatBounce 2s infinite;"></div>
-                                        <span style="font-size:0.5rem;color:rgba(255,255,255,0.3);font-family:'JetBrains Mono',monospace;">Online</span>
+                                        <span style="font-size:0.62rem;color:rgba(255,255,255,0.3);font-family:'JetBrains Mono',monospace;">Online</span>
                                     </div>
                                 </div>
                                 <div class="svc-chat">
@@ -964,6 +1003,7 @@
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
                                 Potencia con → <span>Sales Funnels</span>
                             </button>
+                            <a class="svc-start" href="contact.html?service=Growth%20Marketing" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-marketing'})">Empezar por aquí →</a>
                         </div>
                         <div class="svc-visual">
                             <div class="svc-browser">
@@ -1055,6 +1095,7 @@
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
                                 Amplifica con → <span>Automatización</span>
                             </button>
+                            <a class="svc-start" href="contact.html?service=Sales%20Funnels" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-funnels'})">Empezar por aquí →</a>
                         </div>
                         <div class="svc-visual">
                             <div class="svc-browser">
@@ -1066,17 +1107,17 @@
                                 </div>
                                 <div class="svc-funnel">
                                     <div class="svc-funnel-step" style="width:100%;background:rgba(139,242,198,0.2);border:1px solid rgba(139,242,198,0.3);">
-                                        <span style="font-size:0.6rem;color:rgba(255,255,255,0.5);">1.2k visitas</span>
+                                        <span style="font-size:0.62rem;color:rgba(255,255,255,0.5);">1.2k visitas</span>
                                         <div>Tráfico</div>
                                     </div>
                                     <div style="width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:8px solid rgba(139,242,198,0.2);margin:0 auto;"></div>
                                     <div class="svc-funnel-step" style="width:78%;background:rgba(139,242,198,0.15);border:1px solid rgba(139,242,198,0.2);">
-                                        <span style="font-size:0.6rem;color:rgba(255,255,255,0.5);">420 leads</span>
+                                        <span style="font-size:0.62rem;color:rgba(255,255,255,0.5);">420 leads</span>
                                         <div>Landing Page</div>
                                     </div>
                                     <div style="width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:8px solid rgba(139,242,198,0.15);margin:0 auto;"></div>
                                     <div class="svc-funnel-step" style="width:55%;background:rgba(139,242,198,0.1);border:1px solid rgba(139,242,198,0.15);">
-                                        <span style="font-size:0.6rem;color:rgba(255,255,255,0.5);">180 cal.</span>
+                                        <span style="font-size:0.62rem;color:rgba(255,255,255,0.5);">180 cal.</span>
                                         <div>Nurturing</div>
                                     </div>
                                     <div style="width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid rgba(139,242,198,0.1);margin:0 auto;"></div>
@@ -1150,6 +1191,7 @@
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
                                 Sistema completo → <span>Diseña tu entidad →</span>
                             </a>
+                            <a class="svc-start" href="contact.html?service=Automatizaci%C3%B3n" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-automation'})">Empezar por aquí →</a>
                         </div>
                         <div class="svc-visual">
                             <div class="svc-browser">
@@ -1211,7 +1253,7 @@
     <div id="svc-system-cta" style="padding:0 1.5rem 0;max-width:700px;margin:0 auto;opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease;pointer-events:none;" aria-hidden="true">
         <div style="background:rgba(10,15,30,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(139,242,198,0.18);border-left:3px solid var(--accent);border-radius:14px;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
             <div>
-                <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;margin-bottom:0.4rem;" id="svc-system-label">Sistema detectado</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;margin-bottom:0.4rem;" id="svc-system-label">Sistema detectado</div>
                 <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin:0;line-height:1.5;" id="svc-system-text">Exploraste múltiples servicios. Podemos diseñar tu arquitectura completa.</p>
             </div>
             <a href="contact.html" style="flex-shrink:0;display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;white-space:nowrap;transition:transform 0.2s,box-shadow 0.2s;"
@@ -1244,7 +1286,7 @@
 
                 <!-- Fase 01: Presencia -->
                 <div class="process-node group" aria-label="Fase 01: Presencia">
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:1rem;">01</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:1rem;">01</div>
                     <div class="node-icon-wrapper">
                         <svg viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
@@ -1252,11 +1294,13 @@
                     </div>
                     <h4 class="node-title">Presencia</h4>
                     <p class="node-desc">Web, IA y visibilidad. Tu base digital de alto impacto.</p>
+                    <!-- TODO NEGOCIO: cifra orientativa, p.ej. "desde €X" -->
+                    <div class="node-invest">Inversión a medida</div>
                 </div>
 
                 <!-- Fase 02: Crecimiento -->
                 <div class="process-node group" aria-label="Fase 02: Crecimiento">
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:1rem;">02</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:1rem;">02</div>
                     <div class="node-icon-wrapper">
                         <svg viewBox="0 0 24 24">
                             <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
@@ -1264,11 +1308,13 @@
                     </div>
                     <h4 class="node-title">Crecimiento</h4>
                     <p class="node-desc">Marketing, funnels y ventas. Atrae, convierte y cierra.</p>
+                    <!-- TODO NEGOCIO: cifra orientativa, p.ej. "desde €X" -->
+                    <div class="node-invest">Inversión a medida</div>
                 </div>
 
                 <!-- Fase 03: Autonomía -->
                 <div class="process-node group" aria-label="Fase 03: Autonomía">
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:1rem;">03</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:1rem;">03</div>
                     <div class="node-icon-wrapper">
                         <svg viewBox="0 0 24 24">
                             <path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
@@ -1276,6 +1322,8 @@
                     </div>
                     <h4 class="node-title">Autonomía</h4>
                     <p class="node-desc">Workflows, agentes IA y escala. Tu entidad opera sola.</p>
+                    <!-- TODO NEGOCIO: cifra orientativa, p.ej. "desde €X" -->
+                    <div class="node-invest">Inversión a medida</div>
                 </div>
             </div>
         </div>
@@ -1321,12 +1369,26 @@
                     <span>SNOW TECH</span>
                 </a>
                 <p class="opacity-60">Tu presencia digital evoluciona.</p>
+
+                <!-- Newsletter Form -->
+                <div class="mt-8 pt-6 border-t border-white/10">
+                    <p class="newsletter-title">Newsletter</p>
+                    <form class="flex gap-2 newsletter-form" data-source="services" method="post">
+                        <label for="newsletter-email-services" class="sr-only">Email para newsletter</label>
+                        <input id="newsletter-email-services" type="email" name="newsletter_email" placeholder="Email"
+                            class="bg-white/5 border border-white/10 px-3 py-2 rounded text-white text-xs w-full focus:border-[var(--accent)] outline-none transition-colors">
+                        <button type="submit"
+                            class="bg-[var(--accent)] text-black px-3 py-2 rounded font-bold hover:bg-white transition-colors">></button>
+                    </form>
+                </div>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Servicios</h4>
-                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Presencia Digital</a>
-                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Ventas Automatizadas</a>
-                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Operaciones IA</a>
+                <a href="services.html?service=svc-web" class="block opacity-60 hover:opacity-100 transition-opacity">Desarrollo Web</a>
+                <a href="services.html?service=svc-ai" class="block opacity-60 hover:opacity-100 transition-opacity">IA & Chatbots</a>
+                <a href="services.html?service=svc-marketing" class="block opacity-60 hover:opacity-100 transition-opacity">Growth Marketing</a>
+                <a href="services.html?service=svc-funnels" class="block opacity-60 hover:opacity-100 transition-opacity">Sales Funnels</a>
+                <a href="services.html?service=svc-automation" class="block opacity-60 hover:opacity-100 transition-opacity">Automatización</a>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Contacto</h4>
@@ -1388,6 +1450,24 @@
 
         // Set initial tabindex state
         _tabs.forEach((t, i) => { t.tabIndex = i === 0 ? 0 : -1; });
+
+        // Deep-link: ?service=svc-XXX o #svc-XXX activa el tab correspondiente al cargar
+        (function () {
+            const fromQuery = new URLSearchParams(location.search).get('service');
+            const key = fromQuery || (location.hash ? location.hash.slice(1) : '');
+            if (!/^svc-(web|ai|marketing|funnels|automation)$/.test(key)) return;
+            const tab = document.querySelector('.svc-tab[data-target="' + key + '"]');
+            if (!tab) return;
+            _explored.clear(); // un deep-link no cuenta como "exploración múltiple"
+            switchService(tab);
+            // El hash ya ancla nativamente al panel; con ?service= acercamos el dashboard
+            if (fromQuery) {
+                setTimeout(() => {
+                    const shell = document.querySelector('.svc-shell');
+                    if (shell) shell.scrollIntoView({ block: 'start' });
+                }, 0);
+            }
+        })();
     </script>
 
     <script type="module" src="assets/js/main.js"></script>

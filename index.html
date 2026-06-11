@@ -8,6 +8,9 @@
     <title>SNOW | Tu Entidad Digital Evoluciona</title>
     <meta name="description"
         content="SNOW TECH | Despliega una entidad digital evolutiva. De presencia web a agentes de ventas autónomos y gestores de IA corporativa. El futuro es modular.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta name="theme-color" content="#020408">
+    <link rel="canonical" href="https://snowtech7.github.io/SnowWebV2/">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- IMPORT MAP -->
@@ -24,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
 
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/site.js" defer></script>
@@ -128,6 +131,10 @@
             <div id="modal-icon-container"></div>
             <h2 id="modal-title">Service</h2>
             <p id="modal-desc">Desc.</p>
+            <a id="modal-cta" href="services.html" class="cta-header"
+                style="margin:1.75rem 0 0;display:inline-flex"
+                onclick="if(window.snowTrack)snowTrack('cube_service_cta',{service:this.getAttribute('data-service')||''})">Ver
+                servicio →</a>
         </div>
     </div>
 
@@ -158,6 +165,9 @@
         <section data-index="1"
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="vp-outer pointer-events-auto">
+
+                <!-- Serie platónica: estadio de esta sección -->
+                <div class="estadio-label" aria-hidden="true">ESTADIO 01 · TETRAEDRO · 4 CARAS</div>
 
                 <!-- Section label above window -->
                 <div class="vp-section-label">
@@ -550,6 +560,8 @@
                     var cur = 0;
                     var total = 3;
                     var autoTimer = null;
+                    var autoPaused = false;
+                    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
                     function goTo(n) {
                         var tabs = document.querySelectorAll('.vp-tab');
@@ -570,7 +582,23 @@
 
                     function startAuto() {
                         clearInterval(autoTimer);
+                        // Sin auto-avance con reduced-motion o con el usuario dentro de la ventana
+                        if (reducedMotion || autoPaused) return;
                         autoTimer = setInterval(function () { goTo((cur + 1) % total); }, 5000);
+                    }
+
+                    // Pausa el auto-avance mientras el usuario interactúa (hover o foco)
+                    var vpWin = document.getElementById('vp-window');
+                    if (vpWin) {
+                        function pauseAuto() { autoPaused = true; clearInterval(autoTimer); }
+                        function resumeAuto() { autoPaused = false; startAuto(); }
+                        vpWin.addEventListener('mouseenter', pauseAuto);
+                        vpWin.addEventListener('mouseleave', resumeAuto);
+                        vpWin.addEventListener('focusin', pauseAuto);
+                        vpWin.addEventListener('focusout', function (e) {
+                            // Solo reanudar si el foco sale de la ventana
+                            if (!vpWin.contains(e.relatedTarget)) resumeAuto();
+                        });
                     }
 
                     document.querySelectorAll('[data-vp]').forEach(function (el) {
@@ -607,6 +635,8 @@
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="service-container text-center">
                 <div class="floating-header">
+                    <!-- Serie platónica: el cubo CSS3D es el hexaedro -->
+                    <div class="estadio-label" aria-hidden="true">ESTADIO 02 · HEXAEDRO · 6 CARAS</div>
                     <div class="tag-line flex-center">Capacidades</div>
                     <h2 class="section-h2" style="text-shadow: 0 0 30px rgba(139, 242, 198, 0.2);">¿Qué área quieres
                         conectar?</h2>
@@ -621,6 +651,8 @@
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="max-w-5xl mx-auto w-full px-6 pointer-events-auto">
                 <div class="text-center mb-10">
+                    <!-- Serie platónica: estadio de esta sección -->
+                    <div class="estadio-label" aria-hidden="true">ESTADIO 03 · OCTAEDRO · 8 CARAS</div>
                     <div class="tag-line flex-center">Proceso</div>
                     <h2 class="section-h2">Cómo Funciona</h2>
                     <p class="section-desc">De la auditoría al despliegue en 4 pasos claros.</p>
@@ -692,9 +724,17 @@
                     <!-- ── TOP: CLIENTES ── -->
                     <div class="sp-half sp-top">
                         <div class="sp-half-header">
-                            <span class="sp-half-tag">Resultados</span>
-                            <h2 class="sp-half-title">Clientes</h2>
+                            <span class="sp-half-tag">Casos Tipo</span>
+                            <h2 class="sp-half-title">Escenarios de Sistema</h2>
+                            <!-- Serie platónica: estadio de esta sección -->
+                            <span class="estadio-label estadio-label--row" aria-hidden="true">ESTADIO 04 ·
+                                DODECAEDRO · 12 CARAS</span>
                         </div>
+                        <!-- Honestidad radical: escenarios representativos, no clientes reales.
+                             Los KPIs se leen como objetivos de diseño del sistema. -->
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin:-0.25rem 0 1rem">
+                            Escenarios construibles con nuestro stack · los KPIs son objetivos de diseño
+                        </p>
                         <div class="clients-grid">
 
                             <!-- Card 1: Velox Finance -->
@@ -729,8 +769,8 @@
                                     <div class="client-header">
                                         <span class="client-logo">VELOX</span>
                                         <span class="client-kpi"
-                                            style="color:var(--cc);border-color:rgba(0,217,255,0.3);box-shadow:0 0 10px rgba(0,217,255,0.15)">+340%
-                                            leads</span>
+                                            style="color:var(--cc);border-color:rgba(0,217,255,0.3);box-shadow:0 0 10px rgba(0,217,255,0.15)">objetivo:
+                                            +340% leads</span>
                                     </div>
                                     <p class="client-desc">SaaS de gestión financiera para PYMEs. Agente de ventas IA
                                         con pipeline automatizado.</p>
@@ -766,8 +806,8 @@
                                     <div class="client-header">
                                         <span class="client-logo">NEXIS</span>
                                         <span class="client-kpi"
-                                            style="color:#8b5cf6;border-color:rgba(139,92,246,0.35);box-shadow:0 0 10px rgba(139,92,246,0.18)">3×
-                                            conversión</span>
+                                            style="color:#8b5cf6;border-color:rgba(139,92,246,0.35);box-shadow:0 0 10px rgba(139,92,246,0.18)">objetivo:
+                                            3× conversión</span>
                                     </div>
                                     <p class="client-desc">E-commerce de moda sostenible. Funnels automatizados y
                                         nurturing de leads 24/7.</p>
@@ -805,9 +845,10 @@
                                     <div class="client-header">
                                         <span class="client-logo">ORBITA</span>
                                         <span class="client-kpi"
-                                            style="color:#22c55e;border-color:rgba(34,197,94,0.35);box-shadow:0 0 10px rgba(34,197,94,0.18)">−20h/sem</span>
+                                            style="color:#22c55e;border-color:rgba(34,197,94,0.35);box-shadow:0 0 10px rgba(34,197,94,0.18)">objetivo:
+                                            −20h/sem</span>
                                     </div>
-                                    <p class="client-desc">Agencia creativa. Operaciones IA que liberaron 20 horas
+                                    <p class="client-desc">Agencia creativa. Operaciones IA que liberan +20 horas
                                         semanales del equipo creativo.</p>
                                     <div class="client-tags">
                                         <span class="client-tag">Operaciones IA</span>
@@ -821,7 +862,7 @@
                                 <div class="client-cta-inner">
                                     <div class="client-cta-plus">+</div>
                                     <h3 class="client-cta-title">Tu empresa<br>aquí</h3>
-                                    <p class="client-cta-sub">Únete a las empresas que ya evolucionaron.</p>
+                                    <p class="client-cta-sub">Convierte el escenario en tu caso real.</p>
                                     <a href="contact.html" class="client-cta-btn pointer-events-auto">Agendar
                                         Auditoría</a>
                                 </div>
@@ -834,27 +875,28 @@
                 <!-- Alianzas panel -->
                 <div class="sp-container">
 
-                    <!-- ── BOTTOM: ALIANZAS ── -->
+                    <!-- ── BOTTOM: STACK (honestidad radical: herramientas que usamos,
+                         no partnerships oficiales que no existen) ── -->
                     <div class="sp-half sp-bottom">
                         <div class="sp-half-header">
-                            <span class="sp-half-tag">Ecosistema</span>
-                            <h2 class="sp-half-title">Alianzas</h2>
+                            <span class="sp-half-tag">Stack</span>
+                            <h2 class="sp-half-title">Construimos sobre</h2>
                         </div>
                         <div class="partners-strip">
 
                             <div class="partner-pill">
                                 <div class="pp-logo"><span class="pp-mono">M</span></div>
                                 <div class="pp-info">
-                                    <span class="pp-name">Meta</span>
-                                    <span class="pp-label">Partner de Marketing</span>
+                                    <span class="pp-name">Meta Ads</span>
+                                    <span class="pp-label">Adquisición</span>
                                 </div>
                             </div>
 
                             <div class="partner-pill">
                                 <div class="pp-logo"><span class="pp-mono">G</span></div>
                                 <div class="pp-info">
-                                    <span class="pp-name">Google</span>
-                                    <span class="pp-label">Partner de Anuncios</span>
+                                    <span class="pp-name">Google Cloud</span>
+                                    <span class="pp-label">Infraestructura & Ads</span>
                                 </div>
                             </div>
 
@@ -862,7 +904,7 @@
                                 <div class="pp-logo"><span class="pp-mono">AI</span></div>
                                 <div class="pp-info">
                                     <span class="pp-name">OpenAI</span>
-                                    <span class="pp-label">Partner de IA</span>
+                                    <span class="pp-label">Modelos de IA</span>
                                 </div>
                             </div>
 
@@ -870,7 +912,7 @@
                                 <div class="pp-logo"><span class="pp-mono">n8n</span></div>
                                 <div class="pp-info">
                                     <span class="pp-name">n8n</span>
-                                    <span class="pp-label">Partner de Automatización</span>
+                                    <span class="pp-label">Orquestación</span>
                                 </div>
                             </div>
 
@@ -878,7 +920,7 @@
                                 <div class="pp-logo"><span class="pp-mono">N</span></div>
                                 <div class="pp-info">
                                     <span class="pp-name">Notion</span>
-                                    <span class="pp-label">Partner de Operaciones</span>
+                                    <span class="pp-label">Operaciones</span>
                                 </div>
                             </div>
 
@@ -906,13 +948,14 @@
         <section data-index="6" id="lead-magnet"
             class="flex flex-col justify-center items-center h-screen relative overflow-hidden px-4">
             <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-4">
-                <!-- Left: Floating Logo -->
-                <div class="flex justify-center items-center opacity-60 order-2 md:order-1">
-                    <picture>
-                        <source srcset="assets/logo.webp" type="image/webp">
-                        <img src="assets/logo.png" alt="Logotipo animado de Snow Tech" class="animate-spin-slow"
-                            width="280" height="280" loading="lazy">
-                    </picture>
+                <!-- Left: Icosaedro (estadio final de la serie platónica).
+                     El sólido WebGL flota en esta columna (shapes.js, índice 6);
+                     sustituye al logo plano girando: dos lenguajes visuales
+                     competían y el icosaedro ES la "entidad completa" en el
+                     punto de conversión. El microlabel ancla la metáfora. -->
+                <div class="flex justify-center items-center order-2 md:order-1 md:self-end md:pb-6 pointer-events-none">
+                    <span class="estadio-label estadio-label--caption" aria-hidden="true">ESTADIO 05 · ICOSAEDRO · 20
+                        CARAS</span>
                 </div>
 
                 <!-- Right: Form Card -->
@@ -1079,9 +1122,11 @@
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Servicios</h4>
-                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Desarrollo Web</a>
-                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">Automatización</a>
-                <a href="services.html" class="block opacity-60 hover:opacity-100 transition-opacity">AI & Chatbots</a>
+                <a href="services.html?service=svc-web" class="block opacity-60 hover:opacity-100 transition-opacity">Desarrollo Web</a>
+                <a href="services.html?service=svc-ai" class="block opacity-60 hover:opacity-100 transition-opacity">IA & Chatbots</a>
+                <a href="services.html?service=svc-marketing" class="block opacity-60 hover:opacity-100 transition-opacity">Growth Marketing</a>
+                <a href="services.html?service=svc-funnels" class="block opacity-60 hover:opacity-100 transition-opacity">Sales Funnels</a>
+                <a href="services.html?service=svc-automation" class="block opacity-60 hover:opacity-100 transition-opacity">Automatización</a>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Contacto</h4>
@@ -1089,8 +1134,6 @@
                     class="block opacity-60 hover:opacity-100 transition-opacity">hola@snowtech.io</a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                     class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                    class="block opacity-60 hover:opacity-100 transition-opacity">Twitter</a>
             </div>
         </div>
         <div class="pt-8 border-t border-white/10 opacity-50 text-xs">

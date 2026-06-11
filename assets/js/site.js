@@ -11,13 +11,18 @@
        - formEndpoint:       endpoint POST de contacto (Formspree: 'https://formspree.io/f/XXXXXXXX' o webhook n8n)
        - newsletterEndpoint: endpoint POST de newsletter (si vacío, usa formEndpoint)
        - plausibleDomain:    dominio en Plausible para activar analytics (p.ej. 'snowtech.io')
+       - whatsapp:           número con prefijo internacional, solo dígitos (p.ej. '34600111222');
+                             activa el botón "CANAL DIRECTO ▸ WHATSAPP" en contact.html
+       - calendarUrl:        URL de agenda (Calendly/Cal.com); activa "AGENDA UNA LLAMADA ▸" en contact.html
        Mientras estén vacíos NO se simula éxito: los formularios
-       derivan al correo real para no perder ningún lead.       */
+       derivan al correo real y los accesos directos quedan ocultos. */
     var CONFIG = window.SNOW_CONFIG = {
         formEndpoint: '',
         newsletterEndpoint: '',
         plausibleDomain: '',
-        contactEmail: 'hola@snowtech.io'
+        contactEmail: 'hola@snowtech.io',
+        whatsapp: '',
+        calendarUrl: ''
     };
 
     /* ── ANALYTICS ── */

@@ -34,13 +34,16 @@ async function init3D() {
         const state = core.state;
 
         if (state.scene) {
+            // Serie platónica: la complejidad crece al profundizar en la home
+            // (el gradiente vive en SERIE_PLATONICA, en shapes.js).
             shapes = [
-                null, // Section 0: hero (sin objeto 3D)
-                shapesM.createValuePropSystem(state.scene, state.iceMat),
-                null, // Placeholder for Cube index (2)
-                shapesM.createWebGLShape(new THREE.OctahedronGeometry(2.7), 'octa', state.scene, state.iceMat),
-                shapesM.createWebGLShape(new THREE.DodecahedronGeometry(2.6), 'dodeca', state.scene, state.iceMat),
-                null  // Placeholder for Partners index (5)
+                shapesM.createWebGLShape(new THREE.TetrahedronGeometry(2.8), 'semilla', state.scene, state.iceMat), // 0: hero — la semilla (solo desktop)
+                shapesM.createValuePropSystem(state.scene, state.iceMat),                                            // 1: estadio 01 · tetraedro · 4 caras
+                null, // 2: estadio 02 · hexaedro · 6 caras — es el cubo CSS3D (cube.js)
+                shapesM.createWebGLShape(new THREE.OctahedronGeometry(2.7), 'octa', state.scene, state.iceMat),      // 3: estadio 03 · octaedro · 8 caras
+                shapesM.createWebGLShape(new THREE.DodecahedronGeometry(2.6), 'dodeca', state.scene, state.iceMat),  // 4: estadio 04 · dodecaedro · 12 caras
+                null, // 5: partners CSS3D (sin sólido propio)
+                shapesM.createWebGLShape(new THREE.IcosahedronGeometry(2.8), 'icosa', state.scene, state.iceMat)     // 6: estadio 05 · icosaedro · 20 caras (lead magnet)
             ];
         }
         if (state.cssScene) {
@@ -125,7 +128,7 @@ function renderFrame() {
     }
 
     gfx.updateShapes(shapes, PHYSICS, false, isDesktop);
-    gfx.updateCube(PHYSICS, false, now, isDesktop);
+    gfx.updateCube(PHYSICS, now, isDesktop);
     gfx.updatePartners(partnerGroup, PHYSICS, false, now, isDesktop);
 
     // 3. Render

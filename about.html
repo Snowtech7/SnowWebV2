@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>SNOW | Nosotros</title>
     <meta name="description" content="Conoce a SNOW Tech. Nuestra esencia, misión y valores. Construimos la infraestructura digital de la próxima generación.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta name="theme-color" content="#020408">
+    <link rel="canonical" href="https://snowtech7.github.io/SnowWebV2/about.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
         {
@@ -18,7 +21,7 @@
     <!-- Fonts: preconnect + single request, font-display:swap evita FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
 
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/site.js" defer></script>
@@ -167,6 +170,38 @@
                 </div>
             </div>
         </section>
+
+        <!-- 4. CTA FINAL — cierre de funnel (mismo patrón que el CTA de services.html) -->
+        <section data-index="4" class="pg-section relative overflow-hidden">
+            <div class="max-w-5xl mx-auto pointer-events-auto">
+                <div class="card" style="max-width:680px;margin:0 auto;text-align:center;border-color:var(--accent);background:linear-gradient(135deg,rgba(139,242,198,0.06) 0%,rgba(0,0,0,0.3) 100%);padding:3rem 2rem;">
+                    <div class="tag-line" style="justify-content:center;color:var(--accent);margin-bottom:1rem;">Siguiente Paso</div>
+                    <h2 class="section-h2" style="margin-bottom:1rem;">¿Construimos tu entidad?</h2>
+                    <p style="margin-bottom:2rem;max-width:400px;margin-left:auto;margin-right:auto;opacity:0.7;font-size:0.9rem;line-height:1.7;">
+                        Estos principios solo valen si se aplican a tu negocio. Cuéntanos dónde estás y trazamos tu ruta de evolución.
+                    </p>
+                    <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+                        <a href="contact.html"
+                            onclick="if(window.snowTrack)snowTrack('cta_about_contact',{page:'about'})"
+                            style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;transition:all 0.3s ease;"
+                            onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(139,242,198,0.3)'"
+                            onmouseout="this.style.transform='';this.style.boxShadow=''">
+                            Auditoría Gratuita →
+                        </a>
+                        <a href="services.html"
+                            onclick="if(window.snowTrack)snowTrack('cta_about_services',{page:'about'})"
+                            style="display:inline-block;background:transparent;color:var(--accent);font-weight:600;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;border:1px solid rgba(139,242,198,0.3);transition:all 0.3s ease;"
+                            onmouseover="this.style.background='rgba(139,242,198,0.08)'"
+                            onmouseout="this.style.background='transparent'">
+                            Ver Servicios
+                        </a>
+                    </div>
+                    <p style="margin-top:1.25rem;font-size:0.72rem;color:rgba(139,242,198,0.6);letter-spacing:0.05em;">
+                        Solo 5 slots semanales · Respuesta en 24h
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -177,16 +212,31 @@
                     <span>SNOW TECH</span>
                 </a>
                 <p class="opacity-60">Arquitectura digital para el futuro.</p>
+
+                <!-- Newsletter Form -->
+                <div class="mt-8 pt-6 border-t border-white/10">
+                    <p class="newsletter-title">Newsletter</p>
+                    <form class="flex gap-2 newsletter-form" data-source="about" method="post">
+                        <label for="newsletter-email-about" class="sr-only">Email para newsletter</label>
+                        <input id="newsletter-email-about" type="email" name="newsletter_email" placeholder="Email"
+                            class="bg-white/5 border border-white/10 px-3 py-2 rounded text-white text-xs w-full focus:border-[var(--accent)] outline-none transition-colors">
+                        <button type="submit"
+                            class="bg-[var(--accent)] text-black px-3 py-2 rounded font-bold hover:bg-white transition-colors">></button>
+                    </form>
+                </div>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4">Legal</h4>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition-opacity">Privacidad</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition-opacity">Términos</a>
+                <h4 class="text-white font-bold mb-4">Servicios</h4>
+                <a href="services.html?service=svc-web" class="block opacity-60 hover:opacity-100 transition-opacity">Desarrollo Web</a>
+                <a href="services.html?service=svc-ai" class="block opacity-60 hover:opacity-100 transition-opacity">IA & Chatbots</a>
+                <a href="services.html?service=svc-marketing" class="block opacity-60 hover:opacity-100 transition-opacity">Growth Marketing</a>
+                <a href="services.html?service=svc-funnels" class="block opacity-60 hover:opacity-100 transition-opacity">Sales Funnels</a>
+                <a href="services.html?service=svc-automation" class="block opacity-60 hover:opacity-100 transition-opacity">Automatización</a>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4">Social</h4>
+                <h4 class="text-white font-bold mb-4">Contacto</h4>
+                <a href="mailto:hola@snowtech.io" class="block opacity-60 hover:opacity-100 transition-opacity">hola@snowtech.io</a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">Twitter</a>
             </div>
         </div>
         <div class="pt-8 border-t border-white/10 opacity-50 text-xs text-center">

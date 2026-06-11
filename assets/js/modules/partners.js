@@ -4,7 +4,8 @@ import { CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
 export function createPartnerSystem(cssScene) {
     if (!cssScene) return null;
     const group = new THREE.Group();
-    const partners = ["AWS", "META", "GOOGLE", "AZURE", "OPENAI"];
+    // Mismo stack que las pills de la sección Alianzas/Stack del DOM (index.html)
+    const partners = ["META", "GOOGLE", "OPENAI", "N8N", "NOTION"];
     const isMobile = window.innerWidth <= 768;
     const s = isMobile ? 180 : 400;
     const positions = [

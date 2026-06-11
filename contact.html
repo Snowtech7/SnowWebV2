@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>SNOW | Contacto</title>
     <meta name="description" content="Contacta con SNOW Tech. Inicia la transmisión y descubre cómo evolucionar tu presencia digital. Respuesta en 24 horas.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta name="theme-color" content="#020408">
+    <link rel="canonical" href="https://snowtech7.github.io/SnowWebV2/contact.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
         {
@@ -18,7 +21,7 @@
     <!-- Fonts: preconnect + single request, font-display:swap evita FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
 
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/site.js" defer></script>
@@ -101,6 +104,22 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Accesos directos: solo visibles si SNOW_CONFIG.whatsapp / calendarUrl están configurados -->
+                            <div style="display:flex;flex-direction:column;gap:0.6rem">
+                                <a id="contact-whatsapp" target="_blank" rel="noopener noreferrer"
+                                    style="display:none;align-items:center;justify-content:space-between;gap:0.75rem;padding:0.8rem 1rem;border:1px solid rgba(139,242,198,0.3);border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:background 0.2s,border-color 0.2s;min-height:44px"
+                                    onmouseover="this.style.background='rgba(139,242,198,0.08)'"
+                                    onmouseout="this.style.background='transparent'">
+                                    <span>Canal directo ▸ WhatsApp</span><span aria-hidden="true">→</span>
+                                </a>
+                                <a id="contact-calendar" target="_blank" rel="noopener noreferrer"
+                                    style="display:none;align-items:center;justify-content:space-between;gap:0.75rem;padding:0.8rem 1rem;border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,border-color 0.2s;min-height:44px"
+                                    onmouseover="this.style.background='rgba(255,255,255,0.05)'"
+                                    onmouseout="this.style.background='transparent'">
+                                    <span>Agenda una llamada ▸</span><span aria-hidden="true">→</span>
+                                </a>
+                            </div>
                         </div>
 
                         <!-- Right: Form -->
@@ -124,12 +143,16 @@
                                     <textarea id="contact-message" name="message" placeholder="Cuéntanos sobre tu proyecto..." rows="4"
                                         style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:0.75rem 1rem;border-radius:4px;color:#fff;font-size:0.9rem;outline:none;transition:border-color 0.2s;resize:none;width:100%;box-sizing:border-box" required></textarea>
                                 </div>
+                                <p style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:rgba(139,242,198,0.6);margin:0;text-align:center">
+                                    Solo 5 slots semanales · Respuesta en 24h
+                                </p>
                                 <button type="submit"
                                     style="background:var(--accent);color:#000;font-family:'JetBrains Mono',monospace;font-weight:700;padding:0.85rem 2rem;border:none;border-radius:4px;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.2s;min-height:44px">
                                     Enviar Transmisión →
                                 </button>
                                 <div id="contact-success" role="status" style="display:none;padding:0.85rem;border:1px solid var(--accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-align:center;border-radius:4px">
-                                    ✓ TRANSMISIÓN RECIBIDA · RESPONDEMOS EN 24H
+                                    <span id="contact-success-msg">✓ TRANSMISIÓN RECIBIDA · RESPONDEMOS EN 24H</span>
+                                    <a href="services.html" style="display:block;margin-top:0.5rem;color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-size:0.65rem">Mientras tanto, explora los servicios →</a>
                                 </div>
                                 <div id="contact-error" role="alert" style="display:none;padding:0.85rem;border:1px solid #ff7b7b;color:#ff7b7b;font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-align:center;border-radius:4px">
                                     ✕ ERROR DE TRANSMISIÓN · ESCRÍBENOS A <a href="mailto:hola@snowtech.io" style="color:#ff7b7b;text-decoration:underline">HOLA@SNOWTECH.IO</a>
@@ -144,16 +167,42 @@
 
         <script>
         // Prefill desde el lead magnet de index (?site_url=...&email=...)
+        // y desde los mini-CTAs de services.html (?service=Nombre)
         (function () {
             var params = new URLSearchParams(window.location.search);
             var email = params.get('email');
             var site = params.get('site_url');
+            var service = params.get('service');
             if (email) document.getElementById('contact-email').value = email;
-            if (site) {
-                var msg = document.getElementById('contact-message');
-                if (msg && !msg.value) msg.value = 'Solicito la auditoría gratuita de mi sitio: ' + site;
+            var msg = document.getElementById('contact-message');
+            if (site && msg && !msg.value) {
+                msg.value = 'Solicito la auditoría gratuita de mi sitio: ' + site;
+            } else if (service && msg && !msg.value) {
+                msg.value = 'Quiero empezar por: ' + service + '.';
             }
         })();
+
+        // Accesos directos configurables (se muestran solo con SNOW_CONFIG completo).
+        // site.js carga con defer, por eso esperamos a DOMContentLoaded.
+        document.addEventListener('DOMContentLoaded', function () {
+            var cfg = window.SNOW_CONFIG || {};
+            var wa = document.getElementById('contact-whatsapp');
+            if (wa && cfg.whatsapp) {
+                wa.href = 'https://wa.me/' + String(cfg.whatsapp).replace(/\D/g, '');
+                wa.style.display = 'flex';
+                wa.addEventListener('click', function () {
+                    if (window.snowTrack) snowTrack('cta_whatsapp', { page: 'contact' });
+                });
+            }
+            var cal = document.getElementById('contact-calendar');
+            if (cal && cfg.calendarUrl) {
+                cal.href = cfg.calendarUrl;
+                cal.style.display = 'flex';
+                cal.addEventListener('click', function () {
+                    if (window.snowTrack) snowTrack('cta_calendar', { page: 'contact' });
+                });
+            }
+        });
 
         function submitContactForm(e) {
             e.preventDefault();
@@ -180,7 +229,8 @@
                     '?subject=' + encodeURIComponent('Transmisión SNOW — ' + data.name) +
                     '&body=' + encodeURIComponent(body);
                 if (success) {
-                    success.textContent = '→ ABRIENDO TU CORREO · TAMBIÉN PUEDES ESCRIBIR A HOLA@SNOWTECH.IO';
+                    var msgEl = document.getElementById('contact-success-msg');
+                    if (msgEl) msgEl.textContent = '→ ABRIENDO TU CORREO · TAMBIÉN PUEDES ESCRIBIR A HOLA@SNOWTECH.IO';
                     success.style.display = 'block';
                 }
                 return;
@@ -223,13 +273,16 @@
                 </div>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4">Legal</h4>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition-opacity">Privacidad</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition-opacity">Términos</a>
+                <h4 class="text-white font-bold mb-4">Servicios</h4>
+                <a href="services.html?service=svc-web" class="block opacity-60 hover:opacity-100 transition-opacity">Desarrollo Web</a>
+                <a href="services.html?service=svc-ai" class="block opacity-60 hover:opacity-100 transition-opacity">IA & Chatbots</a>
+                <a href="services.html?service=svc-marketing" class="block opacity-60 hover:opacity-100 transition-opacity">Growth Marketing</a>
+                <a href="services.html?service=svc-funnels" class="block opacity-60 hover:opacity-100 transition-opacity">Sales Funnels</a>
+                <a href="services.html?service=svc-automation" class="block opacity-60 hover:opacity-100 transition-opacity">Automatización</a>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4">Social</h4>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">Twitter</a>
+                <h4 class="text-white font-bold mb-4">Contacto</h4>
+                <a href="mailto:hola@snowtech.io" class="block opacity-60 hover:opacity-100 transition-opacity">hola@snowtech.io</a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
             </div>
         </div>

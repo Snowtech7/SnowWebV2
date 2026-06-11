@@ -34,7 +34,15 @@
 /* --- 1. VISUALES BASE --- */
 :root {
     --bg-deep: #020408;
+    /* ── Sistema dual de acentos ──
+       --accent (menta #8BF2C6): acción, CTAs, conversión, foco.
+       --accent-data (cian #00d9ff): data, estructura, decoración técnica
+       (bordes de paneles, tags, glows de métricas). El cian aparece también
+       como rgba(0,217,255,α) en muchos puntos: se mantiene en rgba por
+       compatibilidad, pero todo HEX nuevo debe usar estas variables. */
     --accent: #8BF2C6;
+    --accent-data: #00d9ff;
+    --accent-data-glow: #00f0ff;
     --glass-bg: rgba(10, 15, 30, 0.6);
     --glass-border: rgba(255, 255, 255, 0.1);
     /* Responsive breakpoints */
@@ -80,10 +88,6 @@ body {
     margin-bottom: 1.5rem;
     line-height: 1.1;
     color: white;
-}
-
-.metric-value {
-    font-size: clamp(2.2rem, 6vw, 3rem) !important;
 }
 
 /* --- 2. CAPAS DE RENDERIZADO --- */
@@ -225,26 +229,6 @@ header.scrolled {
     }
 }
 
-.hud {
-    position: fixed;
-    bottom: 3rem;
-    right: 4rem;
-    z-index: 50;
-    text-align: right;
-    pointer-events: none;
-    font-family: 'JetBrains Mono';
-    color: var(--accent);
-}
-
-.stasis-bar {
-    height: 2px;
-    background: var(--accent);
-    width: 100%;
-    margin-top: 8px;
-    box-shadow: 0 0 10px var(--accent);
-    transition: width 0.1s linear;
-}
-
 footer {
     position: relative;
     z-index: 20;
@@ -318,17 +302,6 @@ section.active .card {
     transform: translateY(0);
 }
 
-.interaction-title {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1s ease 0.5s;
-}
-
-section.active .interaction-title {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .tag-line {
     font-family: 'JetBrains Mono';
     font-size: 0.75rem;
@@ -337,6 +310,33 @@ section.active .interaction-title {
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     display: block;
+}
+
+/* ── Serie platónica: microlabel de estadio ──
+   Susurra la metáfora de la home (la entidad gana caras al profundizar):
+   ESTADIO 01 · TETRAEDRO · 4 CARAS … ESTADIO 05 · ICOSAEDRO · 20 CARAS.
+   Mismo lenguaje que .tag-line/.pg-label pero más tenue: no debe gritar. */
+.estadio-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.35;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+/* Variante en fila (dentro de cabeceras flex): pegado a la derecha */
+.estadio-label--row {
+    margin-left: auto;
+    margin-bottom: 0;
+}
+
+/* Variante caption (bajo el icosaedro del lead magnet) */
+.estadio-label--caption {
+    margin-bottom: 0;
 }
 
 h2 {
@@ -376,32 +376,6 @@ p {
 }
 
 section.active .floating-header {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* SLIDER CSS */
-.slider-wrapper {
-    position: relative;
-    height: 120px;
-    margin-top: 1rem;
-    overflow: hidden;
-}
-
-.slide-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-    display: flex;
-    flex-direction: column;
-}
-
-.slide-item.active {
     opacity: 1;
     transform: translateY(0);
 }
@@ -674,11 +648,6 @@ section.active .floating-header {
     .floating-header {
         margin-bottom: 18rem;
     }
-
-    .hud {
-        bottom: 2rem;
-        right: 2rem;
-    }
 }
 
 /* --- MOBILE (< 768px) --- */
@@ -774,10 +743,6 @@ section.active .floating-header {
         margin-bottom: 8rem;
     }
 
-    .hud {
-        display: none;
-    }
-
     section[data-index="5"] .floating-header {
         margin-bottom: 10rem;
     }
@@ -806,21 +771,6 @@ section.active .floating-header {
         max-width: 100%;
     }
 
-    /* Metrics grid - 2 cols on mobile */
-    .metric-item {
-        padding: 1.25rem 1rem 1rem;
-    }
-
-    .metric-value {
-        font-size: 1.9rem !important;
-    }
-
-    /* Tech stack - wrap better */
-    .tech-stack {
-        gap: 1rem;
-        font-size: 0.8rem;
-    }
-
     /* CTA & buttons - touch friendly */
     .cta-header {
         padding: 0.75rem 1rem;
@@ -828,11 +778,6 @@ section.active .floating-header {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-    }
-
-    .cta-primary {
-        padding: 1rem 2rem;
-        min-height: var(--touch-min);
     }
 
     /* Form inputs - larger on mobile */
@@ -894,20 +839,6 @@ section.active .floating-header {
 .glitch-text {
     color: var(--accent);
     animation: soft-glitch 5s infinite;
-}
-
-@keyframes spin-slow {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.animate-spin-slow {
-    animation: spin-slow 60s linear infinite;
 }
 
 /* --- 8. GLITCH EFFECT --- */
@@ -984,166 +915,7 @@ section.active .floating-header {
     }
 }
 
-/* --- 9. PRICING CARDS --- */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 2rem;
-}
-
-.pricing-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.pricing-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--glass-border);
-    transition: background 0.3s;
-}
-
-.pricing-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-}
-
-.pricing-card:hover::before {
-    background: var(--accent);
-}
-
-.pricing-card.featured {
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 40px rgba(139, 242, 198, 0.2);
-}
-
-.pricing-card.featured::before {
-    background: linear-gradient(90deg, var(--accent), #fff, var(--accent));
-}
-
-.pricing-card .level-tag {
-    font-family: 'JetBrains Mono';
-    font-size: 0.7rem;
-    color: var(--accent);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-}
-
-.pricing-card h3 {
-    font-family: 'JetBrains Mono';
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 1rem;
-}
-
-.pricing-card .description {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    flex-grow: 1;
-    margin-bottom: 1.5rem;
-}
-
-.pricing-card .price {
-    font-family: 'JetBrains Mono';
-    font-size: 1.2rem;
-    color: white;
-    margin-bottom: 1.5rem;
-}
-
-.pricing-card .cta-btn {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 0.8rem 1.5rem;
-    font-family: 'JetBrains Mono';
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-}
-
-.pricing-card .cta-btn:hover {
-    background: var(--accent);
-    color: black;
-}
-
-.pricing-card.featured .cta-btn {
-    background: var(--accent);
-    color: black;
-}
-
-.pricing-card.featured .cta-btn:hover {
-    background: white;
-}
-
-@media (max-width: 968px) {
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-}
-
-/* --- 10. HORIZONTAL METRICS --- */
-.metrics-row {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
-    padding: 2rem;
-}
-
-.metric-item {
-    text-align: center;
-}
-
-.metric-value {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    text-shadow: 0 0 20px rgba(0,217,255,0.5), 0 0 40px rgba(0,217,255,0.2);
-    line-height: 1;
-}
-
-.metric-label {
-    font-family: 'JetBrains Mono';
-    font-size: 0.75rem;
-    color: var(--accent);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 0.5rem;
-}
-
 @media (max-width: 768px) {
-    .metrics-row {
-        gap: 2rem;
-    }
-
-    .metric-value {
-        font-size: 2.5rem;
-    }
-
     .testimonial-card-wrapper {
         padding: 1.75rem 1.5rem !important;
         margin-top: 1.5rem !important;
@@ -1158,250 +930,6 @@ section.active .floating-header {
     .testimonial-quote {
         font-size: 0.95rem;
     }
-}
-
-/* --- 11. ARCHITECTURE COLUMNS --- */
-.architecture-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    max-width: 1100px;
-    width: 100%;
-    padding: 0 2rem;
-}
-
-.arch-column {
-    text-align: center;
-    padding: 2rem;
-    border: 1px solid var(--glass-border);
-    background: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    transition: all 0.3s;
-}
-
-.arch-column.past {
-    opacity: 0.8;
-}
-
-.arch-column.future {
-    border-color: var(--accent);
-    box-shadow: 0 0 30px rgba(139, 242, 198, 0.15);
-}
-
-.arch-column h4 {
-    font-family: 'JetBrains Mono';
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-}
-
-.arch-column p {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    line-height: 1.5;
-}
-
-@media (max-width: 768px) {
-    .architecture-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* --- 12. TECH STACK --- */
-.tech-stack {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    font-family: 'JetBrains Mono';
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.tech-stack span {
-    transition: color 0.3s;
-}
-
-.tech-stack span:hover {
-    color: var(--accent);
-}
-
-.tech-divider {
-    color: var(--accent);
-    opacity: 0.5;
-}
-
-/* --- 13. CUBE FACE CONTENT --- */
-.cube-face-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1.5rem;
-    width: 100%;
-    height: 100%;
-}
-
-.cube-face-content .phase-title {
-    font-family: 'JetBrains Mono';
-    font-size: 0.7rem;
-    color: var(--accent);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-}
-
-.cube-face-content h3 {
-    font-family: 'JetBrains Mono';
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.5rem;
-}
-
-.cube-face-content p {
-    font-size: 0.8rem;
-    color: #94a3b8;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-}
-
-.cube-face-content .cube-btn {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 0.5rem 1rem;
-    font-family: 'JetBrains Mono';
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.cube-face-content .cube-btn:hover {
-    background: var(--accent);
-    color: black;
-}
-
-.cube-slogan {
-    font-family: 'JetBrains Mono';
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 2px;
-    text-shadow: 0 0 20px rgba(139, 242, 198, 0.5);
-}
-
-.cube-stack {
-    font-family: 'JetBrains Mono';
-    font-size: 0.7rem;
-    color: var(--accent);
-    letter-spacing: 2px;
-}
-
-/* --- 14. PHASE ACCORDION --- */
-.phase-accordion {
-    max-width: 800px;
-    width: 100%;
-    margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-.phase-accordion details {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    margin-bottom: 1rem;
-    transition: all 0.3s;
-}
-
-.phase-accordion details[open] {
-    border-color: var(--accent);
-}
-
-.phase-accordion summary {
-    padding: 1.5rem;
-    cursor: pointer;
-    font-family: 'JetBrains Mono';
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 1px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-}
-
-.phase-accordion summary::-webkit-details-marker {
-    display: none;
-}
-
-.phase-accordion summary::after {
-    content: '+';
-    font-size: 1.2rem;
-    color: var(--accent);
-    transition: transform 0.3s;
-}
-
-.phase-accordion details[open] summary::after {
-    transform: rotate(45deg);
-}
-
-.phase-accordion .phase-content {
-    padding: 0 1.5rem 1.5rem;
-    color: #94a3b8;
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.phase-accordion .phase-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.phase-accordion .phase-content li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.phase-accordion .phase-content li:last-child {
-    border-bottom: none;
-}
-
-.phase-accordion .phase-content li::before {
-    content: '>';
-    color: var(--accent);
-    margin-right: 0.75rem;
-    font-family: 'JetBrains Mono';
-}
-
-/* --- 15. CTA BUTTONS --- */
-.cta-primary {
-    display: inline-block;
-    background: var(--accent);
-    color: black;
-    padding: 1rem 2.5rem;
-    font-family: 'JetBrains Mono';
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 0 30px rgba(139, 242, 198, 0.3);
-}
-
-.cta-primary:hover {
-    background: white;
-    box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
 }
 
 .section-title {
@@ -1420,10 +948,6 @@ body.page-services section {
     justify-content: center !important;
 }
 
-body.page-services #layer-webgl {
-    display: none !important;
-}
-
 /* --- 16. FAQ & AUDITORIA SECTIONS --- */
 section[data-index="6"],
 section[data-index="7"] {
@@ -1438,11 +962,6 @@ section[data-index="7"] {
         padding: 4rem 0;
         padding-top: calc(4rem + var(--safe-top));
         padding-bottom: calc(4rem + var(--safe-bottom));
-    }
-
-    .phase-accordion summary {
-        min-height: var(--touch-min);
-        padding: 1rem 1.25rem;
     }
 }
 
@@ -2000,27 +1519,6 @@ section[data-index="1"].active .vp-window {
     to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Traveling dots: pane 0 connector 1 (left→right, y=80, x: 60→80) */
-.vp-dot-h1 {
-    animation: vpDotH1 2.2s ease-in-out infinite;
-}
-@keyframes vpDotH1 {
-    0%   { cx: 60; cy: 80; opacity: 0; }
-    8%   { opacity: 1; }
-    42%  { cx: 84; cy: 80; opacity: 0; }
-    100% { cx: 84; cy: 80; opacity: 0; }
-}
-/* connector 2 (x: 150→172) */
-.vp-dot-h2 {
-    animation: vpDotH2 2.2s ease-in-out 1.1s infinite;
-}
-@keyframes vpDotH2 {
-    0%   { cx: 150; cy: 80; opacity: 0; }
-    8%   { opacity: 1; }
-    42%  { cx: 176; cy: 80; opacity: 0; }
-    100% { cx: 176; cy: 80; opacity: 0; }
-}
-
 /* Hub network traveling dots */
 /* Spoke top: (110,85)→(110,28) */
 .vp-dot-t1 { animation: vpDotT1 2.8s linear infinite; }
@@ -2090,7 +1588,15 @@ section[data-index="1"].active .vp-window {
     border: none;
     cursor: pointer;
     padding: 0;
+    position: relative;
     transition: background 0.25s, transform 0.25s;
+}
+
+/* Target táctil ≥30px sin cambio visual */
+.vp-pdot::after {
+    content: '';
+    position: absolute;
+    inset: -13px;
 }
 
 .vp-pdot.active {
@@ -2304,72 +1810,6 @@ section[data-index="1"].active .vp-window {
     opacity: 0.4;
     font-size: 0.75rem;
     letter-spacing: 0.2em;
-}
-
-/* Metrics & Social Proof */
-.metric-item {
-    text-align: center;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-top: 2px solid var(--accent);
-    border-radius: 4px;
-    padding: 2rem 1.25rem 1.75rem;
-    position: relative;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.metric-item::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(0,217,255,0.04) 0%, transparent 60%);
-    pointer-events: none;
-    border-radius: 4px;
-}
-
-.metric-item:hover {
-    border-color: rgba(0,217,255,0.5);
-    box-shadow: 0 0 24px rgba(0,217,255,0.12), inset 0 0 20px rgba(0,217,255,0.04);
-}
-
-section[data-index="4"].active .metric-item {
-    opacity: 1;
-    transform: translateY(0);
-}
-section[data-index="4"].active .metric-item:nth-child(1) { transition-delay: 0.05s; }
-section[data-index="4"].active .metric-item:nth-child(2) { transition-delay: 0.15s; }
-section[data-index="4"].active .metric-item:nth-child(3) { transition-delay: 0.25s; }
-section[data-index="4"].active .metric-item:nth-child(4) { transition-delay: 0.35s; }
-
-.metric-value {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: clamp(2.2rem, 6vw, 3rem) !important;
-    font-weight: 700;
-    color: var(--accent);
-    text-shadow: 0 0 20px rgba(0,217,255,0.5), 0 0 40px rgba(0,217,255,0.2);
-    line-height: 1;
-    letter-spacing: -0.02em;
-}
-
-.metric-divider {
-    width: 2rem;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    margin: 0.65rem auto 0;
-    opacity: 0.5;
-}
-
-.metric-label-small {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.55;
-    margin-top: 0.5rem;
-    color: #fff;
 }
 
 /* Testimonial card overrides */
@@ -3353,9 +2793,8 @@ section[data-index="0"] {
 
 /* 5. touch-action: manipulation removes 300ms tap delay */
 a, button, [role="button"],
-.card, .nav-link, .cta-primary, .cta-header,
-.partner-orb, .phase-accordion summary,
-.pricing-card .cta-btn, .cube-face-content .cube-btn,
+.card, .nav-link, .cta-header,
+.partner-orb,
 .process-node, .mobile-menu-btn, .mobile-overlay-close {
     touch-action: manipulation;
 }
@@ -3363,18 +2802,11 @@ a, button, [role="button"],
 /* 6. Hover effects ONLY on pointer devices (not touch) */
 @media (hover: hover) and (pointer: fine) {
     .card:hover,
-    .pricing-card:hover,
     .partner-orb:hover,
     .face-original:hover,
     .process-container:hover .process-node,
-    .tech-stack span:hover,
     .nav-link:hover,
-    .cta-header:hover,
-    .cta-primary:hover,
-    .pricing-card.featured .cta-btn:hover,
-    .pricing-card .cta-btn:hover,
-    .cube-face-content .cube-btn:hover,
-    .arch-column:hover {
+    .cta-header:hover {
         /* Keep existing hover styles — this block just ensures they
            only activate on true pointer devices, not touch */
     }
@@ -3386,22 +2818,11 @@ a, button, [role="button"],
         opacity: 1;
         filter: none;
     }
-    .pricing-card:hover {
-        transform: none;
-        border-color: var(--glass-border);
-    }
-    .pricing-card.featured:hover {
-        border-color: rgba(255,255,255,0.8);
-    }
     .partner-orb:hover {
         transform: none;
         background: rgba(225, 245, 255, 0.1);
         border-color: rgba(255,255,255,0.2);
         box-shadow: inset 0 0 30px rgba(173,216,230,0.2), 0 0 30px rgba(0,0,0,0.5);
-    }
-    .cta-primary:hover {
-        background: var(--accent);
-        box-shadow: 0 0 30px rgba(139, 242, 198, 0.3);
     }
     .cta-header:hover {
         background: var(--accent);
@@ -3432,20 +2853,6 @@ a, button, [role="button"],
     }
 }
 
-/* 8. Pricing grid: 2 columns on tablet instead of 1 narrow column */
-@media (min-width: 500px) and (max-width: 968px) {
-    .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 700px;
-    }
-    .pricing-card.featured {
-        grid-column: 1 / -1;
-        max-width: 400px;
-        margin: 0 auto;
-        width: 100%;
-    }
-}
-
 /* 9. will-change for GPU compositor hints */
 #canvas-particles,
 #layer-webgl,
@@ -3470,7 +2877,6 @@ a, button, [role="button"],
     .soft-glitch,
     .scroll-line,
     .scroll-chevron,
-    .animate-spin-slow,
     .glitch-text {
         animation: none !important;
     }
@@ -3485,7 +2891,6 @@ a, button, [role="button"],
     }
 
     .card,
-    .interaction-title,
     .floating-header,
     .timeline-progress {
         transition: opacity 0.15s ease !important;
@@ -3568,7 +2973,6 @@ a, button, [role="button"],
 .sp-label-text    { color: rgba(0,217,255,0.65) !important; }
 .client-tag       { color: rgba(0,217,255,0.75) !important; border-color: rgba(0,217,255,0.25) !important; }
 .client-kpi       { /* uses inline color per card – ensure legibility via font-size */ }
-.metric-label-small { color: rgba(255,255,255,0.65) !important; opacity: 1 !important; }
 .vp-list li       { color: rgba(255,255,255,0.75) !important; }
 .faq-q            { color: rgba(255,255,255,0.88) !important; }
 
@@ -3611,8 +3015,7 @@ a, button, [role="button"],
 }
 
 /* CTA buttons */
-.cta-header,
-.cta-primary {
+.cta-header {
     min-height: 44px !important;
     display: inline-flex !important;
     align-items: center !important;

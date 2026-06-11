@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- SNOW TECH — cristal octaédrico minimal (acento menta sobre fondo transparente) -->
+  <g stroke="#8BF2C6" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <!-- Silueta del cristal -->
+    <path d="M16 2.5 L27.5 16 L16 29.5 L4.5 16 Z" stroke-width="1.8" fill="#8BF2C6" fill-opacity="0.10"/>
+    <!-- Aristas internas: facetas del octaedro -->
+    <path d="M16 2.5 L16 29.5" stroke-width="1" opacity="0.55"/>
+    <path d="M4.5 16 L27.5 16" stroke-width="1" opacity="0.55"/>
+    <path d="M16 2.5 L9 16 L16 29.5 M16 2.5 L23 16 L16 29.5" stroke-width="0.8" opacity="0.3"/>
+  </g>
+  <!-- Núcleo -->
+  <circle cx="16" cy="16" r="1.4" fill="#8BF2C6"/>
+</svg>
