@@ -1,90 +1,92 @@
-import * as THREE from 'three';
-import { initCore, state, handleResize as coreHandleResize } from './modules/core.js';
-import { createCSSCube, updateCube } from './modules/cube.js';
-import { createWebGLShape, createValuePropSystem, updateShapes } from './modules/shapes.js';
 import { initParticles, updateParticles } from './modules/particles.js';
-import { createPartnerSystem, updatePartners } from './modules/partners.js';
 
 // --- CONFIG ---
 const PHYSICS = { velocity: 0, lastScrollY: window.scrollY, lastInteract: Date.now(), activeSection: 0 };
 
-// Global Source of Truth for Page Detect
-const isServicesPage = document.body.classList.contains('page-services') || window.location.pathname.includes('services.html');
-const isAboutPage = document.body.classList.contains('page-about') || window.location.pathname.includes('about.html');
-const isSimplePage = isServicesPage || isAboutPage;
+// Lista blanca: SOLO la home instancia WebGL/CSS3D (cubo, shapes, partners).
+// El resto de páginas usa únicamente las partículas 2D del canvas —
+// Three.js ni siquiera se descarga fuera de la home (import dinámico).
+const is3DPage = document.body.classList.contains('page-index');
 
-// --- SLIDERS --- (only init if container and slides exist)
-function initSlider(id) {
-    const container = document.getElementById(id);
-    if (!container) return;
-    const slides = container.querySelectorAll('.slide-item');
-    if (!slides.length) return;
-    let current = 0;
-    setInterval(() => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-    }, 3500);
-}
-initSlider('market-slider');
-initSlider('kpi-slider');
-
-// --- INITIALIZATION ---
-const container3D = document.getElementById('layer-webgl');
-const cssContainer = document.getElementById('layer-css');
+// --- PARTICLES (todas las páginas) ---
 const canvasBg = document.getElementById('canvas-particles');
 const ctx = canvasBg ? canvasBg.getContext('2d') : null;
-
-// Init Core Three.js (Scene, Renderer, Camera)
-initCore(container3D, cssContainer);
-
-// Init Particles
 let particles = initParticles(canvasBg);
 
-// Init Shapes & Objects
+// --- 3D (solo home, carga diferida) ---
+let gfx = null;            // { state, core, updateCube, updateShapes, updatePartners }
 let shapes = [];
-let cssGroup = null;
 let partnerGroup = null;
 
-if (state.scene) {
-    // Only create WebGL shapes if NOT on restricted pages
-    if (!isSimplePage) {
-        shapes = [
-            null, // Logo CSS3D replaces sphere in section 0
-            createValuePropSystem(state.scene, state.iceMat),
-            null, // Placeholder for Cube index (2)
-            createWebGLShape(new THREE.OctahedronGeometry(2.7), 'octa', state.scene, state.iceMat),
-            createWebGLShape(new THREE.DodecahedronGeometry(2.6), 'dodeca', state.scene, state.iceMat),
-            null  // Placeholder for Partners index (5)
-        ];
+async function init3D() {
+    const container3D = document.getElementById('layer-webgl');
+    const cssContainer = document.getElementById('layer-css');
+    if (!container3D && !cssContainer) return;
+    try {
+        const [THREE, core, cubeM, shapesM, partnersM] = await Promise.all([
+            import('three'),
+            import('./modules/core.js'),
+            import('./modules/cube.js'),
+            import('./modules/shapes.js'),
+            import('./modules/partners.js')
+        ]);
+        core.initCore(container3D, cssContainer);
+        const state = core.state;
+
+        if (state.scene) {
+            shapes = [
+                null, // Section 0: hero (sin objeto 3D)
+                shapesM.createValuePropSystem(state.scene, state.iceMat),
+                null, // Placeholder for Cube index (2)
+                shapesM.createWebGLShape(new THREE.OctahedronGeometry(2.7), 'octa', state.scene, state.iceMat),
+                shapesM.createWebGLShape(new THREE.DodecahedronGeometry(2.6), 'dodeca', state.scene, state.iceMat),
+                null  // Placeholder for Partners index (5)
+            ];
+        }
+        if (state.cssScene) {
+            cubeM.createCSSCube(state.cssScene);
+            partnerGroup = partnersM.createPartnerSystem(state.cssScene);
+        }
+        core.handleResize();
+        gfx = {
+            state: state,
+            core: core,
+            updateCube: cubeM.updateCube,
+            updateShapes: shapesM.updateShapes,
+            updatePartners: partnersM.updatePartners
+        };
+    } catch (err) {
+        // WebGL no disponible o CDN caído: la página sigue viva con partículas 2D
+        console.warn('SNOW: 3D deshabilitado —', err);
     }
 }
-
-if (state.cssScene) {
-    // Cube only on Home page
-    if (!isSimplePage) {
-        cssGroup = createCSSCube(state.cssScene);
-    }
-
-    // Partners only needed on Home
-    if (!isSimplePage) {
-        partnerGroup = createPartnerSystem(state.cssScene);
-    }
-}
+if (is3DPage) init3D();
 
 // --- EVENTS ---
+// La barra de URL móvil dispara resize al hacer scroll (solo cambia el alto):
+// re-crear las partículas solo cuando cambia el ancho, con debounce.
+let resizeTimer = null;
+let lastWidth = window.innerWidth;
 window.addEventListener('resize', () => {
-    coreHandleResize();
-    if (canvasBg) particles = initParticles(canvasBg); // Re-init particles on resize
+    if (gfx) gfx.core.handleResize();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (!canvasBg) return;
+        if (window.innerWidth !== lastWidth) {
+            lastWidth = window.innerWidth;
+            particles = initParticles(canvasBg);
+        } else {
+            canvasBg.height = window.innerHeight;
+        }
+    }, 150);
 });
-coreHandleResize();
 
 window.addEventListener('scroll', () => {
     const delta = window.scrollY - PHYSICS.lastScrollY;
     if (Math.abs(delta) > 0.5) PHYSICS.velocity += delta * 0.15;
     PHYSICS.velocity = Math.max(Math.min(PHYSICS.velocity, 60), -60);
     PHYSICS.lastScrollY = window.scrollY; PHYSICS.lastInteract = Date.now();
-});
+}, { passive: true });
 
 const observer = new IntersectionObserver(e => {
     const visibleSection = e.reduce((max, entry) => {
@@ -102,8 +104,7 @@ const observer = new IntersectionObserver(e => {
 document.querySelectorAll('section').forEach(s => observer.observe(s));
 
 // --- ANIMATION LOOP ---
-function animate() {
-    requestAnimationFrame(animate);
+function renderFrame() {
     const now = Date.now();
     const isDesktop = window.innerWidth > 1024;
 
@@ -115,23 +116,55 @@ function animate() {
     // 2. Update Modules
     updateParticles(ctx, particles, PHYSICS, canvasBg);
 
+    if (!gfx) return;
+    const state = gfx.state;
+
     if (state.camera) {
         const targetCamZ = 14 + (Math.abs(PHYSICS.velocity) * 0.05);
         state.camera.position.z += (targetCamZ - state.camera.position.z) * 0.05;
     }
 
-    updateShapes(shapes, PHYSICS, isSimplePage, isDesktop);
-    if (!isSimplePage) updateCube(PHYSICS, isSimplePage, now, isDesktop);
-    updatePartners(partnerGroup, PHYSICS, isSimplePage, now, isDesktop);
+    gfx.updateShapes(shapes, PHYSICS, false, isDesktop);
+    gfx.updateCube(PHYSICS, false, now, isDesktop);
+    gfx.updatePartners(partnerGroup, PHYSICS, false, now, isDesktop);
 
-    // 3. Render — skip all 3D on simple pages (services, about)
-    if (!isSimplePage) {
-        if (state.renderer && state.scene && state.camera) {
-            state.renderer.render(state.scene, state.camera);
-        }
-        if (state.cssRenderer && state.cssScene && state.camera) {
-            state.cssRenderer.render(state.cssScene, state.camera);
-        }
+    // 3. Render
+    if (state.renderer && state.scene && state.camera) {
+        state.renderer.render(state.scene, state.camera);
+    }
+    if (state.cssRenderer && state.cssScene && state.camera) {
+        state.cssRenderer.render(state.cssScene, state.camera);
     }
 }
-animate();
+
+// Loop pausable: se detiene con la pestaña oculta y con reduced-motion.
+let rafId = null;
+function animate() {
+    rafId = requestAnimationFrame(animate);
+    renderFrame();
+}
+function startLoop() {
+    if (rafId === null) { PHYSICS.lastInteract = Date.now(); animate(); }
+}
+function stopLoop() {
+    if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+}
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopLoop();
+    else if (!reducedMotion.matches) startLoop();
+});
+
+if (reducedMotion.matches) {
+    renderFrame(); // un frame estático: fondo presente, sin animación continua
+} else {
+    startLoop();
+}
+if (reducedMotion.addEventListener) {
+    reducedMotion.addEventListener('change', e => {
+        if (e.matches) { stopLoop(); renderFrame(); }
+        else startLoop();
+    });
+}

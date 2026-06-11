@@ -21,13 +21,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
 
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/site.js" defer></script>
 </head>
 
 <body class="page-blog">
     <a href="#main-content" class="skip-link">Saltar al contenido</a>
     <canvas id="canvas-particles"></canvas>
-    <div id="layer-webgl"></div>
-    <div id="layer-css"></div>
 
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
@@ -47,14 +46,6 @@
         </div>
     </header>
 
-    <script>
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (header && window.scrollY > 50) header.classList.add('scrolled');
-            else if (header) header.classList.remove('scrolled');
-        });
-    </script>
-
     <!-- MOBILE OVERLAY -->
     <div id="mobile-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
         <button type="button" onclick="toggleMobileMenu()" class="mobile-overlay-close" aria-label="Cerrar menú">✕</button>
@@ -63,25 +54,7 @@
         <a href="services.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">SERVICIOS</a>
         <a href="contact.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">CONTACTO</a>
         <a href="blog.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">BLOG</a>
-    </div>
-
-    <script>
-        function toggleMobileMenu() {
-            const overlay = document.getElementById('mobile-overlay');
-            const toggle = document.getElementById('mobile-menu-toggle');
-            if (!overlay || !toggle) return;
-            const isOpen = overlay.style.display === 'flex';
-            overlay.style.display = isOpen ? 'none' : 'flex';
-            overlay.hidden = isOpen;
-            toggle.setAttribute('aria-expanded', !isOpen);
-            toggle.setAttribute('aria-label', isOpen ? 'Abrir menú de navegación' : 'Cerrar menú');
-        }
-    </script>
-
-    <div class="hud">
-        <span class="hud-value" id="speed-meter">0</span> <span
-            style="color:var(--accent);opacity:0.7;font-size:0.8rem;">km/s</span>
-        <div class="stasis-bar" id="stasis-bar"></div>
+        <a href="contact.html" class="cta-header" style="margin-top:1.25rem" onclick="toggleMobileMenu()">Auditoría Gratuita</a>
     </div>
 
     <main id="main-content">
@@ -125,7 +98,7 @@
                         <span class="pg-label">Newsletter</span>
                         <h3 style="font-size:1.2rem;font-weight:700;color:#fff;line-height:1.2">Stay Ahead</h3>
                         <p class="section-desc" style="font-size:0.8rem">Inteligencia crítica sobre arquitectura digital. Sin spam.</p>
-                        <form style="display:flex;flex-direction:column;gap:0.65rem" action="#" method="post" onsubmit="this.innerHTML='<span style=\'color:var(--accent);font-family:JetBrains Mono,monospace;font-size:0.72rem;\'>✓ Suscrito</span>'; return false;">
+                        <form style="display:flex;flex-direction:column;gap:0.65rem" class="newsletter-form" data-source="blog-card" method="post">
                             <label for="newsletter-blog" class="sr-only">Email para newsletter</label>
                             <input id="newsletter-blog" type="email" name="newsletter_email" placeholder="tu@email.com"
                                 style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:0.65rem 0.85rem;border-radius:4px;color:#fff;font-size:0.85rem;outline:none;width:100%;box-sizing:border-box">
@@ -195,7 +168,7 @@
                 <p class="opacity-60">Arquitectura digital para el futuro.</p>
                 <div class="mt-8 pt-6 border-t border-white/10">
                     <p class="newsletter-title mb-3">Newsletter</p>
-                    <form class="flex gap-2" action="#" method="post" onsubmit="this.innerHTML='<span style=\'color:var(--accent);font-family:JetBrains Mono,monospace;font-size:0.75rem;\'>✓ Suscrito</span>'; return false;">
+                    <form class="flex gap-2 newsletter-form" data-source="blog-footer" method="post">
                         <label for="newsletter-email-footer-blog" class="sr-only">Email para newsletter</label>
                         <input id="newsletter-email-footer-blog" type="email" name="newsletter_email" placeholder="Email"
                             class="bg-white/5 border border-white/10 px-3 py-2 rounded text-white text-xs w-full focus:border-[var(--accent)] outline-none transition-colors">

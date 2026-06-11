@@ -10,13 +10,23 @@ export const state = {
     iceMat: null
 };
 
+function webglAvailable() {
+    try {
+        const canvas = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext &&
+            (canvas.getContext('webgl2') || canvas.getContext('webgl')));
+    } catch (e) {
+        return false;
+    }
+}
+
 export function initCore(container3D, cssContainer) {
     // Shared Camera (needed for both)
     state.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
     state.camera.position.z = 14;
 
     // --- WEBGL ---
-    if (container3D) {
+    if (container3D && webglAvailable()) {
         const isMobile = window.innerWidth <= 768;
         state.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !isMobile });
         state.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));

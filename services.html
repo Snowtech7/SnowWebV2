@@ -20,6 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;500;700&display=swap">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/site.js" defer></script>
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snowtech.io/services.html">
     <meta property="og:title" content="SNOW | Servicios - Construye Tu Entidad Digital">
@@ -668,19 +669,6 @@
         </div>
     </header>
 
-    <script>
-        // Throttled scroll → header state
-        let _scrollTick = false;
-        window.addEventListener('scroll', () => {
-            if (_scrollTick) return;
-            _scrollTick = true;
-            requestAnimationFrame(() => {
-                document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
-                _scrollTick = false;
-            });
-        }, { passive: true });
-    </script>
-
     <!-- MOBILE OVERLAY -->
     <div id="mobile-overlay" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
         <button type="button" onclick="toggleMobileMenu()" class="mobile-overlay-close" aria-label="Cerrar menú">✕</button>
@@ -689,20 +677,8 @@
         <a href="services.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">SERVICIOS</a>
         <a href="contact.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">CONTACTO</a>
         <a href="blog.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">BLOG</a>
+        <a href="contact.html" class="cta-header" style="margin-top:1.25rem" onclick="toggleMobileMenu()">Auditoría Gratuita</a>
     </div>
-
-    <script>
-        function toggleMobileMenu() {
-            const overlay = document.getElementById('mobile-overlay');
-            const toggle = document.getElementById('mobile-menu-toggle');
-            if (!overlay || !toggle) return;
-            const isOpen = overlay.style.display === 'flex';
-            overlay.style.display = isOpen ? 'none' : 'flex';
-            overlay.hidden = isOpen;
-            toggle.setAttribute('aria-expanded', !isOpen);
-            toggle.setAttribute('aria-label', isOpen ? 'Abrir menú de navegación' : 'Cerrar menú');
-        }
-    </script>
 
     <!-- ══════════════════════════════════════════
          0. HERO
@@ -1381,6 +1357,7 @@
             const id = btn.getAttribute('data-target');
             const panel = document.getElementById(id);
             if (panel) panel.classList.add('active');
+            if (window.snowTrack) snowTrack('service_tab_view', { service: id });
             // Track explored services for contextual CTA
             if (id) { _explored.add(id); if (_explored.size >= 2) _revealSystemCTA(); }
         }
