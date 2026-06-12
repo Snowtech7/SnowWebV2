@@ -7,6 +7,13 @@
     <title>SNOW · The Moment ISNOW · Presentación</title>
     <meta name="description" content="SNOW TECH · The Moment ISNOW · Sistemas digitales que crecen contigo. Presentación comercial.">
     <meta name="robots" content="noindex">
+    <!-- Anti-cache: cuando editamos copy, el navegador a veces sirve la version anterior
+         (sobre todo si la pestaña estaba abierta). Estas directivas fuerzan recarga fresca. -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Marca de version: visible en la toolbar. Si no coincide con el ultimo commit, hard refresh. -->
+    <meta name="snow-version" content="v2026-06-12-r4">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <meta name="theme-color" content="#020408">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,6 +73,17 @@
         }
         .toolbar-brand b { color: var(--accent); font-weight: 700; }
         .toolbar-brand img { width: 22px; height: 22px; }
+        .toolbar-version {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.18em;
+            color: var(--accent-data);
+            padding: 0.25rem 0.55rem;
+            border: 1px solid rgba(0, 217, 255, 0.25);
+            border-radius: 3px;
+            margin-left: 0.6rem;
+            opacity: 0.7;
+        }
         .toolbar-actions { display: flex; gap: 0.5rem; }
         .toolbar-btn {
             font-family: 'JetBrains Mono', monospace;
@@ -659,10 +677,16 @@
             .slide-watermark { right: 1.5rem; bottom: 1rem; }
         }
 
-        /* ---------- Impresión: 1 slide por página A4 LANDSCAPE ---------- */
+        /* ---------- Impresión: 1 slide por página 16:9 ----------
+           Antes usabamos A4 landscape (297x210mm, ratio 1.41) lo que
+           generaba un reflow respecto a la pantalla (16:9, ratio 1.78)
+           y daba la sensacion de "otra version". Ahora @page es 16:9
+           puro (297x167mm) para que pantalla y PDF sean identicos.
+           Quien quiera imprimir en A4 fisico solo tiene que dejar que
+           el visor ajuste a la pagina. */
         @media print {
             @page {
-                size: A4 landscape;
+                size: 297mm 167mm; /* 16:9 puro a ancho A4 */
                 margin: 0;
             }
             html, body {
@@ -679,7 +703,7 @@
             .slide {
                 aspect-ratio: auto;
                 width: 297mm;
-                height: 210mm;
+                height: 167mm;
                 border-radius: 0;
                 box-shadow: none;
                 border: none;
@@ -687,15 +711,15 @@
                 page-break-inside: avoid;
                 break-after: page;
                 break-inside: avoid;
-                padding: 13mm 16mm;
+                padding: 12mm 16mm;
             }
             .slide:last-child {
                 page-break-after: auto;
                 break-after: auto;
             }
-            .slide-watermark { right: 16mm; bottom: 8mm; }
-            .cover-hero h1 { font-size: 44pt; }
-            h2.slide-title { font-size: 22pt; }
+            .slide-watermark { right: 16mm; bottom: 7mm; }
+            .cover-hero h1 { font-size: 40pt; }
+            h2.slide-title { font-size: 20pt; }
         }
     </style>
 </head>
@@ -707,6 +731,7 @@
         <div class="toolbar-brand">
             <picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.png" alt="SNOW"></picture>
             <span><b>SNOW</b> · THE MOMENT ISNOW · 10 PÁGINAS</span>
+            <span class="toolbar-version" id="version-badge" title="Si no ves esta versión, haz Ctrl+Shift+R">v2026-06-12-r4 · 16:9</span>
         </div>
         <div class="toolbar-actions">
             <a href="index.html" class="toolbar-btn">← Volver al sitio</a>
@@ -784,7 +809,7 @@
                 <div class="text-col">
                     <div class="eyebrow">¿Te suena familiar?</div>
                     <h2 class="slide-title">Tu negocio funciona <strong>solo contigo dentro</strong>.<br>Debería funcionar <strong>también sin ti</strong>.</h2>
-                    <p class="lead">Tu agenda crece, tu facturación crece, tus horas crecen. Cuando intentas soltar algo, algo se rompe. Cuando contratas a alguien, te toca formarle. La operación depende de tu presencia.</p>
+                    <p class="lead">Tu agenda crece, tu facturación crece, tus horas crecen. Cuando intentas soltar algo, algo se rompe. Cuando contratas a alguien nuevo, te toca capacitarlo tú. La operación depende de tu presencia.</p>
                     <div class="quote-block" style="margin-top: 0.6rem;">
                         Si te vas dos semanas de vacaciones, ¿qué se cae?<br>Esa lista es nuestro punto de partida.
                         <span class="who">— El diagnóstico que importa</span>
@@ -796,7 +821,7 @@
                         <li><span class="mark x">×</span> Recibes mensajes a deshora y los contestas tú porque "si no, se enfrían".</li>
                         <li><span class="mark x">×</span> Tu equipo pierde horas copiando datos de un formulario a un Excel a un CRM.</li>
                         <li><span class="mark x">×</span> Cada cliente nuevo es reinventar la rueda: onboarding manual, dos semanas perdidas.</li>
-                        <li><span class="mark x">×</span> Tienes herramientas (Notion, Make, Klaviyo) a medias y rezas para que no petan.</li>
+                        <li><span class="mark x">×</span> Tienes herramientas (Notion, Make, Klaviyo) a medias y ruegas para que no fallen.</li>
                         <li><span class="mark x">×</span> Facturas más que nunca, pero a fin de mes te llevas lo mismo de siempre.</li>
                     </ul>
                 </div>
@@ -931,7 +956,7 @@
                     <div class="card-block">
                         <div class="num">03 · GROWTH</div>
                         <h4 class="tt">Marketing con datos</h4>
-                        <p class="dd">Campañas medidas, copy probado y embudos optimizados. Cada euro tiene su métrica.</p>
+                        <p class="dd">Campañas medidas, copy probado y embudos optimizados. Cada inversión tiene su métrica.</p>
                     </div>
                     <div class="card-block">
                         <div class="num">04 · FUNNELS</div>
@@ -1117,7 +1142,7 @@
                     </div>
                     <div class="card-block accent">
                         <div class="num">AGENCIA / ESTUDIO B2B</div>
-                        <h4 class="tt">"Si me piro, esto se cae."</h4>
+                        <h4 class="tt">"Si me voy, esto se cae."</h4>
                         <p class="dd" style="margin-bottom: 0.65rem;">Founder-operador. Su senior pasa media jornada en reportes. Onboarding manual. Factura más, gana lo mismo.</p>
                         <div class="pill" style="font-size: 0.5rem;">−20H/SEM · MARGEN RECUPERADO</div>
                         <p class="small" style="margin-top: 0.5rem;">Onboarding + reporting + facturación automatizados. La operación sigue sin ti.</p>
@@ -1161,7 +1186,7 @@
                     <h4 style="font-weight: 700; font-size: 0.78rem; color: var(--accent); letter-spacing: 0.05em; margin: 1rem 0 0.6rem;">LO QUE SIEMPRE INCLUYE:</h4>
                     <ul class="check-list" style="font-size: 0.76rem;">
                         <li><span class="mark">✓</span> Auditoría gratuita previa — te llevas el plan aunque no avances.</li>
-                        <li><span class="mark">✓</span> Presupuesto cerrado antes de empezar. Sin sobrecostes sorpresa.</li>
+                        <li><span class="mark">✓</span> Presupuesto cerrado antes de empezar. Sin sobrecostos sorpresa.</li>
                         <li><span class="mark">✓</span> Pago por hitos, no por adelantado.</li>
                         <li><span class="mark">✓</span> Soporte el primer mes incluido.</li>
                     </ul>
@@ -1288,7 +1313,7 @@
                         <h3>30 min. Te decimos qué se cae si te vas. Y qué módulo lo arreglaría primero.</h3>
                         <p>Sin pitch, sin presión. Salimos con un mapa claro: dónde está el cuello de botella, cuánto cuesta soltarlo y qué pasos darías — con nosotros o sin nosotros.</p>
                         <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-                            <a class="cta-btn" href="contact.html">Reservar auditoría →</a>
+                            <a class="cta-btn" href="contact.html">Reservar diagnóstico →</a>
                             <a class="cta-btn ghost" href="mailto:hola@snowtech.io?subject=Agenda%20-%20The%20Moment%20ISNOW">Escribir email</a>
                         </div>
                     </div>
@@ -1329,7 +1354,11 @@
                     setTimeout(function () { window.print(); }, 600);
                 });
             }
-            if (window.snowTrack) window.snowTrack('presentacion_view', { page: 'presentacion' });
+            // Log de version: si no aparece en la consola, el navegador esta
+            // sirviendo una version cacheada. Solucion: Ctrl+Shift+R.
+            var v = document.querySelector('meta[name="snow-version"]').content;
+            console.log('%cSNOW presentacion ' + v + ' · formato 16:9', 'color:#8BF2C6;font-weight:bold');
+            if (window.snowTrack) window.snowTrack('presentacion_view', { page: 'presentacion', version: v });
         })();
     </script>
 
