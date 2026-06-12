@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNOW · Presentación Comercial</title>
+    <meta name="description" content="SNOW TECH · Sistemas digitales que crecen contigo. Presentación comercial para descargar en PDF.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta name="theme-color" content="#020408">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
+
+    <style>
+        :root {
+            --bg-deep: #020408;
+            --bg-panel: #060c1a;
+            --accent: #8BF2C6;
+            --accent-data: #00d9ff;
+            --ink: #eef2f6;
+            --ink-soft: rgba(238, 242, 246, 0.65);
+            --ink-mute: rgba(238, 242, 246, 0.4);
+            --line: rgba(0, 217, 255, 0.14);
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #0a1525;
+            color: var(--ink);
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* ---------- Barra superior (solo pantalla) ---------- */
+        .toolbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(2, 4, 8, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line);
+            z-index: 100;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .toolbar-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--ink-soft);
+            text-transform: uppercase;
+        }
+        .toolbar-brand b { color: var(--accent); font-weight: 700; }
+        .toolbar-actions { display: flex; gap: 0.5rem; }
+        .toolbar-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink);
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 0.6rem 0.95rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: background 0.18s, border-color 0.18s, color 0.18s;
+        }
+        .toolbar-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .toolbar-btn.primary {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+        .toolbar-btn.primary:hover { background: #fff; border-color: #fff; color: #000; }
+
+        /* ---------- Stage: contenedor de slides ---------- */
+        .stage {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 5.5rem 1rem 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* ---------- Slide A4 ---------- */
+        .slide {
+            background: var(--bg-deep);
+            background-image: radial-gradient(circle at 50% 30%, #0a1525 0%, #000000 90%);
+            color: var(--ink);
+            width: 100%;
+            aspect-ratio: 210 / 297; /* A4 retrato */
+            padding: 3.2rem 3.6rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+        }
+        /* Marco geométrico decorativo: esquinas del slide */
+        .slide::before, .slide::after {
+            content: "";
+            position: absolute;
+            width: 22px; height: 22px;
+            border: 1px solid var(--accent-data);
+            opacity: 0.35;
+        }
+        .slide::before { top: 1.1rem; left: 1.1rem; border-right: none; border-bottom: none; }
+        .slide::after { bottom: 1.1rem; right: 1.1rem; border-left: none; border-top: none; }
+
+        /* Número y label arriba del slide */
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent-data);
+            opacity: 0.8;
+            margin-bottom: 2.4rem;
+        }
+        .slide-header .label-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .slide-header .label-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+        }
+        .slide-num { color: var(--ink-mute); }
+
+        /* Tipografía interna */
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.85rem;
+        }
+        h1.kicker {
+            font-weight: 200;
+            font-size: 3.6rem;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin: 0 0 1.4rem;
+            background: linear-gradient(180deg, #fff, #a5f3fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        h2.slide-title {
+            font-weight: 200;
+            font-size: 2.1rem;
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            color: #fff;
+            margin: 0 0 1rem;
+        }
+        h2.slide-title strong {
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .lead {
+            font-size: 1.05rem;
+            line-height: 1.55;
+            color: var(--ink-soft);
+            margin: 0 0 1.6rem;
+            max-width: 36em;
+        }
+        .small {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--ink-mute);
+        }
+
+        /* ---------- Footer del slide ---------- */
+        .slide-footer {
+            position: absolute;
+            left: 3.6rem; right: 3.6rem; bottom: 2.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+        }
+
+        /* ---------- Slide 1: PORTADA ---------- */
+        .slide.cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 4.5rem;
+        }
+        .cover-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--ink-soft);
+        }
+        .cover-brand b { color: var(--accent); font-weight: 700; }
+        .cover-title {
+            font-weight: 200;
+            font-size: 4.4rem;
+            line-height: 1;
+            letter-spacing: -0.025em;
+            margin: 0 0 1rem;
+            background: linear-gradient(180deg, #fff 30%, #a5f3fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .cover-title em {
+            font-style: normal;
+            font-weight: 800;
+            background: linear-gradient(120deg, var(--accent) 0%, var(--accent-data) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .cover-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            color: var(--ink-soft);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        .cover-art {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem 0 1.5rem;
+        }
+        .cover-meta {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+        }
+        .cover-meta b { color: var(--ink-soft); font-weight: 400; }
+
+        /* ---------- Componentes reutilizables ---------- */
+        .row {
+            display: grid;
+            gap: 1rem;
+        }
+        .row.cols-2 { grid-template-columns: 1fr 1fr; }
+        .row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+        .row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+        .card-block {
+            background: rgba(4, 8, 22, 0.55);
+            border: 1px solid var(--line);
+            border-radius: 5px;
+            padding: 1.1rem 1.2rem;
+            position: relative;
+        }
+        .card-block .num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.18em;
+            color: var(--accent-data);
+            margin-bottom: 0.5rem;
+        }
+        .card-block .tt {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+            margin: 0 0 0.4rem;
+        }
+        .card-block .dd {
+            font-size: 0.78rem;
+            line-height: 1.45;
+            color: var(--ink-soft);
+            margin: 0;
+        }
+        .card-block.accent { border-color: rgba(139, 242, 198, 0.35); }
+        .card-block.accent .num { color: var(--accent); }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(139, 242, 198, 0.12);
+            border: 1px solid rgba(139, 242, 198, 0.32);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+        .pill.data {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: rgba(0, 217, 255, 0.3);
+            color: var(--accent-data);
+        }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.4rem 0;
+        }
+        .stat {
+            border-left: 2px solid var(--accent);
+            padding: 0.4rem 0 0.4rem 0.9rem;
+        }
+        .stat.data { border-left-color: var(--accent-data); }
+        .stat .v {
+            font-weight: 200;
+            font-size: 2.1rem;
+            line-height: 1;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+        .stat .v b { font-weight: 800; color: var(--accent); }
+        .stat.data .v b { color: var(--accent-data); }
+        .stat .k {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-top: 0.4rem;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            line-height: 1.4;
+        }
+        .check-list li:last-child { border-bottom: none; }
+        .check-list .mark {
+            flex-shrink: 0;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: rgba(139, 242, 198, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.55rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-top: 0.15rem;
+        }
+        .check-list .mark.x {
+            background: rgba(255, 107, 107, 0.1);
+            border-color: rgba(255, 107, 107, 0.7);
+            color: #ff6b6b;
+        }
+
+        .quote-block {
+            border-left: 3px solid var(--accent);
+            padding: 0.7rem 0 0.7rem 1.2rem;
+            margin: 1.3rem 0;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--ink);
+            line-height: 1.45;
+            max-width: 36em;
+        }
+        .quote-block .who {
+            font-style: normal;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            color: var(--ink-mute);
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* ---------- Slide 10: cierre ---------- */
+        .slide.close {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .close-cta {
+            background: linear-gradient(135deg, rgba(139, 242, 198, 0.1), rgba(0, 217, 255, 0.04));
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.5rem 0;
+        }
+        .close-cta .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .close-cta h3 {
+            font-weight: 200;
+            font-size: 2rem;
+            line-height: 1.1;
+            color: #fff;
+            margin: 0 0 0.75rem;
+            letter-spacing: -0.015em;
+        }
+        .close-cta p {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            margin: 0 0 1.2rem;
+            max-width: 36em;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: #000;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 0.85rem 1.3rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.18s;
+        }
+        .cta-btn:hover { background: #fff; }
+        .cta-btn.ghost {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+        .cta-btn.ghost:hover { background: var(--accent); color: #000; }
+
+        .close-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            padding-top: 1.3rem;
+            border-top: 1px solid var(--line);
+        }
+        .close-contact .ck {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin-bottom: 0.4rem;
+        }
+        .close-contact .cv {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--ink);
+        }
+        .close-contact .cv a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ---------- Sólidos platónicos (SVG inline) ---------- */
+        .solid {
+            display: block;
+        }
+        .solid path, .solid polygon, .solid line {
+            fill: none;
+            stroke: var(--accent-data);
+            stroke-width: 1.2;
+            opacity: 0.85;
+        }
+        .solid .fill {
+            fill: rgba(0, 217, 255, 0.06);
+            stroke: var(--accent-data);
+            opacity: 0.9;
+        }
+        .solid .accent {
+            stroke: var(--accent);
+        }
+
+        /* ---------- Página en pantalla: separación con scroll ---------- */
+        @media screen and (max-width: 900px) {
+            .slide { padding: 2rem 1.5rem; }
+            .slide-footer { left: 1.5rem; right: 1.5rem; bottom: 1rem; }
+            .cover-title { font-size: 3rem; }
+            h1.kicker { font-size: 2.6rem; }
+            h2.slide-title { font-size: 1.6rem; }
+            .row.cols-3, .row.cols-4 { grid-template-columns: 1fr 1fr; }
+            .stat-row { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ---------- Impresión: 1 slide por página A4 ---------- */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+            html, body {
+                background: #0a1525;
+                font-size: 11pt;
+            }
+            .toolbar { display: none !important; }
+            .stage {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+                gap: 0;
+            }
+            .slide {
+                aspect-ratio: auto;
+                width: 210mm;
+                height: 297mm;
+                border-radius: 0;
+                box-shadow: none;
+                border: none;
+                page-break-after: always;
+                page-break-inside: avoid;
+                break-after: page;
+                break-inside: avoid;
+                padding: 16mm 18mm;
+            }
+            .slide:last-child {
+                page-break-after: auto;
+                break-after: auto;
+            }
+            .slide-footer { left: 18mm; right: 18mm; bottom: 12mm; }
+            .cover-title { font-size: 40pt; }
+            h1.kicker { font-size: 32pt; }
+            h2.slide-title { font-size: 20pt; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== TOOLBAR (solo pantalla) ===== -->
+    <div class="toolbar" role="toolbar" aria-label="Acciones de presentación">
+        <div class="toolbar-brand">
+            <b>SNOW</b> · PRESENTACIÓN COMERCIAL · 10 PÁGINAS
+        </div>
+        <div class="toolbar-actions">
+            <a href="index.html" class="toolbar-btn">← Volver al sitio</a>
+            <button type="button" class="toolbar-btn primary" onclick="window.print()">⤓ Descargar PDF</button>
+        </div>
+    </div>
+
+    <div class="stage">
+
+        <!-- ============================================================
+             SLIDE 01 · PORTADA
+             ============================================================ -->
+        <section class="slide cover">
+            <div>
+                <div class="cover-brand"><b>SNOW</b> TECH · ARQUITECTURA DIGITAL</div>
+            </div>
+
+            <div>
+                <h1 class="cover-title">Tu negocio<br>merece <em>evolucionar</em>.</h1>
+                <p class="cover-sub">Sistemas digitales que crecen contigo</p>
+
+                <div class="cover-art" aria-hidden="true">
+                    <svg class="solid" width="180" height="180" viewBox="-60 -60 120 120">
+                        <!-- Icosaedro estilizado: serie platónica completa -->
+                        <g class="fill">
+                            <polygon class="fill" points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" />
+                        </g>
+                        <g>
+                            <line x1="0" y1="-50" x2="0" y2="50" />
+                            <line x1="-43" y1="-25" x2="43" y2="25" />
+                            <line x1="43" y1="-25" x2="-43" y2="25" />
+                            <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" />
+                            <polygon class="accent" points="0,-22 19,-11 19,11 0,22 -19,11 -19,-11" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="cover-meta">
+                <span><b>Propuesta</b> 2026</span>
+                <span>snowtech.io</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 02 · EL PROBLEMA
+             ============================================================ -->
+        <section class="slide">
+            <div class="slide-header">
+                <span class="label-tag"><span class="label-dot"></span>EL PROBLEMA</span>
+                <span class="slide-num">02 / 10</span>
+            </div>
+
+            <div class="eyebrow">¿Te suena familiar?</div>
+            <h2 class="slide-title">Tu web es un <strong>folleto</strong>.<br>Debería ser un <strong>sistema</strong>.</h2>
+            <p class="lead">La mayoría de PYMEs tiene presencia online, pero su web no vende sola, no responde, no aprende y no escala. Cada nuevo cliente cuesta horas de tu equipo.</p>
+
+            <ul class="check-list" style="margin-top: 1.6rem;">
+                <li><span class="mark x">×</span> Recibes leads, pero se enfrían porque nadie responde en menos de 24h.</li>
+                <li><span class="mark x">×</span> Tu equipo pierde horas copiando datos de un formulario a un Excel a un CRM.</li>
+                <li><span class="mark x">×</span> No sabes en qué punto del embudo se cae cada cliente — solo ves el total.</li>
+                <li><span class="mark x">×</span> Querrías probar IA, pero todo lo que ves son demos genéricas que no encajan con tu negocio.</li>
+                <li><span class="mark x">×</span> Cada vez que escalas, tienes que contratar a alguien más para que las cosas no se rompan.</li>
+            </ul>
+
+            <div class="slide-footer">
+                <span>SNOW TECH</span>
+                <span>El folleto vs. el sistema</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 03 · LA IDEA GRANDE
+             ============================================================ -->
+        <section class="slide">
+            <div class="slide-header">
+                <span class="label-tag"><span class="label-dot"></span>LA IDEA</span>
+                <span class="slide-num">03 / 10</span>
+            </div>
+
+            <div class="eyebrow">Nuestra forma de pensarlo</div>
+            <h2 class="slide-title">Construimos <strong>entidades digitales</strong> que ganan caras a medida que crecen.</h2>
+            <p class="lead">Empezamos por algo simple — tu presencia online — y, fase a fase, añadimos capacidad: respuesta automática, captación inteligente, agentes que toman decisiones. Como un sólido que pasa de 4 a 20 caras: misma identidad, más complejidad.</p>
+
+            <!-- Serie platónica visual -->
+            <div class="row cols-4" style="margin-top: 1.6rem; align-items: end;">
+                <div style="text-align: center;">
+                    <svg class="solid" width="58" height="58" viewBox="-30 -30 60 60" aria-hidden="true">
+                        <polygon class="fill" points="0,-26 22,15 -22,15" />
+                        <line x1="0" y1="-26" x2="0" y2="15" />
+                    </svg>
+                    <div class="small" style="margin-top: 0.4rem; color: var(--accent-data);">01 · Tetraedro</div>
+                    <div class="small">Presencia</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg class="solid" width="58" height="58" viewBox="-30 -30 60 60" aria-hidden="true">
+                        <polygon class="fill" points="-20,-15 20,-15 20,18 -20,18" />
+                        <polygon points="-20,-15 -8,-25 28,-25 20,-15" />
+                        <polygon points="20,-15 28,-25 28,8 20,18" />
+                    </svg>
+                    <div class="small" style="margin-top: 0.4rem; color: var(--accent-data);">02 · Hexaedro</div>
+                    <div class="small">Capacidades</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg class="solid" width="58" height="58" viewBox="-30 -30 60 60" aria-hidden="true">
+                        <polygon class="fill" points="0,-26 22,0 0,26 -22,0" />
+                        <line x1="-22" y1="0" x2="22" y2="0" />
+                        <line x1="0" y1="-26" x2="0" y2="26" />
+                    </svg>
+                    <div class="small" style="margin-top: 0.4rem; color: var(--accent-data);">04 · Octaedro</div>
+                    <div class="small">Proceso</div>
+                </div>
+                <div style="text-align: center;">
+                    <svg class="solid" width="58" height="58" viewBox="-30 -30 60 60" aria-hidden="true">
+                        <polygon class="fill" points="0,-26 24,-8 15,20 -15,20 -24,-8" />
+                        <polygon points="0,-12 11,-4 7,10 -7,10 -11,-4" />
+                        <line x1="0" y1="-26" x2="0" y2="-12" />
+                        <line x1="24" y1="-8" x2="11" y2="-4" />
+                        <line x1="-24" y1="-8" x2="-11" y2="-4" />
+                    </svg>
+                    <div class="small" style="margin-top: 0.4rem; color: var(--accent);">05 · Icosaedro</div>
+                    <div class="small">Sistema completo</div>
+                </div>
+            </div>
+
+            <div class="quote-block" style="margin-top: 2rem;">
+                Tu primera fase puede ser tan ligera como una landing inteligente.
+                La quinta puede orquestar todo tu CRM, tu pipeline y tu atención al cliente — sin contratar a nadie más.
+                <span class="who">— filosofía SNOW</span>
+            </div>
+
+            <div class="slide-footer">
+                <span>SNOW TECH</span>
+                <span>Serie platónica · evolución</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 04 · QUÉ INCLUYE (5 servicios)
+             ============================================================ -->
+        <section class="slide">
+            <div class="slide-header">
+                <span class="label-tag"><span class="label-dot"></span>QUÉ HACEMOS</span>
+                <span class="slide-num">04 / 10</span>
+            </div>
+
+            <div class="eyebrow">5 áreas, modulares</div>
+            <h2 class="slide-title">Combina lo que necesitas. <strong>No pagas lo que no usas.</strong></h2>
+            <p class="lead">Cada servicio funciona solo o conectado al resto. Empezamos contigo donde estés y crecemos a tu ritmo.</p>
+
+            <div class="row cols-2" style="margin-top: 1.4rem;">
+                <div class="card-block">
+                    <div class="num">01 · WEB</div>
+                    <h4 class="tt">Presencia que convierte</h4>
+                    <p class="dd">Tu web deja de ser un folleto. Diseño rápido, claro y construido para captar leads desde el primer día.</p>
+                </div>
+                <div class="card-block">
+                    <div class="num">02 · IA</div>
+                    <h4 class="tt">Chatbots y agentes</h4>
+                    <p class="dd">Respuestas 24/7 que califican, agendan y atienden — adaptados a tu producto y tu tono.</p>
+                </div>
+                <div class="card-block">
+                    <div class="num">03 · GROWTH</div>
+                    <h4 class="tt">Marketing con datos</h4>
+                    <p class="dd">Campañas medidas, copy probado y embudos optimizados. Cada euro tiene su métrica.</p>
+                </div>
+                <div class="card-block">
+                    <div class="num">04 · FUNNELS</div>
+                    <h4 class="tt">Embudos de venta</h4>
+                    <p class="dd">Del primer clic al cierre. Nurturing automático, segmentación inteligente, recuperación de fríos.</p>
+                </div>
+                <div class="card-block accent" style="grid-column: span 2;">
+                    <div class="num">05 · AUTOMATIZACIÓN</div>
+                    <h4 class="tt">Tu operación, en piloto automático</h4>
+                    <p class="dd">CRM conectado, tareas manuales eliminadas, alertas inteligentes. Tu equipo deja de copiar datos y empieza a venderlos.</p>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <span>SNOW TECH</span>
+                <span>5 servicios · 1 sistema</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 05 · EL PROCESO
+             ============================================================ -->
+        <section class="slide">
+            <div class="slide-header">
+                <span class="label-tag"><span class="label-dot"></span>EL PROCESO</span>
+                <span class="slide-num">05 / 10</span>
+            </div>
+
+            <div class="eyebrow">De la idea al despliegue</div>
+            <h2 class="slide-title">4 pasos. <strong>Sin sorpresas.</strong></h2>
+            <p class="lead">Te decimos qué vamos a hacer, cuánto cuesta y cuándo lo verás funcionando. Si algo no se puede, lo decimos antes.</p>
+
+            <div class="row cols-4" style="margin-top: 1.6rem;">
+                <div class="card-block">
+                    <div class="num">PASO 01</div>
+                    <h4 class="tt">Auditoría</h4>
+                    <p class="dd">Analizamos tu stack actual, identificamos los cuellos de botella y las oportunidades reales. <b style="color:var(--accent)">Gratuita.</b></p>
+                </div>
+                <div class="card-block">
+                    <div class="num">PASO 02</div>
+                    <h4 class="tt">Diseño</h4>
+                    <p class="dd">Diseñamos la arquitectura de tu entidad digital — qué fase implementar primero, qué dejar para después.</p>
+                </div>
+                <div class="card-block">
+                    <div class="num">PASO 03</div>
+                    <h4 class="tt">Implementación</h4>
+                    <p class="dd">Desarrollamos e integramos. Tú ves avances cada semana, no al final del proyecto.</p>
+                </div>
+                <div class="card-block accent">
+                    <div class="num">PASO 04</div>
+                    <h4 class="tt">Escalado</h4>
+                    <p class="dd">Tu sistema vive, aprende y crece. Iteramos según resultados reales, no suposiciones.</p>
+                </div>
+            </div>
+
+            <div class="row cols-3" style="margin-top: 2rem;">
+                <div>
+                    <div class="pill data">2 semanas</div>
+                    <p class="small" style="margin-top: 0.5rem;">Auditoría + diseño</p>
+                </div>
+                <div>
+                    <div class="pill data">4–8 semanas</div>
+                    <p class="small" style="margin-top: 0.5rem;">Primera fase live</p>
+                </div>
+                <div>
+                    <div class="pill">Continuo</div>
+                    <p class="small" style="margin-top: 0.5rem;">Iteración y crecimiento</p>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <span>SNOW TECH</span>
+                <span>Proceso transparente</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 06 · EFECTO ESPERADO
+             ============================================================ -->
+        <section class="slide">
+            <div class="slide-header">
+                <span class="label-tag"><span class="label-dot"></span>EL EFECTO</span>
+                <span class="slide-num">06 / 10</span>
+            </div>
+
+            <div class="eyebrow">Lo que un sistema bien construido hace</div>
+            <h2 class="slide-title">Más leads.<br>Menos horas.<br><strong>Mejores decisiones.</strong></h2>
+
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="v">+<b>340%</b></div>
+                    <div class="k">Leads cualificados</div>
+                </div>
+                <div class="stat">
+                    <div class="v"><b>3×</b></div>
+                    <div class="k">Tasa de conversión</div>
+                </div>
+                <div class="stat data">
+                    <div class="v">−<b>20h</b></div>
+                    <div class="k">por semana operativa</div>
+                </div>
+            </div>
+
+            <p class="small" style="margin-top: 0.4rem; max-width: 36em;">
+                Cifras objetivo basadas en escenarios construibles con nuestro stack. Las pactamos contigo durante la auditoría y las medimos durante toda la implementación. Si algún número no se cumple, te lo decimos antes de que termines de pagar.
+            </p>
+
+            <div style="margin-top: 2rem;">
+                <ul class="check-list">
+                    <li><span class="mark">✓</span> Sabes exactamente cuántos leads entran, por dónde, y a qué velocidad responden.</li>
+                    <li><span class="mark">✓</span> Tu equipo se ocupa de cerrar ventas, no de mover datos entre apps.</li>
+                    <li><span class="mark">✓</span> Cuando algo se rompe, te avisa el sistema antes de que se entere el cliente.</li>
+                    <li><span class="mark">✓</span> Cada decisión de inversión está respaldada por números reales, no por intuición.</li>
+                </ul>
+            </div>
+
+            <div class="slide-footer">
+                <span>SNOW TECH</span>
+                <span>Resultados, no promesas</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 07 · ESCENARIOS TIPO
+             ============================================================ -->
+        <section class="slide">
+            <div class="slide-header">
+                <span class="label-tag"><span class="label-dot"></span>ESCENARIOS</span>
+                <span class="slide-num">07 / 10</span>
+            </div>
+
+            <div class="eyebrow">Tres casos representativos</div>
+            <h2 class="slide-title">Así <strong>se ve</strong> el sistema en distintos negocios.</h2>
+            <p class="lead">Estos son escenarios construibles con nuestro stack. Sirven para que veas en qué se parece tu caso al de otros.</p>
+
+            <div class="row cols-3" style="margin-top: 1.4rem;">
+                <!-- Caso 1 -->
+                <div class="card-block">
+                    <div class="num">CASO 01</div>
+                    <h4 class="tt">SaaS financiero</h4>
+                    <p class="dd" style="margin-bottom: 0.8rem;">PYME B2B con 200 leads/mes pero solo 8 cerrados. Stack manual.</p>
+                    <div class="pill data" style="font-size: 0.55rem;">+340% LEADS CUALIFICADOS</div>
+                    <p class="small" style="margin-top: 0.6rem;">Agente IA califica 24/7, integrado al CRM. El equipo solo recibe los leads listos.</p>
+                </div>
+                <!-- Caso 2 -->
+                <div class="card-block">
+                    <div class="num">CASO 02</div>
+                    <h4 class="tt">E-commerce de nicho</h4>
+                    <p class="dd" style="margin-bottom: 0.8rem;">Tienda con 5K visitas/mes. Conversión del 0.8%. Sin segmentación.</p>
+                    <div class="pill data" style="font-size: 0.55rem;">3× CONVERSIÓN</div>
+                    <p class="small" style="margin-top: 0.6rem;">Funnels segmentados por intención + recuperación de carrito automatizada.</p>
+                </div>
+                <!-- Caso 3 -->
+                <div class="card-block accent">
+                    <div class="num">CASO 03</div>
+                    <h4 class="tt">Estudio de servicios</h4>
+                    <p class="dd" style="margin-bottom: 0.8rem;">Agencia de 12 personas. 40% del tiempo en tareas administrativas.</p>
+                    <div class="pill" style="font-size: 0.55rem;">−20H / SEMANA</div>
+                    <p class="small" style="margin-top: 0.6rem;">Onboarding, facturación y reportes automatizados con n8n + Notion + IA.</p>
+                </div>
+            </div>
+
+            <div class="quote-block">
+                Cada caso parte de un dolor distinto y termina en el mismo sitio: un sistema que trabaja por ti mientras tú decides.
+                <span class="who">— Lo que cambia es la fase de entrada</span>
+            </div>
+
+            <div class="slide-footer">
+                <span>SNOW TECH</span>
+                <span>3 escenarios · 1 método</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 08 · INVERSIÓN
+             ============================================================ -->
+        <section class="slide">
+            <div class="slide-header">
+                <span class="label-tag"><span class="label-dot"></span>INVERSIÓN</span>
+                <span class="slide-num">08 / 10</span>
+            </div>
+
+            <div class="eyebrow">Cómo lo facturamos</div>
+            <h2 class="slide-title">Tres marcos. <strong>Sin letra pequeña.</strong></h2>
+            <p class="lead">El precio depende de tu fase de entrada y de cuánto del sistema quieras tener vivo el primer mes. Lo cerramos contigo en la auditoría — antes de firmar nada.</p>
+
+            <div class="row cols-3" style="margin-top: 1.6rem;">
+                <div class="card-block">
+                    <div class="num">FASE 01</div>
+                    <h4 class="tt">Arranque</h4>
+                    <p class="dd" style="margin-bottom: 0.8rem;">Presencia digital sólida + captación básica. Ideal si vienes de cero.</p>
+                    <div class="pill data">Inversión a medida</div>
+                </div>
+                <div class="card-block accent">
+                    <div class="num">FASE 02-03</div>
+                    <h4 class="tt">Evolución</h4>
+                    <p class="dd" style="margin-bottom: 0.8rem;">Sumas IA, funnels o automatización. Tu sistema empieza a vender solo.</p>
+                    <div class="pill">Inversión a medida</div>
+                </div>
+                <div class="card-block">
+                    <div class="num">FASE 04-05</div>
+                    <h4 class="tt">Sistema completo</h4>
+                    <p class="dd" style="margin-bottom: 0.8rem;">Entidad digital integral con agentes, dashboards y operación autónoma.</p>
+                    <div class="pill data">Inversión a medida</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h4 style="font-weight: 700; font-size: 0.9rem; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 0.8rem;">LO QUE SIEMPRE INCLUYE:</h4>
+                <ul class="check-list">
+                    <li><span class="mark">✓</span> Auditoría gratuita previa — sin compromiso, te llevas el plan aunque no avances con nosotros.</li>
+                    <li><span class="mark">✓</span> Presupuesto cerrado y firmado antes de empezar. Sin sobrecostes sorpresa.</li>
+                    <li><span class="mark">✓</span> Pago por hitos, no por adelantado. Pagas a medida que ves resultados.</li>
+                    <li><span class="mark">✓</span> Mantenimiento y soporte el primer mes incluidos.</li>
+                </ul>
+            </div>
+
+            <div class="slide-footer">
+                <span>SNOW TECH</span>
+                <span>Sin letra pequeña</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 09 · POR QUÉ NOSOTROS
+             ============================================================ -->
+        <section class="slide">
+            <div class="slide-header">
+                <span class="label-tag"><span class="label-dot"></span>POR QUÉ NOSOTROS</span>
+                <span class="slide-num">09 / 10</span>
+            </div>
+
+            <div class="eyebrow">Lo que nos hace distintos</div>
+            <h2 class="slide-title">No vendemos webs.<br><strong>Vendemos sistemas que viven.</strong></h2>
+
+            <div class="row cols-2" style="margin-top: 1.6rem;">
+                <div class="card-block">
+                    <div class="num">01 · MODULARIDAD</div>
+                    <h4 class="tt">Empiezas pequeño, creces sin reescribir</h4>
+                    <p class="dd">Cada fase suma a la anterior. No tiras lo viejo para meter lo nuevo: tu inversión se acumula.</p>
+                </div>
+                <div class="card-block accent">
+                    <div class="num">02 · HONESTIDAD</div>
+                    <h4 class="tt">Te decimos qué NO necesitas</h4>
+                    <p class="dd">Si tu negocio no está listo para IA, te ahorramos el gasto. Si una landing simple resuelve, te la hacemos.</p>
+                </div>
+                <div class="card-block">
+                    <div class="num">03 · STACK PROBADO</div>
+                    <h4 class="tt">Tecnología que aguanta</h4>
+                    <p class="dd">Construimos sobre OpenAI, Next.js, n8n, Notion, Stripe. No experimentamos contigo: usamos lo que funciona.</p>
+                </div>
+                <div class="card-block">
+                    <div class="num">04 · ENFOQUE PYME</div>
+                    <h4 class="tt">Hablamos tu idioma</h4>
+                    <p class="dd">Nuestros clientes son negocios reales, no startups con presupuesto infinito. Te entendemos los márgenes.</p>
+                </div>
+            </div>
+
+            <div class="quote-block" style="margin-top: 1.8rem;">
+                Nuestro mejor cliente no es el que más nos paga el primer mes.
+                Es el que sigue con nosotros tres años después porque su sistema sigue evolucionando.
+                <span class="who">— Cómo medimos el éxito</span>
+            </div>
+
+            <div class="slide-footer">
+                <span>SNOW TECH</span>
+                <span>Modular · honesto · probado</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 10 · CIERRE
+             ============================================================ -->
+        <section class="slide close">
+            <div>
+                <div class="slide-header">
+                    <span class="label-tag"><span class="label-dot"></span>PRÓXIMO PASO</span>
+                    <span class="slide-num">10 / 10</span>
+                </div>
+
+                <div class="eyebrow">Una llamada · 30 minutos · sin compromiso</div>
+                <h2 class="slide-title">Veamos en qué <strong>fase</strong> estás.</h2>
+                <p class="lead">Reservamos solo 5 auditorías por semana. Te respondemos en menos de 24 horas. Si tu caso encaja con nuestro método, te lo decimos. Si no, te orientamos hacia donde sí.</p>
+            </div>
+
+            <div class="close-cta">
+                <div class="label">AGENDA UNA LLAMADA</div>
+                <h3>30 min para entender tu negocio y mostrarte cómo crecería.</h3>
+                <p>Sin pitch, sin presión. Salimos de la llamada con un diagnóstico claro: en qué fase estás, qué te frena y qué pasos darías a continuación — los des con nosotros o sin nosotros.</p>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <a class="cta-btn" href="contact.html">Reservar auditoría →</a>
+                    <a class="cta-btn ghost" href="mailto:hola@snowtech.io?subject=Agenda%20-%20Presentaci%C3%B3n%20Comercial">Escribir por email</a>
+                </div>
+            </div>
+
+            <div class="close-contact">
+                <div>
+                    <div class="ck">CONTACTO</div>
+                    <div class="cv"><a href="mailto:hola@snowtech.io">hola@snowtech.io</a></div>
+                    <div class="cv" style="margin-top: 0.4rem; opacity: 0.7;">snowtech.io</div>
+                </div>
+                <div>
+                    <div class="ck">RESPUESTA</div>
+                    <div class="cv">&lt; 24 horas hábiles</div>
+                    <div class="cv" style="margin-top: 0.4rem; opacity: 0.7;">5 slots / semana</div>
+                </div>
+            </div>
+
+            <div class="slide-footer" style="bottom: 1.5rem;">
+                <span>SNOW TECH · ARQUITECTURA DIGITAL</span>
+                <span>Gracias por leer hasta aquí.</span>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Si llega desde el sitio con ?print=1 lanzar el diálogo de impresión al cargar.
+        // Útil cuando se enlaza desde un botón "Descargar como PDF".
+        (function () {
+            if (location.search.indexOf('print=1') !== -1) {
+                window.addEventListener('load', function () {
+                    setTimeout(function () { window.print(); }, 600);
+                });
+            }
+            // Analytics si está disponible
+            if (window.snowTrack) window.snowTrack('presentacion_view', { page: 'presentacion' });
+        })();
+    </script>
+
+</body>
+
+</html>
