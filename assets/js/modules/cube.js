@@ -139,10 +139,10 @@ export function createCSSCube(cssScene) {
 export function updateCube(physics, now, isDesktop = true) {
     if (!cssGroup) return;
 
-    // Home: el cubo vive en la sección 2 (estadio 02 · hexaedro)
-    const isActive = physics.activeSection === 2;
+    // Home: el cubo vive en la sección 3 (estadio 02 · hexaedro)
+    const isActive = physics.activeSection === 3;
 
-    const relIndex = 2 - physics.activeSection;
+    const relIndex = 3 - physics.activeSection;
     const gx = 0;
     const gy = isActive ? (isDesktop ? 0 : -1.5) : (relIndex * -15);
     const gs = isActive ? (isDesktop ? 0.01 : 0.008) : 0;

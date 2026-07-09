@@ -269,6 +269,15 @@
             border-color: rgba(139, 242, 198, 0.5);
         }
 
+        /* ── Subtítulo-promesa en fases de evolución ── */
+        .node-promise {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
         /* ── Línea de inversión en fases de evolución ── */
         .node-invest {
             margin-top: 0.9rem;
@@ -669,6 +678,216 @@
             }
         }
 
+        /* ── Sección de precios ── */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-card {
+            background: rgba(10, 15, 30, 0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 20px;
+            padding: 2rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* La card A (auditoría) lleva el acento; la B queda neutra */
+        .pricing-card.featured {
+            border-color: rgba(139, 242, 198, 0.35);
+            background: linear-gradient(135deg, rgba(139, 242, 198, 0.06) 0%, rgba(10, 15, 30, 0.55) 55%);
+        }
+
+        .pricing-step {
+            display: inline-block;
+            width: fit-content;
+            padding: 0.25rem 0.65rem;
+            border-radius: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card.featured .pricing-step {
+            background: rgba(139, 242, 198, 0.12);
+            color: var(--accent);
+            border-color: rgba(139, 242, 198, 0.25);
+        }
+
+        .pricing-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .pricing-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        .pricing-price-note {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.25rem;
+        }
+
+        .pricing-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .pricing-list li {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.55;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .pricing-list li::before {
+            content: '✓';
+            color: var(--accent);
+            flex-shrink: 0;
+            font-size: 0.75rem;
+            margin-top: 0.1rem;
+        }
+
+        /* Variante sin check para la lista por fase de la card B */
+        .pricing-list.plain li::before {
+            content: '·';
+            font-size: 1rem;
+            margin-top: -0.05rem;
+        }
+
+        .pricing-note {
+            background: rgba(139, 242, 198, 0.08);
+            border: 1px solid rgba(139, 242, 198, 0.2);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card:not(.featured) .pricing-note {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.09);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .pricing-cta {
+            margin-top: auto;
+            display: inline-block;
+            text-align: center;
+            padding: 0.85rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-cta.primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .pricing-cta.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 242, 198, 0.3);
+        }
+
+        .pricing-cta.outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid rgba(139, 242, 198, 0.3);
+        }
+
+        .pricing-cta.outline:hover {
+            background: rgba(139, 242, 198, 0.08);
+        }
+
+        /* Fila de planes mensuales */
+        .pricing-monthly-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+            text-align: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .pricing-monthly-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .pricing-monthly-card {
+            background: rgba(10, 15, 30, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 14px;
+            padding: 1.4rem 1.25rem;
+        }
+
+        .pricing-monthly-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.35rem;
+        }
+
+        .pricing-monthly-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .pricing-monthly-desc {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .pricing-monthly-footnote {
+            text-align: center;
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.45);
+            letter-spacing: 0.05em;
+            margin-top: 1.25rem;
+        }
+
+        /* Responsive precios */
+        @media (max-width: 768px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-monthly-grid { grid-template-columns: 1fr; }
+        }
+
         /* ── Scroll bounce arrow ── */
         @keyframes svcBounce {
             0%, 100% { transform: translateY(0); opacity: 0.3; }
@@ -700,7 +919,7 @@
                 <a href="services.html" class="nav-link nav-link-active">SERVICIOS</a>
                 <a href="contact.html" class="nav-link">CONTACTO</a>
                 <a href="blog.html" class="nav-link">BLOG</a>
-                <a href="contact.html" class="cta-header">Auditoría Gratuita</a>
+                <a href="contact.html" class="cta-header">Diagnóstico Gratis</a>
             </div>
             <button type="button" class="mobile-menu-btn md:hidden pointer-events-auto" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-overlay" id="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
@@ -714,7 +933,7 @@
         <a href="services.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">SERVICIOS</a>
         <a href="contact.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">CONTACTO</a>
         <a href="blog.html" class="nav-link mobile-nav-link" onclick="toggleMobileMenu()">BLOG</a>
-        <a href="contact.html" class="cta-header" style="margin-top:1.25rem" onclick="toggleMobileMenu()">Auditoría Gratuita</a>
+        <a href="contact.html" class="cta-header" style="margin-top:1.25rem" onclick="toggleMobileMenu()">Diagnóstico Gratis</a>
     </div>
 
     <!-- ══════════════════════════════════════════
@@ -726,11 +945,10 @@
         <div class="relative z-10 pointer-events-none px-4">
             <span class="pg-hero-tag">Sistema Modular</span>
             <h1 class="text-5xl md:text-7xl font-light text-white mb-6 tracking-tighter">
-                Construye Tu <span class="glitch-text">Entidad</span>
+                Elige por dónde <span class="glitch-text">empezar</span>
             </h1>
             <p class="section-desc max-w-xl mx-auto mb-8">
-                Cada servicio funciona solo. Juntos, construyen una entidad autónoma que trabaja mientras duermes.
-                <strong style="color:var(--accent);display:block;margin-top:0.5rem">Elige tu punto de entrada.</strong>
+                Cada servicio funciona por separado. Juntos, forman un sistema que trabaja mientras tú duermes.
             </p>
             <div style="display:flex;justify-content:center;gap:0.65rem;flex-wrap:wrap">
                 <span class="pg-tag">🌐 Presencia Digital</span>
@@ -788,7 +1006,7 @@
                         <div class="svc-tab-icon">📈</div>
                         <div class="svc-tab-info">
                             <span class="svc-tab-num">03</span>
-                            <span class="svc-tab-name">Growth Marketing</span>
+                            <span class="svc-tab-name">Marketing Digital</span>
                         </div>
                     </button>
 
@@ -798,7 +1016,7 @@
                         <div class="svc-tab-icon">🎯</div>
                         <div class="svc-tab-info">
                             <span class="svc-tab-num">04</span>
-                            <span class="svc-tab-name">Sales Funnels</span>
+                            <span class="svc-tab-name">Embudos de Venta</span>
                         </div>
                     </button>
 
@@ -912,7 +1130,7 @@
                                 </div>
                                 <div class="svc-metric">
                                     <span class="svc-metric-val">3x</span>
-                                    <span class="svc-metric-label">Leads cal.</span>
+                                    <span class="svc-metric-label">Clientes calif.</span>
                                 </div>
                             </div>
 
@@ -924,9 +1142,9 @@
                                 <li>Handoff inteligente a equipo humano cuando es necesario</li>
                             </ul>
 
-                            <button type="button" class="svc-evolves" onclick="switchService(document.querySelector('[data-target=\'svc-funnels\']'))" aria-label="Ver servicio: Sales Funnels">
+                            <button type="button" class="svc-evolves" onclick="switchService(document.querySelector('[data-target=\'svc-funnels\']'))" aria-label="Ver servicio: Embudos de Venta">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                                Siguiente paso → <span>Sales Funnels</span>
+                                Siguiente paso → <span>Embudos de Venta</span>
                             </button>
                             <a class="svc-start" href="contact.html?service=IA%20%26%20Chatbots" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-ai'})">Empezar por aquí →</a>
                         </div>
@@ -977,7 +1195,7 @@
                     <div id="svc-marketing" class="svc-content" role="tabpanel">
                         <div>
                             <span class="svc-badge">Estrategia & Crecimiento</span>
-                            <h3 class="svc-title">Growth Marketing</h3>
+                            <h3 class="svc-title">Marketing Digital</h3>
                             <p class="svc-desc">Estrategias basadas en datos para atraer tráfico calificado y convertirlo. SEO técnico, campañas PPC con ROI medible y optimización continua.</p>
 
                             <div class="svc-metrics">
@@ -986,8 +1204,8 @@
                                     <span class="svc-metric-label">Tráfico orgánico</span>
                                 </div>
                                 <div class="svc-metric">
-                                    <span class="svc-metric-val">ROAS</span>
-                                    <span class="svc-metric-label">Medible</span>
+                                    <span class="svc-metric-val">100%</span>
+                                    <span class="svc-metric-label">Retorno medible</span>
                                 </div>
                             </div>
 
@@ -999,11 +1217,11 @@
                                 <li>Reportes semanales con acciones concretas</li>
                             </ul>
 
-                            <button type="button" class="svc-evolves" onclick="switchService(document.querySelector('[data-target=\'svc-funnels\']'))" aria-label="Ver servicio: Sales Funnels">
+                            <button type="button" class="svc-evolves" onclick="switchService(document.querySelector('[data-target=\'svc-funnels\']'))" aria-label="Ver servicio: Embudos de Venta">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                                Potencia con → <span>Sales Funnels</span>
+                                Potencia con → <span>Embudos de Venta</span>
                             </button>
-                            <a class="svc-start" href="contact.html?service=Growth%20Marketing" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-marketing'})">Empezar por aquí →</a>
+                            <a class="svc-start" href="contact.html?service=Marketing%20Digital" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-marketing'})">Empezar por aquí →</a>
                         </div>
                         <div class="svc-visual">
                             <div class="svc-browser">
@@ -1065,8 +1283,8 @@
                     <div id="svc-funnels" class="svc-content" role="tabpanel">
                         <div>
                             <span class="svc-badge">Ventas Automatizadas</span>
-                            <h3 class="svc-title">Sales Funnels</h3>
-                            <p class="svc-desc">Tu agente de ventas que nunca duerme. Captura leads, los nutre con contenido personalizado y cierra mientras te enfocas en lo estratégico.</p>
+                            <h3 class="svc-title">Embudos de Venta</h3>
+                            <p class="svc-desc">Tu vendedor que nunca duerme. Captura interesados, les hace seguimiento con mensajes personalizados y cierra ventas mientras te enfocas en lo estratégico.</p>
 
                             <div class="svc-metrics">
                                 <div class="svc-metric">
@@ -1095,7 +1313,7 @@
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
                                 Amplifica con → <span>Automatización</span>
                             </button>
-                            <a class="svc-start" href="contact.html?service=Sales%20Funnels" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-funnels'})">Empezar por aquí →</a>
+                            <a class="svc-start" href="contact.html?service=Embudos%20de%20Venta" onclick="if(window.snowTrack)snowTrack('svc_start_click',{service:'svc-funnels'})">Empezar por aquí →</a>
                         </div>
                         <div class="svc-visual">
                             <div class="svc-browser">
@@ -1151,8 +1369,8 @@
                     <div id="svc-automation" class="svc-content" role="tabpanel">
                         <div>
                             <span class="svc-badge">Operaciones Inteligentes</span>
-                            <h3 class="svc-title">Workflows & Orquestación</h3>
-                            <p class="svc-desc">La capa que conecta todo. Automatiza procesos internos, sincroniza herramientas y libera a tu equipo para trabajo estratégico.</p>
+                            <h3 class="svc-title">Automatización de Procesos</h3>
+                            <p class="svc-desc">La capa que conecta todo. Automatiza las tareas repetitivas de tu operación, sincroniza tus herramientas y libera a tu equipo para el trabajo que sí importa.</p>
 
                             <div class="svc-metrics">
                                 <div class="svc-metric">
@@ -1293,9 +1511,9 @@
                         </svg>
                     </div>
                     <h4 class="node-title">Presencia</h4>
+                    <p class="node-promise">Te encuentran.</p>
                     <p class="node-desc">Web, IA y visibilidad. Tu base digital de alto impacto.</p>
-                    <!-- TODO NEGOCIO: cifra orientativa, p.ej. "desde €X" -->
-                    <div class="node-invest">Inversión a medida</div>
+                    <div class="node-invest">desde $1.900.000</div>
                 </div>
 
                 <!-- Fase 02: Crecimiento -->
@@ -1307,9 +1525,9 @@
                         </svg>
                     </div>
                     <h4 class="node-title">Crecimiento</h4>
+                    <p class="node-promise">Te compran.</p>
                     <p class="node-desc">Marketing, funnels y ventas. Atrae, convierte y cierra.</p>
-                    <!-- TODO NEGOCIO: cifra orientativa, p.ej. "desde €X" -->
-                    <div class="node-invest">Inversión a medida</div>
+                    <div class="node-invest">desde $3.900.000</div>
                 </div>
 
                 <!-- Fase 03: Autonomía -->
@@ -1321,18 +1539,91 @@
                         </svg>
                     </div>
                     <h4 class="node-title">Autonomía</h4>
+                    <p class="node-promise">Funciona solo.</p>
                     <p class="node-desc">Workflows, agentes IA y escala. Tu entidad opera sola.</p>
-                    <!-- TODO NEGOCIO: cifra orientativa, p.ej. "desde €X" -->
-                    <div class="node-invest">Inversión a medida</div>
+                    <div class="node-invest">cotización tras auditoría</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ══════════════════════════════════════════
-         3. CTA
+         3. PRECIOS
     ══════════════════════════════════════════ -->
-    <section data-index="3" style="padding: 3rem 1.5rem 6rem;">
+    <section data-index="3" style="padding: 5rem 1.5rem 4rem;">
+        <div style="max-width: 1080px; margin: 0 auto; width: 100%;">
+
+            <!-- Section header -->
+            <div class="text-center" style="margin-bottom: 2.5rem;">
+                <span class="pg-hero-tag">Precios claros</span>
+                <h2 class="section-h2" style="margin-bottom:0.5rem;">¿Cuánto cuesta?</h2>
+                <p class="section-desc" style="max-width:520px;margin:0 auto;">
+                    Sin cotizaciones misteriosas. Empiezas por un diagnóstico, sabes exactamente qué necesitas, y decides con el presupuesto sobre la mesa.
+                </p>
+            </div>
+
+            <!-- Dos tarjetas protagonistas -->
+            <div class="pricing-grid">
+
+                <!-- Card A: Auditoría -->
+                <div class="pricing-card featured">
+                    <span class="pricing-step">Paso 1</span>
+                    <h3 class="pricing-title">Auditoría Completa</h3>
+                    <div class="pricing-price">$300.000 COP</div>
+                    <div class="pricing-price-note">pago único</div>
+                    <ul class="pricing-list">
+                        <li>Análisis profundo de tu web, ventas y operación</li>
+                        <li>Informe con oportunidades priorizadas</li>
+                        <li>Roadmap y presupuesto exacto de tu proyecto</li>
+                        <li>Sesión de 1 hora para explicártelo todo</li>
+                    </ul>
+                    <div class="pricing-note">El 100% se abona a tu implementación: si avanzas, la auditoría te sale gratis.</div>
+                    <a class="pricing-cta primary" href="contact.html?service=Auditor%C3%ADa%20Completa" onclick="if(window.snowTrack)snowTrack('pricing_audit_click')">Empezar con la auditoría →</a>
+                </div>
+
+                <!-- Card B: Implementación -->
+                <div class="pricing-card">
+                    <span class="pricing-step">Paso 2</span>
+                    <h3 class="pricing-title">Implementación</h3>
+                    <div class="pricing-price">desde $1.900.000 COP</div>
+                    <div class="pricing-price-note">según la fase donde empieces</div>
+                    <ul class="pricing-list plain">
+                        <li>Presencia — web + IA que atiende · desde $1.900.000</li>
+                        <li>Crecimiento — publicidad + seguimiento automático · desde $3.900.000</li>
+                        <li>Autonomía — tu operación en piloto automático · a medida</li>
+                    </ul>
+                    <div class="pricing-note">30 días de ajustes incluidos después de la entrega.</div>
+                    <a class="pricing-cta outline" href="contact.html" onclick="if(window.snowTrack)snowTrack('pricing_impl_click')">Pedir mi diagnóstico gratis →</a>
+                </div>
+            </div>
+
+            <!-- Planes mensuales -->
+            <p class="pricing-monthly-title">Y para el día a día — planes mensuales</p>
+            <div class="pricing-monthly-grid">
+                <div class="pricing-monthly-card">
+                    <div class="pricing-monthly-name">Soporte &amp; Mantenimiento</div>
+                    <div class="pricing-monthly-price">desde $250.000/mes</div>
+                    <p class="pricing-monthly-desc">Tu web siempre al día: actualizaciones, seguridad, respaldos y cambios menores.</p>
+                </div>
+                <div class="pricing-monthly-card">
+                    <div class="pricing-monthly-name">SEO Mensual</div>
+                    <div class="pricing-monthly-price">desde $450.000/mes</div>
+                    <p class="pricing-monthly-desc">Que te encuentren en Google: optimización continua e informe mensual en lenguaje claro.</p>
+                </div>
+                <div class="pricing-monthly-card">
+                    <div class="pricing-monthly-name">Contenido Mensual</div>
+                    <div class="pricing-monthly-price">desde $450.000/mes</div>
+                    <p class="pricing-monthly-desc">Publicaciones para redes y blog alineadas a tu oferta, listas cada semana.</p>
+                </div>
+            </div>
+            <p class="pricing-monthly-footnote">Sin permanencia · cancelas cuando quieras.</p>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         4. CTA
+    ══════════════════════════════════════════ -->
+    <section data-index="4" style="padding: 3rem 1.5rem 6rem;">
         <div style="max-width: 680px; margin: 0 auto; width: 100%;">
             <div class="card" style="max-width:none;text-align:center;border-color:var(--accent);background:linear-gradient(135deg,rgba(139,242,198,0.06) 0%,rgba(0,0,0,0.3) 100%);padding:3rem 2rem;">
                 <div class="tag-line" style="justify-content:center;color:var(--accent);margin-bottom:1rem;">Siguiente Paso</div>
@@ -1351,12 +1642,9 @@
                         style="display:inline-block;background:transparent;color:var(--accent);font-weight:600;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;border:1px solid rgba(139,242,198,0.3);transition:all 0.3s ease;"
                         onmouseover="this.style.background='rgba(139,242,198,0.08)'"
                         onmouseout="this.style.background='transparent'">
-                        Auditoría Gratuita
+                        Diagnóstico Gratis
                     </a>
                 </div>
-                <p style="margin-top:1.25rem;font-size:0.72rem;color:rgba(139,242,198,0.6);letter-spacing:0.05em;">
-                    Solo 5 slots semanales · Respuesta en 24h
-                </p>
             </div>
         </div>
     </section>
@@ -1386,18 +1674,18 @@
                 <h4 class="text-white font-bold mb-4">Servicios</h4>
                 <a href="services.html?service=svc-web" class="block opacity-60 hover:opacity-100 transition-opacity">Desarrollo Web</a>
                 <a href="services.html?service=svc-ai" class="block opacity-60 hover:opacity-100 transition-opacity">IA & Chatbots</a>
-                <a href="services.html?service=svc-marketing" class="block opacity-60 hover:opacity-100 transition-opacity">Growth Marketing</a>
-                <a href="services.html?service=svc-funnels" class="block opacity-60 hover:opacity-100 transition-opacity">Sales Funnels</a>
+                <a href="services.html?service=svc-marketing" class="block opacity-60 hover:opacity-100 transition-opacity">Marketing Digital</a>
+                <a href="services.html?service=svc-funnels" class="block opacity-60 hover:opacity-100 transition-opacity">Embudos de Venta</a>
                 <a href="services.html?service=svc-automation" class="block opacity-60 hover:opacity-100 transition-opacity">Automatización</a>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Contacto</h4>
-                <a href="mailto:hola@snowtech.io" class="block opacity-60 hover:opacity-100 transition-opacity">hola@snowtech.io</a>
+                <a href="mailto:sales@isnowagency.com" class="block opacity-60 hover:opacity-100 transition-opacity">sales@isnowagency.com</a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="block opacity-60 hover:opacity-100 transition-opacity">LinkedIn</a>
             </div>
         </div>
         <div class="pt-8 border-t border-white/10 opacity-50 text-xs">
-            © 2026 SNOW Inc. All systems operational.
+            © 2026 Snow Tech · Todos los derechos reservados.
         </div>
     </footer>
 
@@ -1408,7 +1696,7 @@
 
         // Contextual CTA state
         const _explored = new Set(['svc-web']);
-        const _svcNames = { 'svc-web': 'Web', 'svc-ai': 'IA & Chatbots', 'svc-marketing': 'Marketing', 'svc-funnels': 'Funnels', 'svc-automation': 'Automatización' };
+        const _svcNames = { 'svc-web': 'Web', 'svc-ai': 'IA & Chatbots', 'svc-marketing': 'Marketing', 'svc-funnels': 'Embudos de Venta', 'svc-automation': 'Automatización' };
 
         function switchService(btn) {
             _tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); t.tabIndex = -1; });

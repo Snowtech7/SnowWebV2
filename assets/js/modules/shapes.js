@@ -82,7 +82,7 @@ export function updateShapes(shapes, physics, isServicesPage, isDesktop = true) 
         let gs = isDesktop ? 1 : 0.38;
 
         // Octaedro (proceso) e icosaedro (lead magnet) viven a la izquierda en desktop
-        if ((index === 3 || index === 6) && isDesktop) gx = -4;
+        if ((index === 4 || index === 7) && isDesktop) gx = -4;
 
         if (isActive) {
             if (index === 0) {
@@ -93,7 +93,7 @@ export function updateShapes(shapes, physics, isServicesPage, isDesktop = true) 
                 if (isDesktop) { gx = 5.5; gy = -2.2; gz = -9; gs = 0.32; }
                 else { gs = 0; }
             }
-            else if (index === 2 || index === 5) { gs = 0; }
+            else if (index === 3 || index === 6) { gs = 0; }
         } else {
             gy = relIndex * -15; gz = -20; gs = 0;
         }

@@ -38,12 +38,13 @@ async function init3D() {
             // (el gradiente vive en SERIE_PLATONICA, en shapes.js).
             shapes = [
                 shapesM.createWebGLShape(new THREE.TetrahedronGeometry(2.8), 'semilla', state.scene, state.iceMat), // 0: hero — la semilla (solo desktop)
-                shapesM.createValuePropSystem(state.scene, state.iceMat),                                            // 1: estadio 01 · tetraedro · 4 caras
-                null, // 2: estadio 02 · hexaedro · 6 caras — es el cubo CSS3D (cube.js)
-                shapesM.createWebGLShape(new THREE.OctahedronGeometry(2.7), 'octa', state.scene, state.iceMat),      // 3: estadio 03 · octaedro · 8 caras
-                shapesM.createWebGLShape(new THREE.DodecahedronGeometry(2.6), 'dodeca', state.scene, state.iceMat),  // 4: estadio 04 · dodecaedro · 12 caras
-                null, // 5: partners CSS3D (sin sólido propio)
-                shapesM.createWebGLShape(new THREE.IcosahedronGeometry(2.8), 'icosa', state.scene, state.iceMat)     // 6: estadio 05 · icosaedro · 20 caras (lead magnet)
+                null, // 1: punto de partida — sin sólido
+                shapesM.createValuePropSystem(state.scene, state.iceMat),                                            // 2: estadio 01 · tetraedro · 4 caras
+                null, // 3: estadio 02 · hexaedro · 6 caras — es el cubo CSS3D (cube.js)
+                shapesM.createWebGLShape(new THREE.OctahedronGeometry(2.7), 'octa', state.scene, state.iceMat),      // 4: estadio 03 · octaedro · 8 caras
+                shapesM.createWebGLShape(new THREE.DodecahedronGeometry(2.6), 'dodeca', state.scene, state.iceMat),  // 5: estadio 04 · dodecaedro · 12 caras
+                null, // 6: partners CSS3D (sin sólido propio)
+                shapesM.createWebGLShape(new THREE.IcosahedronGeometry(2.8), 'icosa', state.scene, state.iceMat)     // 7: estadio 05 · icosaedro · 20 caras (lead magnet)
             ];
         }
         if (state.cssScene) {

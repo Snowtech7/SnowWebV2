@@ -20,7 +20,7 @@
         formEndpoint: '',
         newsletterEndpoint: '',
         plausibleDomain: '',
-        contactEmail: 'hola@snowtech.io',
+        contactEmail: 'sales@isnowagency.com',
         whatsapp: '',
         calendarUrl: ''
     };
