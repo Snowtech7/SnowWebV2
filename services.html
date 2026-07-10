@@ -7,23 +7,15 @@
     <title>SNOW | Servicios - Construye Tu Entidad Digital</title>
     <meta name="description"
         content="Servicios de desarrollo web, marketing, IA, diseño y automatización. Cada uno puede contratarse solo o como parte de tu sistema evolutivo.">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20260710">
     <meta name="theme-color" content="#020408">
     <link rel="canonical" href="https://snowtech7.github.io/SnowWebV2/services.html">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/site.js" defer></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260709-1830">
+    <script src="assets/js/site.js?v=20260709-1830" defer></script>
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snowtech.io/services.html">
     <meta property="og:title" content="SNOW | Servicios - Construye Tu Entidad Digital">
@@ -620,6 +612,7 @@
             }
 
             .svc-nav {
+                position: relative;
                 flex-direction: row;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
@@ -628,6 +621,18 @@
                 border-bottom: 1px solid rgba(255,255,255,0.07);
                 gap: 0.15rem;
                 scrollbar-width: none;
+            }
+
+            .svc-nav::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 40px;
+                background: linear-gradient(to right, transparent, rgba(10, 14, 28, 0.95));
+                pointer-events: none;
+                z-index: 1;
             }
 
             .svc-nav::-webkit-scrollbar { display: none; }
@@ -657,7 +662,7 @@
             .svc-tab-num { display: none; }
             .svc-tab-name { font-size: 0.68rem; }
 
-            .svc-panel { min-height: 600px; }
+            .svc-panel { min-height: auto; }
 
             .svc-content {
                 grid-template-columns: 1fr;
@@ -900,6 +905,17 @@
             .svc-content { transition: none; }
             [style*="svcBounce"] { animation: none !important; }
         }
+
+        /* ── CTA hover effects (replaces inline onmouseover/onmouseout) ── */
+        @media (hover: hover) {
+            .cta-hover-lift:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(139,242,198,0.3);
+            }
+            .cta-hover-tint:hover {
+                background: rgba(139,242,198,0.08);
+            }
+        }
     </style>
 </head>
 
@@ -910,7 +926,7 @@
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
             <a href="index.html" class="header-logo-container pointer-events-auto">
-                <picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.png" alt="Snow Tech - Agencia de Arquitectura Digital" class="header-logo-img" width="40" height="40" loading="eager"></picture>
+                <picture><source srcset="assets/logo.webp?v=20260710" type="image/webp"><img src="assets/logo.png?v=20260710" alt="Snow Tech - Agencia de Arquitectura Digital" class="header-logo-img" width="40" height="40" loading="eager"></picture>
                 <span>SNOW TECH</span>
             </a>
             <div class="nav-desktop hidden md:flex pointer-events-auto">
@@ -1474,9 +1490,7 @@
                 <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;margin-bottom:0.4rem;" id="svc-system-label">Sistema detectado</div>
                 <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin:0;line-height:1.5;" id="svc-system-text">Exploraste múltiples servicios. Podemos diseñar tu arquitectura completa.</p>
             </div>
-            <a href="contact.html" style="flex-shrink:0;display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;white-space:nowrap;transition:transform 0.2s,box-shadow 0.2s;"
-                onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(139,242,198,0.3)'"
-                onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <a href="contact.html" class="cta-hover-lift" style="flex-shrink:0;display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;white-space:nowrap;transition:transform 0.2s,box-shadow 0.2s;">
                 Armar mi sistema →
             </a>
         </div>
@@ -1632,16 +1646,12 @@
                     Cuéntanos en qué fase estás y diseñamos tu roadmap de evolución personalizado. Sin compromiso.
                 </p>
                 <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
-                    <a href="contact.html"
-                        style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;transition:all 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(139,242,198,0.3)'"
-                        onmouseout="this.style.transform='';this.style.boxShadow=''">
+                    <a href="contact.html" class="cta-hover-lift"
+                        style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;transition:all 0.3s ease;">
                         Agendar Llamada →
                     </a>
-                    <a href="index.html#lead-magnet"
-                        style="display:inline-block;background:transparent;color:var(--accent);font-weight:600;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;border:1px solid rgba(139,242,198,0.3);transition:all 0.3s ease;"
-                        onmouseover="this.style.background='rgba(139,242,198,0.08)'"
-                        onmouseout="this.style.background='transparent'">
+                    <a href="index.html#lead-magnet" class="cta-hover-tint"
+                        style="display:inline-block;background:transparent;color:var(--accent);font-weight:600;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;border:1px solid rgba(139,242,198,0.3);transition:all 0.3s ease;">
                         Diagnóstico Gratis
                     </a>
                 </div>
@@ -1653,7 +1663,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8 text-left">
             <div>
                 <a href="index.html" class="header-logo-container mb-4">
-                    <picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="footer-logo-img" width="35" height="35" loading="lazy"></picture>
+                    <picture><source srcset="assets/logo.webp?v=20260710" type="image/webp"><img src="assets/logo.png?v=20260710" alt="Snow Tech - Arquitectura Digital" class="footer-logo-img" width="35" height="35" loading="lazy"></picture>
                     <span>SNOW TECH</span>
                 </a>
                 <p class="opacity-60">Tu presencia digital evoluciona.</p>
@@ -1758,7 +1768,7 @@
         })();
     </script>
 
-    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js?v=20260709-1830"></script>
 </body>
 
 </html>

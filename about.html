@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -6,25 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>SNOW | Nosotros</title>
     <meta name="description" content="Conoce a SNOW Tech. Nuestra esencia, misión y valores. Construimos la infraestructura digital de la próxima generación.">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=20260710">
     <meta name="theme-color" content="#020408">
     <link rel="canonical" href="https://snowtech7.github.io/SnowWebV2/about.html">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
     <!-- Fonts: preconnect + single request, font-display:swap evita FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/site.js" defer></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260709-1830">
+    <script src="assets/js/site.js?v=20260709-1830" defer></script>
+
+    <style>
+        .cta-hover-primary,
+        .cta-hover-secondary { transition: all 0.3s ease; }
+        @media (hover: hover) {
+            .cta-hover-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(139,242,198,0.3);
+            }
+            .cta-hover-secondary:hover {
+                background: rgba(139,242,198,0.08) !important;
+            }
+        }
+    </style>
 
     <!-- Open Graph / SEO -->
     <meta property="og:type" content="website">
@@ -42,7 +48,7 @@
     <header>
         <div class="max-w-7xl mx-auto w-full flex justify-between items-center pointer-events-none px-4 md:px-8">
             <a href="index.html" class="header-logo-container pointer-events-auto">
-                <picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="header-logo-img" width="40" height="40" loading="eager"></picture>
+                <picture><source srcset="assets/logo.webp?v=20260710" type="image/webp"><img src="assets/logo.png?v=20260710" alt="Snow Tech - Arquitectura Digital" class="header-logo-img" width="40" height="40" loading="eager"></picture>
                 <span>SNOW TECH</span>
             </a>
             <div class="nav-desktop hidden md:flex pointer-events-auto">
@@ -78,7 +84,7 @@
                     Construimos la infraestructura digital que potenciará la próxima generación de empresas con eficiencia absoluta y diseño minimalista.
                 </p>
             </div>
-            <picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.png" alt="" aria-hidden="true" class="absolute opacity-[0.03] pointer-events-none" style="width:500px;top:50%;left:50%;transform:translate(-50%,-50%);filter:grayscale(1)" loading="lazy"></picture>
+            <picture><source srcset="assets/logo.webp?v=20260710" type="image/webp"><img src="assets/logo.png?v=20260710" alt="" aria-hidden="true" class="absolute opacity-[0.03] pointer-events-none" style="width:500px;top:50%;left:50%;transform:translate(-50%,-50%);filter:grayscale(1)" loading="lazy"></picture>
         </section>
 
         <!-- 1. ORIGIN -->
@@ -100,8 +106,8 @@
                         <!-- Right: logo visual -->
                         <div style="display:flex;align-items:center;justify-content:center;padding:2.5rem;background:rgba(0,217,255,0.02)">
                             <picture>
-                                <source srcset="assets/logo.webp" type="image/webp">
-                                <img src="assets/logo.png" alt="Snow Tech Logo" style="width:120px;height:auto;opacity:0.18;filter:grayscale(1) brightness(2)" loading="lazy">
+                                <source srcset="assets/logo.webp?v=20260710" type="image/webp">
+                                <img src="assets/logo.png?v=20260710" alt="Snow Tech Logo" style="width:120px;height:auto;opacity:0.18;filter:grayscale(1) brightness(2)" loading="lazy">
                             </picture>
                         </div>
                     </div>
@@ -182,17 +188,15 @@
                     </p>
                     <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
                         <a href="contact.html"
+                            class="cta-hover-primary"
                             onclick="if(window.snowTrack)snowTrack('cta_about_contact',{page:'about'})"
-                            style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;transition:all 0.3s ease;"
-                            onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(139,242,198,0.3)'"
-                            onmouseout="this.style.transform='';this.style.boxShadow=''">
+                            style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;transition:all 0.3s ease;">
                             Diagnóstico Gratis →
                         </a>
                         <a href="services.html"
+                            class="cta-hover-secondary"
                             onclick="if(window.snowTrack)snowTrack('cta_about_services',{page:'about'})"
-                            style="display:inline-block;background:transparent;color:var(--accent);font-weight:600;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;border:1px solid rgba(139,242,198,0.3);transition:all 0.3s ease;"
-                            onmouseover="this.style.background='rgba(139,242,198,0.08)'"
-                            onmouseout="this.style.background='transparent'">
+                            style="display:inline-block;background:transparent;color:var(--accent);font-weight:600;padding:0.9rem 2rem;border-radius:8px;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;border:1px solid rgba(139,242,198,0.3);transition:all 0.3s ease;">
                             Ver Servicios
                         </a>
                     </div>
@@ -205,7 +209,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8 text-left">
             <div>
                 <a href="index.html" class="header-logo-container mb-4">
-                    <picture><source srcset="assets/logo.webp" type="image/webp"><img src="assets/logo.png" alt="Snow Tech - Arquitectura Digital" class="footer-logo-img" width="35" height="35" loading="lazy"></picture>
+                    <picture><source srcset="assets/logo.webp?v=20260710" type="image/webp"><img src="assets/logo.png?v=20260710" alt="Snow Tech - Arquitectura Digital" class="footer-logo-img" width="35" height="35" loading="lazy"></picture>
                     <span>SNOW TECH</span>
                 </a>
                 <p class="opacity-60">Arquitectura digital para el futuro.</p>
@@ -241,7 +245,7 @@
         </div>
     </footer>
 
-    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js?v=20260709-1830"></script>
 </body>
 
 
