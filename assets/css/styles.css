@@ -679,7 +679,12 @@ section.active .floating-header {
     }
 
     section {
-        height: auto;
+        /* !important necesario: la clase Tailwind .h-screen (height:100vh)
+           tiene mayor especificidad que este selector de elemento y si no,
+           gana ella — dejando secciones con contenido más alto que el
+           viewport (ej. Proceso con 4 nodos apilados) recortadas, con el
+           contenido derramándose sobre la sección siguiente. */
+        height: auto !important;
         min-height: 100vh;
         min-height: 100dvh;
         padding: 5rem 1rem 4rem;
