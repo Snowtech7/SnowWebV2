@@ -29,7 +29,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
 
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260709-1830">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260711">
     <script src="assets/js/site.js?v=20260709-1830" defer></script>
 
     <!-- Open Graph / SEO -->
@@ -59,7 +59,7 @@
     <!-- ===== HERO VIDEO INTRO ===== -->
     <div id="hero-intro" role="presentation" aria-hidden="true">
         <video id="intro-video" muted playsinline preload="none">
-            <source src="assets/scene-hero.mp4?v=20260710" type="video/mp4">
+            <source src="assets/hero-intro.mp4?v=20260711" type="video/mp4">
         </video>
         <div id="video-end-fade"></div>
         <div id="intro-hint" aria-hidden="true">
@@ -71,14 +71,13 @@
     <script>
         // Decidir AQUÍ si el intro se muestra: evita descargar el video
         // cuando ya se vio en esta sesión o con reduced-motion activo.
+        // El video NO se precarga: ni un byte se descarga hasta que el
+        // usuario haga clic/toque/Enter (primera interacción limpia).
         (function () {
             var intro = document.getElementById('hero-intro');
             var skip = sessionStorage.getItem('snow_intro_played') ||
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (skip) { intro.remove(); return; }
-            var video = document.getElementById('intro-video');
-            video.preload = 'auto';
-            video.load();
+            if (skip) { intro.remove(); }
         })();
     </script>
     <!-- ============================== -->
@@ -149,13 +148,13 @@
                      aria-hidden porque el texto cambia solo; los lectores de
                      pantalla reciben la versión estática en el span.sr-only. -->
                 <div class="hero-subtitle hero-rotator" id="hero-rotator" aria-hidden="true">
-                    <span class="hero-rotator-item is-active">TECH PARTNER</span>
-                    <span class="hero-rotator-item hero-rotator-item--static">TU NEGOCIO ATENDIENDO Y VENDIENDO 24/7</span>
+                    <span class="hero-rotator-item is-active hero-rotator-item--static">TU NEGOCIO ATENDIENDO Y VENDIENDO 24/7</span>
+                    <span class="hero-rotator-item">TECH PARTNER</span>
                     <span class="hero-rotator-item">TUS REPORTES EN TIEMPO REAL</span>
                     <span class="hero-rotator-item">TU ASISTENTE IA SIEMPRE DISPONIBLE</span>
                     <span class="hero-rotator-item">TU OPERACIÓN EN PILOTO AUTOMÁTICO</span>
                 </div>
-                <span class="sr-only">Tech partner: tu negocio atendiendo y vendiendo 24/7, tus reportes en tiempo
+                <span class="sr-only">Tu negocio atendiendo y vendiendo 24/7, tech partner, tus reportes en tiempo
                     real, tu asistente IA siempre disponible, tu operación en piloto automático.</span>
                 <a href="#lead-magnet" class="cta-header hero-cta pointer-events-auto"
                     onclick="if(window.snowTrack)snowTrack('hero_cta_click',{page:'index'})">Pedir mi diagnóstico →</a>
@@ -801,7 +800,7 @@
     </script>
 
     <script>
-        // Rotador de frases del hero: crossfade cada 3.5s (transición en CSS).
+        // Rotador de frases del hero: crossfade cada 2.5s (transición en CSS).
         // Con prefers-reduced-motion NO rota: el CSS deja fija la frase
         // estática (.hero-rotator-item--static) y aquí salimos sin timer.
         (function () {
@@ -813,7 +812,7 @@
                 items[current].classList.remove('is-active');
                 current = (current + 1) % items.length;
                 items[current].classList.add('is-active');
-            }, 3500);
+            }, 2500);
         })();
     </script>
 
