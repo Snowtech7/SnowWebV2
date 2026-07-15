@@ -2972,11 +2972,91 @@ footer .text-xs { font-size: 0.7rem !important; }
     box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(0,217,255,0.05);
 }
 
-.partida-icon {
-    display: block;
-    font-size: 1.4rem;
-    margin-bottom: 0.75rem;
-    opacity: 0.85;
+/* Íconos de "Punto de partida": mismo lenguaje visual que .node-icon-wrapper
+   (círculo oscuro, acento teal, glow en hover) — cada uno con una animación
+   sutil que refuerza su historia específica de "fuga de tiempo/negocio". */
+.partida-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(2,4,8,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+    color: var(--accent);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partida-card:hover .partida-icon-wrapper {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(139, 242, 198, 0.25);
+}
+
+.partida-icon-wrapper svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+    overflow: visible;
+}
+
+/* Mensaje sin responder: badge de notificación pulsando (urgencia, espera) */
+.pi-badge {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff5f57;
+    box-shadow: 0 0 6px rgba(255, 95, 87, 0.8);
+    animation: pi-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pi-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.35; transform: scale(1.35); }
+}
+
+/* Embudo con fuga: un lead se escapa y se desvanece */
+.pi-drop {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    top: 34px;
+    left: 33px;
+    animation: pi-leak 2.4s ease-in infinite;
+}
+
+@keyframes pi-leak {
+    0%   { transform: translate(0, 0); opacity: 0.9; }
+    65%  { transform: translate(13px, 13px); opacity: 0; }
+    100% { transform: translate(13px, 13px); opacity: 0; }
+}
+
+/* Operación dispersa: 3 puntos desincronizados, cada uno más tenue */
+.pi-scatter circle {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.pi-dot1 { animation: pi-drift 2.6s ease-in-out infinite; }
+.pi-dot2 { animation: pi-drift 2.6s ease-in-out infinite 0.55s; opacity: 0.7; }
+.pi-dot3 { animation: pi-drift 2.6s ease-in-out infinite 1.1s; opacity: 0.45; }
+
+@keyframes pi-drift {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pi-badge, .pi-drop, .pi-dot1, .pi-dot2, .pi-dot3 {
+        animation: none;
+    }
 }
 
 .partida-card-title {

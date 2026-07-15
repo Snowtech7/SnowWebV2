@@ -29,7 +29,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&family=JetBrains+Mono:wght@300;700&display=swap">
 
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260711">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260711b">
     <script src="assets/js/site.js?v=20260709-1830" defer></script>
 
     <!-- Open Graph / SEO -->
@@ -185,19 +185,31 @@
                 <!-- Tarjetas de situación -->
                 <div class="partida-grid">
                     <div class="partida-card">
-                        <span class="partida-icon" aria-hidden="true">📱</span>
+                        <div class="partida-icon-wrapper pi-msg" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9.5L5 21v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+                            <span class="pi-badge"></span>
+                        </div>
                         <h3 class="partida-card-title">Respondes mensajes de clientes a las 11 de la noche</h3>
                         <p class="partida-card-sub">Cada mensaje sin contestar a tiempo es una venta que se enfría.</p>
                     </div>
                     <div class="partida-card">
-                        <span class="partida-icon" aria-hidden="true">📣</span>
+                        <div class="partida-icon-wrapper pi-funnel" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 4h18l-7.5 8.5V19l-3 1.5v-8L3 4z"/></svg>
+                            <span class="pi-drop"></span>
+                        </div>
                         <h3 class="partida-card-title">Pagas publicidad, llegan interesados… y nadie les hace
                             seguimiento</h3>
                         <p class="partida-card-sub">El interesado que no recibe respuesta en minutos compra en otro
                             lado.</p>
                     </div>
                     <div class="partida-card">
-                        <span class="partida-icon" aria-hidden="true">📒</span>
+                        <div class="partida-icon-wrapper pi-scatter" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle class="pi-dot1" cx="6" cy="7" r="3"/>
+                                <circle class="pi-dot2" cx="17" cy="6" r="3"/>
+                                <circle class="pi-dot3" cx="11" cy="17" r="3"/>
+                            </svg>
+                        </div>
                         <h3 class="partida-card-title">Tu operación vive en tu cabeza, un Excel y tres cuadernos</h3>
                         <p class="partida-card-sub">Si tú paras, todo para. Así no se puede crecer ni delegar.</p>
                     </div>
